@@ -1,0 +1,111 @@
+#mapid {
+	height: 100vh;
+	width: 100vw;
+	z-index: 0;
+}
+
+#ww1Slide {
+	background-color: #000;
+	/*background-image: url(http://www.ww1photos.com/yahoo_site_admin/assets/images/The_Last_Survivors_Of_The_2nd_Royal_Munster_Fusiliers_On_The_Loos_Hulloch_Road_On_The_Evening_Of_September_25th_1915.27554249_large.jpg);*/
+	background-size: 100% 100%;
+}
+
+#endSlide {
+	background-color: #FF1A1A;
+	/*background-image: url(http://www.ww1photos.com/yahoo_site_admin/assets/images/The_Last_Survivors_Of_The_2nd_Royal_Munster_Fusiliers_On_The_Loos_Hulloch_Road_On_The_Evening_Of_September_25th_1915.27554249_large.jpg);*/
+	background-size: 100% 100%;
+}
+
+#walkPage {
+	background-color: #0000FF;
+	/*background-image: url(http://www.ww1photos.com/yahoo_site_admin/assets/images/The_Last_Survivors_Of_The_2nd_Royal_Munster_Fusiliers_On_The_Loos_Hulloch_Road_On_The_Evening_Of_September_25th_1915.27554249_large.jpg);*/
+	background-size: 100% 100%;
+}
+
+.pageTitle {
+	color: #FFF;
+	text-align: center;
+	transform: translate(0%, 40%);
+}
+
+.pageButton {
+	transform: translate(0%, 60%);
+	width: 36px;
+	margin: auto;
+}
+
+button {
+	cursor: pointer !important;
+}
+
+#mapSection {
+	height: 100%;
+	width: 100%;
+}
+
+/* Hide map controls */
+.leaflet-control-container {
+	display: none;
+}
+
+.ui.right.attached.button {
+	position: fixed;
+	z-index: 2;
+	margin-top: -90vh;
+}
+
+.ui.button {
+	padding-right: .78571429em;
+}
+
+.nomargin {
+	margin: 0 !important;
+}
+
+.sortButtons {
+	cursor: pointer;
+}
+
+.sortButtons:hover {
+	background: rgba(255, 255, 255, .08);
+	color: #fff;
+}
+
+.pinInfo {
+	height: 70px;
+}
+
+.pinInfoColumn {
+	line-height: 35px;
+	text-align: center;
+}
+
+.pinInfoContent {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.visitedPin {
+	background: repeating-linear-gradient(
+		-55deg,
+		#333,
+		#333 10px,
+		#1B1C1D 10px,
+		#1B1C1D 20px
+		) !important;
+}
+
+.atPin {
+	background: repeating-linear-gradient(
+		-55deg,
+		#444d86,
+		#444d86 10px,
+		#22284a 10px,
+		#22284a 20px
+		) !important;
+}
+
+#pinNavigationSidebar {
+	overflow-y: hidden !important;
+}
