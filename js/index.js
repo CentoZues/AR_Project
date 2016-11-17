@@ -87,6 +87,7 @@ L.Routing.control({
 function onPinTap(e) {
 	//console.log(this);
 	console.log("Pin ID: ", this.options.pinId);
+	$.fn.fullpage.moveTo(3, 0);
 }
 
 
@@ -188,7 +189,7 @@ $(function() {
 	$(document).on('click touchstart', '.toMapView', function() {
 		//alert("Button Pressed ( -> Map View )");
 		$.fn.fullpage.moveTo(2);
-		$('#walkPage .ui.sidebar').sidebar('show');
+		//$('#walkPage .ui.sidebar').sidebar('show');
 	});
 
 	//Home Button
@@ -196,6 +197,12 @@ $(function() {
 		//alert("Button Pressed ( -> Home )");
 		$.fn.fullpage.moveTo(1);
 		$('#walkPage .ui.sidebar').sidebar('hide');
+	});
+
+	//Sidebar Button
+	$(document).on('click touchstart', '.sidebartoggle', function() {
+		//alert("Button Pressed ( Sidebar Toggled )");
+		$('#walkPage .ui.sidebar').sidebar('show');
 	});
 
 });

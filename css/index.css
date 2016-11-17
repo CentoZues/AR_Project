@@ -106,6 +106,15 @@ button {
 		) !important;
 }
 
-#pinNavigationSidebar {
-	overflow-y: hidden !important;
+#pinNavigationSidebar { /*iOS fix (of course...) */
+	overflow: auto;
+	overflow-y: scroll !important;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	height: 100vh;
+}
+
+.pinInfoContent {
+	font-weight: bolder;
+	font-size: 1.1em;
 }

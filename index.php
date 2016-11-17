@@ -44,7 +44,7 @@
 
 		<div id="walkPage" class="section">
 
-			<div id="pinNavigationSidebar" class="ui wide left vertical inverted labeled icon sidebar menu sidebartoggle">
+			<div id="pinNavigationSidebar" class="ui wide left vertical inverted labeled icon sidebar menu">
 				<a class="item tapable toHome">
 					<i class="arrow up icon"></i>
 					Home
@@ -244,6 +244,269 @@
 					</div>
 				</div>
 
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 380 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="7" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">7.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">War Office Railings</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 50 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="8" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">8.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">Across The Rye</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 290 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="9" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">9.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">Boy's Grammar School</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 320 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="10" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">10.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">Station &amp; recruitment office</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 20 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="11" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">11.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">Mary Christie's boarding house</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 60 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="12" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">12.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">Museum</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 110 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="13" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">13.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">Cemetery</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item distance">
+					<div class="ui grid">
+						<div class="centered row pinDistance">
+							<div class="three wide column">
+								<i class="clockwise rotated level up icon"></i>
+							</div>
+							<div class="ten wide column">
+								Distance: 90 meters
+							</div>
+							<div class="three wide column">
+								<i class="level down icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pins -->
+				<div pinID="14" class="item pin">
+					<div class="ui grid">
+						<div class="row pinInfo">
+							<div class="two wide column pinInfoColumn">
+								<span class="pinInfoContent">14.</span>
+							</div>
+							<div class="ten wide column pinInfoColumn">
+								<span class="pinInfoContent">VAD Hospital site</span>
+							</div>
+							<div class="four wide column pinInfoColumn">
+								<span class="pinInfoContent"><i class="big radio icon"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
 
 
 
@@ -260,7 +523,7 @@
 
 				<div id="mapid"></div>
 
-				<a href="#" class="ui black big launch right attached button">
+				<a href="#" class="ui black big launch right attached button sidebartoggle">
 			        <i class="icon pin nomargin"></i>
         		</a>
 
