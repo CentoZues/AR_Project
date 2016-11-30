@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns	= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id			= "uk.yovee.heritage-app"
+	versionCode	= "1"
+	version     = "1.0.0" >
+
+	<name>Wycombe Walks</name>
+	<description>
+		An app used to take users around a route to see points of interest around High Wycombe
+	</description>
+	<author href="https://heritage-app.yovee.uk" email="rahucks@gmail.com">
+		Robert Hucks, Devon Van Der Berg, Joe Currie
+	</author>
+
+	<platform name="ios"/>
+	<platform name="android"/>
+	<platform name="winphone"/>
+
+	<preference name="fullscreen" value="false" />
+
+	<!-- iOS -->
+	<preference name="target-device" value="universal" />
+	<preference name="exit-on-suspend" value="false" />
+	<preference name="deployment-target" value="8.0" />
+
+	<!-- Android -->
+	<preference name="android-minSdkVersion" value="21" />
+	<preference name="android-installLocation" value="auto" />
+
+	<platform name="android">
+		<icon src="icon/res/mipmap-mdpi/ic_launcher" qualifier="mdpi">
+		<icon src="icon/res/mipmap-hdpi/ic_launcher" qualifier="hdpi">
+		<icon src="icon/res/mipmap-xhdpi/ic_launcher" qualifier="xhdpi">
+		<icon src="icon/res/mipmap-xxhdpi/ic_launcher" qualifier="xxhdpi">
+		<icon src="icon/res/mipmap-xxxhdpi/ic_launcher" qualifier="xxxhdpi">
+	</platform>	
+
+	<preference name="permissions" value="none" />
+
+	<allow-intent href="http://*/*" />
+	<allow-intent href="https://*/*" />
+	<allow-intent href="geo:*" />
+</widget>
