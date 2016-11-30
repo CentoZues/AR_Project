@@ -29,11 +29,11 @@
 	<preference name="android-installLocation" value="auto" />
 
 	<platform name="android">
-		<icon src="icon/res/mipmap-mdpi/ic_launcher" qualifier="mdpi">
-		<icon src="icon/res/mipmap-hdpi/ic_launcher" qualifier="hdpi">
-		<icon src="icon/res/mipmap-xhdpi/ic_launcher" qualifier="xhdpi">
-		<icon src="icon/res/mipmap-xxhdpi/ic_launcher" qualifier="xxhdpi">
-		<icon src="icon/res/mipmap-xxxhdpi/ic_launcher" qualifier="xxxhdpi">
+		<icon src="icon/res/mipmap-mdpi/ic_launcher" qualifier="mdpi" />
+		<icon src="icon/res/mipmap-hdpi/ic_launcher" qualifier="hdpi" />
+		<icon src="icon/res/mipmap-xhdpi/ic_launcher" qualifier="xhdpi" />
+		<icon src="icon/res/mipmap-xxhdpi/ic_launcher" qualifier="xxhdpi" />
+		<icon src="icon/res/mipmap-xxxhdpi/ic_launcher" qualifier="xxxhdpi" />
 	</platform>	
 
 	<preference name="permissions" value="none" />
@@ -41,4 +41,5 @@
 	<allow-intent href="http://*/*" />
 	<allow-intent href="https://*/*" />
 	<allow-intent href="geo:*" />
+
 </widget>
