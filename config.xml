@@ -25,7 +25,7 @@
 	<preference name="deployment-target" value="8.0" />
 
 	<!-- Android -->
-	<preference name="android-minSdkVersion" value="21" />
+	<preference name="android-minSdkVersion" value="1" />
 	<preference name="android-installLocation" value="auto" />
 
 	<platform name="android">
