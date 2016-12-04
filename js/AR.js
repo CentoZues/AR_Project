@@ -23,18 +23,46 @@ function startAR(pinID) {
     video = document.createElement('AR-video');
     video.src = "vid/testvid.ogv";
 
+    //Create Video Texture
     videoTexture = new THREE.VideoTexture(video);
     videoTexture.minFilter = THREE.LinearFilter;
     videoTexture.magFilter = THREE.LinearFilter;
 
+    //Apply to box mesh
     var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side: THREE.DoubleSide } );
     var movieGeometry = new THREE.PlaneGeometry(240, 100, 4, 4);
     var movieScreen = new THREE.Mesh(movieGeometry, movieMaterial);
     movieScreen.position.set(0, 50, 0);
     scene.add(movieScreen);
 
+    //X Axis
+    var geometry = new THREE.BoxGeometry(5, 5, 5);
+    var material = new THREE.MeshBasicMaterial( { color: 0xFF0000 } );
+    var cube = new THREE.Mesh(geometry, material);
+    cube.position.x = 50; //Forward
+    cube.position.y = 0; //Up
+    cube.position.z = 0; //Side
+    scene.add(cube);
 
-    renderer = new THREE.WebGLRenderer( {alpha: true } );
+    //Y Axis
+    var geometry = new THREE.BoxGeometry(5, 5, 5);
+    var material = new THREE.MeshBasicMaterial( { color: 0x00FF00 } );
+    var cube = new THREE.Mesh(geometry, material);
+    cube.position.x = 0; //Forward
+    cube.position.y = 50; //Up
+    cube.position.z = 0; //Side
+    scene.add(cube);
+
+    //Z Axis
+    var geometry = new THREE.BoxGeometry(5, 5, 5);
+    var material = new THREE.MeshBasicMaterial( { color: 0x0000FF } );
+    var cube = new THREE.Mesh(geometry, material);
+    cube.position.x = 0; //Forward
+    cube.position.y = 0; //Up
+    cube.position.z = 50; //Side
+    scene.add(cube);
+
+    renderer = new THREE.WebGLRenderer( { alpha: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.domElement.style.position = 'absolute';
