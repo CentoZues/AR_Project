@@ -30,6 +30,9 @@ function startAR(pinID) {
     //Video Screen Mesh
     var videoScreenGeometry = new THREE.PlaneGeometry(240, 100, 4, 4);
     var videoScreen = new THREE.Mesh(videoScreenGeometry, videoMaterial);
+    videoScreen.position.x = 0; //Forward
+    videoScreen.position.y = 0; //Up
+    videoScreen.position.z = -50; //Side
     scene.add(videoScreen);
 
 
