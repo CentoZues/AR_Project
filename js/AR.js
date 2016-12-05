@@ -2,38 +2,37 @@ function startAR(pinID) {
     //Create 3D Scene
     var container, camera, scene, renderer, controls, geometry, mesh;
 
-    var animate = function() {
-        window.requestAnimationFrame(animate);
-        controls.update();
-        renderer.render(scene, camera);
-    };
-
     container = document.getElementById('ARContainer');
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
     controls = new THREE.DeviceOrientationControls(camera);
     scene = new THREE.Scene();
     
-    //Wireframe box
-    var geometry = new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 );
+    //Wireframe Sphere
+    //var geometry = new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 );
+    var geometry = new THREE.SphereGeometry( 100, 20, 20 );
     var material = new THREE.MeshBasicMaterial( { color: 0xff00ff, side: THREE.BackSide, wireframe: true } );
     var mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
 
     //Load Video
     video = document.createElement('AR-video');
-    video.src = "vid/testvid.ogv";
+    video.width = 480;
+    video.height = 204;
+    video.autoplay = true;
+    video.src = "vid/big-buck-bunny_trailer.webm";
 
-    //Create Video Texture
-    videoTexture = new THREE.VideoTexture(video);
+    //Create Video Texture/Material
+    var videoTexture = new THREE.Texture(video);
     videoTexture.minFilter = THREE.LinearFilter;
     videoTexture.magFilter = THREE.LinearFilter;
+    var videoMaterial = new THREE.MeshBasicMaterial( { map: videoTexture } );
 
-    //Apply to box mesh
-    var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side: THREE.DoubleSide } );
-    var movieGeometry = new THREE.PlaneGeometry(240, 100, 4, 4);
-    var movieScreen = new THREE.Mesh(movieGeometry, movieMaterial);
-    movieScreen.position.set(0, 50, 0);
-    scene.add(movieScreen);
+    //Video Screen Mesh
+    var videoScreenGeometry = new THREE.PlaneGeometry(240, 100, 4, 4);
+    var videoScreen = new THREE.Mesh(videoScreenGeometry, videoMaterial);
+    scene.add(videoScreen);
+
+
 
     //X Axis
     var geometry = new THREE.BoxGeometry(5, 5, 5);
@@ -68,6 +67,20 @@ function startAR(pinID) {
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = 0;
     container.appendChild(renderer.domElement);
+
+    function animate() {
+        window.requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+        render();
+    }
+
+    function render() {
+        if( video.readyState === video.HAVE_ENOUGH_DATA ){
+          videoTexture.needsUpdate = true;
+        }
+    }
+
 
     //On window resize.. Probably wont need because it'll be fullscreen on phone anyway. Doesn't hurt.
     window.addEventListener('resize', function() {
