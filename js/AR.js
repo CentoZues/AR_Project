@@ -4,7 +4,10 @@ function startAR(pinID) {
 
     container = document.getElementById('ARContainer');
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
-    controls = new THREE.DeviceOrientationControls(camera);
+    //controls = new THREE.DeviceOrientationControls(camera);
+    controls = new DeviceOrientationController(camera);
+    controls.connect();
+    controls.enableManualZoom = false;
     scene = new THREE.Scene();
     
     //Wireframe Sphere
@@ -32,7 +35,7 @@ function startAR(pinID) {
     var videoScreen = new THREE.Mesh(videoScreenGeometry, videoMaterial);
     videoScreen.position.x = 0; //Forward
     videoScreen.position.y = 0; //Up
-    videoScreen.position.z = -50; //Side
+    videoScreen.position.z = -150; //Side
     scene.add(videoScreen);
 
 
