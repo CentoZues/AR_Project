@@ -537,6 +537,10 @@
 			</div>-->
 			<div class="slide">
 				<div id="ARContainer">
+					<video id="AR-video" autoplay loop webkit-playsinline style="display:none">
+						<source src="vid/testvid.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+						<source src="vid/testvid.ogv" type='video/ogg; codecs="theora, vorbis"'>
+					</video>
 				</div>
 			</div>
 		</div>
@@ -565,6 +569,7 @@
 	<!-- three.js Scripts -->
 	<script src="js/three.min.js"></script>
 	<script src="js/DeviceOrientationController.js"></script>
+	<script src='js/threex.videotexture.js'></script>
 
 	<script src="js/index.js"></script>
 	<script src="js/AR.js"></script>

@@ -4,11 +4,13 @@ function startAR(pinID) {
 
     container = document.getElementById('ARContainer');
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
-    //controls = new THREE.DeviceOrientationControls(camera);
     controls = new DeviceOrientationController(camera);
     controls.connect();
     controls.enableManualZoom = false;
+
     scene = new THREE.Scene();
+
+    var updateFcts = [];
     
     //Wireframe Sphere
     //var geometry = new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 );
@@ -17,26 +19,15 @@ function startAR(pinID) {
     var mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
 
-    //Load Video
-    video = document.createElement('AR-video');
-    video.width = 480;
-    video.height = 204;
-    video.autoplay = true;
-    video.src = "vid/big-buck-bunny_trailer.webm";
 
-    //Create Video Texture/Material
-    var videoTexture = new THREE.Texture(video);
-    videoTexture.minFilter = THREE.LinearFilter;
-    videoTexture.magFilter = THREE.LinearFilter;
-    var videoMaterial = new THREE.MeshBasicMaterial( { map: videoTexture } );
 
-    //Video Screen Mesh
-    var videoScreenGeometry = new THREE.PlaneGeometry(240, 100, 4, 4);
-    var videoScreen = new THREE.Mesh(videoScreenGeometry, videoMaterial);
-    videoScreen.position.x = 0; //Forward
-    videoScreen.position.y = 0; //Up
-    videoScreen.position.z = -150; //Side
-    scene.add(videoScreen);
+    //Test Video Screen
+
+    var geometry = new THREE.PlaneGeometry( 480, 204, 4, 4 );
+    var material = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+    var screen = new THREE.Mesh(geometry, material);
+    screen.position.set(0, 0, -250);
+    scene.add(screen);
 
 
 
@@ -74,17 +65,16 @@ function startAR(pinID) {
     renderer.domElement.style.top = 0;
     container.appendChild(renderer.domElement);
 
+    animate();
+
     function animate() {
         window.requestAnimationFrame(animate);
         controls.update();
-        renderer.render(scene, camera);
         render();
     }
 
     function render() {
-        if( video.readyState === video.HAVE_ENOUGH_DATA ){
-          videoTexture.needsUpdate = true;
-        }
+        renderer.render( scene, camera );
     }
 
 
@@ -96,6 +86,4 @@ function startAR(pinID) {
         renderer.setSize( window.innerWidth, window.innerHeight );
 
     }, false);
-
-    animate();
 }
