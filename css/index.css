@@ -118,3 +118,17 @@ button {
 	font-weight: bolder;
 	font-size: 1.1em;
 }
+
+#arSlide {
+	background: url("../img/rye.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+/* Stop iOS Video Controls Showing */
+.IIV::-webkit-media-controls-play-button,
+.IIV::-webkit-media-controls-start-playback-button {
+    opacity: 0;
+    pointer-events: none;
+    width: 5px;
+}

@@ -9,8 +9,6 @@ function startAR(pinID) {
     controls.enableManualZoom = false;
 
     scene = new THREE.Scene();
-
-    var updateFcts = [];
     
     //Wireframe Sphere
     //var geometry = new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 );
@@ -22,9 +20,25 @@ function startAR(pinID) {
 
 
     //Test Video Screen
+    // var video = document.createElement('video');
+    // video.width = 480;
+    // video.height = 204;
+    // video.autoplay = true;
+    // video.loop = false;
+    // video.src = 'vid/testvid.ogv';
+
+    video = document.getElementById('video');
+    makeVideoPlayableInline(video);
+    video.volume = 0.01;
+
+    var texture = new THREE.VideoTexture(video);
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.format = THREE.RGBFormat;
+
 
     var geometry = new THREE.PlaneGeometry( 480, 204, 4, 4 );
-    var material = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
     var screen = new THREE.Mesh(geometry, material);
     screen.position.set(0, 0, -250);
     scene.add(screen);
@@ -61,6 +75,7 @@ function startAR(pinID) {
     renderer = new THREE.WebGLRenderer( { alpha: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor( 0xffffff, 0);
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = 0;
     container.appendChild(renderer.domElement);
@@ -74,6 +89,7 @@ function startAR(pinID) {
     }
 
     function render() {
+        
         renderer.render( scene, camera );
     }
 

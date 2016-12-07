@@ -535,13 +535,18 @@
 			<!--<div class="slide">
 				<div>Information on the Pin</div>
 			</div>-->
-			<div class="slide">
+			<div id="arSlide" class="slide">
 				<div id="ARContainer">
-					<video id="AR-video" autoplay loop webkit-playsinline style="display:none">
+					<!-- <video id="video" autoplay webkit-playsinline style="display:none">
 						<source src="vid/testvid.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 						<source src="vid/testvid.ogv" type='video/ogg; codecs="theora, vorbis"'>
-					</video>
+					</video> -->
+					
 				</div>
+				<video id="video" playsinline autoplay data-autoplay crossorigin="anonymous" style="display:none">
+					<source src="vid/testvid.mp4" type='video/mp4'>
+					<source src="vid/testvid.ogv" type='video/ogg'>
+				</video>
 			</div>
 		</div>
 	</div>
@@ -567,9 +572,12 @@
 	<script src="dep/leafletjs-ExtraMarkers/dist/js/leaflet.extra-markers.min.js"></script>
 
 	<!-- three.js Scripts -->
-	<script src="js/three.min.js"></script>
+	<script src="js/three.js"></script>
 	<script src="js/DeviceOrientationController.js"></script>
-	<script src='js/threex.videotexture.js'></script>
+	<script src="js/threex.videotexture.js"></script>
+
+	<!-- iPhone Fixes... -->
+	<script src="dep/iphone-inline-video/dist/iphone-inline-video.browser.js"></script>
 
 	<script src="js/index.js"></script>
 	<script src="js/AR.js"></script>
