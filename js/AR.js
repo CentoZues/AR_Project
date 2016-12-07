@@ -1,7 +1,8 @@
 function startAR(pinID) {
     //Create 3D Scene
-    var container, camera, scene, renderer, controls, geometry, mesh;
+    var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying;
 
+    videoPlaying = true;
     container = document.getElementById('ARContainer');
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
     controls = new DeviceOrientationController(camera);
@@ -86,11 +87,21 @@ function startAR(pinID) {
         window.requestAnimationFrame(animate);
         controls.update();
         render();
+        checkVidTime(video);
+
     }
 
     function render() {
         
         renderer.render( scene, camera );
+    }
+
+    function checkVidTime(video) {
+        if (video.duration - video.currentTime <= 2 && video.duration > 1 && videoPlaying == true) {
+            $('#vidOptionsYesCol').addClass('showFromLeft');
+            $('#vidOptionsNoCol').addClass('showFromRight');
+            videoPlaying = false;
+        }
     }
 
 

@@ -87,7 +87,7 @@ L.Routing.control({
 function onPinTap(e) {
 	//console.log(this);
 	console.log("Pin ID: ", this.options.pinId);
-	startAR(1);
+	startAR(this.options.pinId);
 	$.fn.fullpage.moveTo(3, 0);
 }
 

@@ -125,6 +125,47 @@ button {
 	background-size: cover;
 }
 
+#vidOptions {
+	height: 100vh;
+}
+
+#vidOptionsYesCol {
+	background-color: #00FF00;
+	transform: translate(-50vw, 0px);
+}
+
+#vidOptionsNoCol {
+	background-color: #FF0000;
+	transform: translate(50vw, 0px);
+}
+
+.showFromLeft {
+	animation-name: slideFromLeft;
+	animation-duration: 1s;
+	-webkit-animation-name: slideFromLeft;
+	-webkit-animation-duration: 1s;
+	transform: translate(0vw, 0px);
+}
+
+.showFromRight {
+	animation-name: slideFromRight;
+	animation-duration: 1s;
+	-webkit-animation-name: slideFromRight;
+	-webkit-animation-duration: 1s;
+	transform: translate(0vw, 0px);
+}
+
+@keyframes slideFromLeft {
+	0%		{transform: translate(-50vw, 0px);}
+	100%	{transform: translate(0vw, 0px);}
+}
+
+@-webkit-keyframes slideFromRight {
+	0%		{transform: translate(50vw, 0px);}
+	100%	{transform: translate(0vw, 0px);}
+} 
+
+
 /* Stop iOS Video Controls Showing */
 .IIV::-webkit-media-controls-play-button,
 .IIV::-webkit-media-controls-start-playback-button {
