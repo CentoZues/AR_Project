@@ -544,8 +544,9 @@
 				</video> -->
 
 				<video id="video" playsinline data-autoplay crossorigin="anonymous" style="display:none">
-					<source src="vid/testvid.mp4" type='video/mp4'>
-					<source src="vid/testvid.ogv" type='video/ogg'>
+					<!-- <source src="vid/testvid.mp4" type='video/mp4'>
+					<source src="vid/testvid.ogv" type='video/ogg'> -->
+					<source src="vid/greenScreenTest.mp4" type='video/mp4'>
 				</video>
 
 				<div id="vidOptions" class="ui grid">
@@ -584,6 +585,17 @@
 	<script src="js/three.js"></script>
 	<script src="js/DeviceOrientationController.js"></script>
 	<script src="js/threex.videotexture.js"></script>
+		<!-- For PostProcessing -->
+	<script src="js/EffectComposer.js"></script>
+	<script src="js/RenderPass.js"></script>
+	<script src="js/ShaderPass.js"></script>
+	<script src="js/MaskPass.js"></script>
+
+	<!-- three.js Shaders -->
+	<script src="shaders/RGBShiftShader.js"></script>
+	<script src="shaders/DotScreenShader.js"></script>
+	<script src="shaders/CopyShader.js"></script>
+	<script src="shaders/GreenScreenShader.js"></script>
 
 	<!-- iPhone Fixes... -->
 	<script src="dep/iphone-inline-video/dist/iphone-inline-video.browser.js"></script>

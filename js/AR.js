@@ -19,15 +19,7 @@ function startAR(pinID) {
     scene.add( mesh );
 
 
-
-    //Test Video Screen
-    // var video = document.createElement('video');
-    // video.width = 480;
-    // video.height = 204;
-    // video.autoplay = true;
-    // video.loop = false;
-    // video.src = 'vid/testvid.ogv';
-
+    //Manage Video
     video = document.getElementById('video');
     makeVideoPlayableInline(video);
     video.volume = 0.01;
@@ -35,13 +27,13 @@ function startAR(pinID) {
     var texture = new THREE.VideoTexture(video);
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
-    texture.format = THREE.RGBFormat;
+    //texture.format = THREE.RGBFormat;
 
 
-    var geometry = new THREE.PlaneGeometry( 480, 204, 4, 4 );
+    var geometry = new THREE.PlaneGeometry( 900, 942, 4, 4 );
     var material = new THREE.MeshBasicMaterial( { map: texture } );
     var screen = new THREE.Mesh(geometry, material);
-    screen.position.set(0, 0, -250);
+    screen.position.set(0, 0, -900);
     scene.add(screen);
 
 
@@ -81,6 +73,20 @@ function startAR(pinID) {
     renderer.domElement.style.top = 0;
     container.appendChild(renderer.domElement);
 
+    //Post Processing
+    composer = new THREE.EffectComposer(renderer);
+    composer.addPass(new THREE.RenderPass(scene, camera));
+
+    var effect = new THREE.ShaderPass(THREE.GreenScreenShader);
+    effect.renderToScreen = true;
+    composer.addPass(effect);
+
+    //var effect = new THREE.ShaderPass(THREE.RGBShiftShader);
+    //effect.uniforms['amount'].value = 0.0015;
+    //effect.renderToScreen = true;
+    //composer.addPass(effect);
+
+
     animate();
 
     function animate() {
@@ -93,7 +99,7 @@ function startAR(pinID) {
 
     function render() {
         
-        renderer.render( scene, camera );
+        composer.render( scene, camera );
     }
 
     function checkVidTime(video) {
