@@ -53,7 +53,7 @@ L.Routing.control({
 					number: (i + 1),
 					markerColor: 'blue'
 				})
-			}).on('click touchstart', onPinTap);
+			}).on('click touchstart touchend', onPinTap);
 		} else if (i == 0) { //First Marker
 			return L.marker(wp.latLng, {
 				pinId: (i + 1),
@@ -63,7 +63,7 @@ L.Routing.control({
 					shape: 'star',
 					markerColor: 'blue'
 				})
-			}).on('click touchstart', onPinTap);
+			}).on('click touchstart touchend', onPinTap);
 		} else if (i == (nWps - 1)) { //Last Marker
 			return L.marker(wp.latLng, {
 				pinId: (i + 1),
@@ -73,7 +73,7 @@ L.Routing.control({
 					shape: 'star',
 					markerColor: 'red'
 				})
-			}).on('click touchstart', onPinTap);
+			}).on('click touchstart touchend', onPinTap);
 		}
 		
 	},
@@ -181,21 +181,21 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$(document).on('click touchstart', '.toMapView', function() {
+	$(document).on('click touchstart touchend', '.toMapView', function() {
 		//alert("Button Pressed ( -> Map View )");
 		$.fn.fullpage.moveTo(2);
 		//$('#walkPage .ui.sidebar').sidebar('show');
 	});
 
 	//Home Button
-	$(document).on('click touchstart', '.toHome', function() {
+	$(document).on('click touchstart touchend', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
 		$.fn.fullpage.moveTo(1);
 		$('#walkPage .ui.sidebar').sidebar('hide');
 	});
 
 	//Sidebar Button
-	$(document).on('click touchstart', '.sidebartoggle', function() {
+	$(document).on('click touchstart touchend', '.sidebartoggle', function() {
 		//alert("Button Pressed ( Sidebar Toggled )");
 		$('#walkPage .ui.sidebar').sidebar('show');
 	});
