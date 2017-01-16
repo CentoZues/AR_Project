@@ -29,7 +29,7 @@
 }
 
 .pageButton {
-	transform: translate(0%, 0%);
+	transform: translate(0%, 10%);
 	width: 186px;
 	margin: auto;
 }
