@@ -1,4 +1,5 @@
 function startAR(pinID) {
+
     //Create 3D Scene
     var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying;
 
@@ -33,7 +34,7 @@ function startAR(pinID) {
     var geometry = new THREE.PlaneGeometry( 900, 942, 4, 4 );
     var material = new THREE.MeshBasicMaterial( { map: texture } );
     var screen = new THREE.Mesh(geometry, material);
-    screen.position.set(0, 0, -900);
+    screen.position.set(0, 0, -800);
     scene.add(screen);
 
 
@@ -73,11 +74,13 @@ function startAR(pinID) {
     renderer.domElement.style.top = 0;
     container.appendChild(renderer.domElement);
 
+
     //Post Processing
     composer = new THREE.EffectComposer(renderer);
     composer.addPass(new THREE.RenderPass(scene, camera));
 
     var effect = new THREE.ShaderPass(THREE.GreenScreenShader);
+    //effect.uniforms['colour'].value = new THREE.Color('0xd400');
     effect.renderToScreen = true;
     composer.addPass(effect);
 
