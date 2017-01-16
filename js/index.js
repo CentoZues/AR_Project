@@ -5,6 +5,8 @@ $('html, body').on('touchstart touchmove', function(e) {
 
 });
 
+alert("Test");
+
 
 //////////////////////////
 //         Map          //
