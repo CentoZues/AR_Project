@@ -100,6 +100,10 @@ function startAR(pinID) {
 
     }
 
+    function return() {
+        $.fn.fullpage.moveTo(2);
+    }
+
     function render() {
         
         composer.render( scene, camera );
