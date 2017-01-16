@@ -5,7 +5,7 @@
 }
 
 #ww1Slide {
-	background: url('http://www.ww1photos.com/yahoo_site_admin/assets/images/The_Last_Survivors_Of_The_2nd_Royal_Munster_Fusiliers_On_The_Loos_Hulloch_Road_On_The_Evening_Of_September_25th_1915.27554249_large.jpg') no-repeat center center fixed;
+	background: url('../img/background-ww1.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
