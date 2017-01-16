@@ -6,6 +6,13 @@ $('html, body').on('touchstart touchmove', function(e) {
 });
 
 
+
+$('div').each(function(){
+
+	this.onclick = function() {};
+
+});
+
 //////////////////////////
 //         Map          //
 //////////////////////////
