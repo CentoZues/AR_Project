@@ -30,6 +30,7 @@
 
 .pageButton {
 	transform: translate(0%, 60%);
+	width: 100px;
 	margin: auto;
 }
 
