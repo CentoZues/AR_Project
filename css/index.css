@@ -134,12 +134,12 @@ button {
 }
 
 #vidOptionsYesCol {
-	background-color: #00FF00;
+	/*background-color: #00FF00;*/
 	transform: translate(-50vw, 0px);
 }
 
 #vidOptionsNoCol {
-	background-color: #FF0000;
+	/*background-color: #FF0000;*/
 	transform: translate(50vw, 0px);
 }
 

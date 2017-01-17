@@ -20,7 +20,7 @@ function startAR(pinID) {
     //scene.add( mesh );
 
     //Background Image
-    var geometry = new THREE.SphereGeometry(500, 16, 8);
+    var geometry = new THREE.SphereGeometry(1500, 16, 8);
     geometry.scale( - 1, 1, 1 );
 
     var material = new THREE.MeshBasicMaterial( {
@@ -40,7 +40,11 @@ function startAR(pinID) {
     texture.magFilter = THREE.LinearFilter;
     //texture.format = THREE.RGBFormat;
 
-
+    var geometry = new THREE.PlaneGeometry( 1280, 720, 4, 4 );
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+    var screen = new THREE.Mesh(geometry, material);
+    screen.position.set(0, 0, -800);
+    scene.add(screen);
 
     // //X Axis
     // var geometry = new THREE.BoxGeometry(5, 5, 5);
