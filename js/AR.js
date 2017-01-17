@@ -122,6 +122,12 @@ function startAR(pinID) {
 
     }, false);
 
+        $('div').each(function(){
+
+        this.onclick = function() {};
+
+    });
+        
     //Return button
     $(document).on('click touchstart touchend', '.toReturn', function() {
         //alert("Button Pressed ( -> Map View )");
