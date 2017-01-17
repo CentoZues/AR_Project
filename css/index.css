@@ -179,6 +179,6 @@ button {
 
 /*--------------Custome--------------CSS */
 .VidNav {
-	float: left;
-	vertical-align: top;
+	top: 15px;
+    left: 15px;
 }
