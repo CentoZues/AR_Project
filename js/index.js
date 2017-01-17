@@ -207,5 +207,11 @@ $(function() {
 		$('#walkPage .ui.sidebar').sidebar('show');
 	});
 
+	//Return button
+    $(document).on('click touchstart touchend', '.toReturn', function() {
+        //alert("Button Pressed ( -> Map View )");
+        $.fn.fullpage.moveTo(2);
+    });
+
 
 });

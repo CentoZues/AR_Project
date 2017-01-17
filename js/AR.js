@@ -127,16 +127,6 @@ function startAR(pinID) {
         renderer.setSize( window.innerWidth, window.innerHeight );
 
     }, false);
-
-        $('div').each(function(){
-
-        this.onclick = function() {};
-
-    });
         
-    //Return button
-    $(document).on('click touchstart touchend', '.toReturn', function() {
-        //alert("Button Pressed ( -> Map View )");
-        $.fn.fullpage.moveTo(2);
-    });
+    
 }
