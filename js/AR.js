@@ -24,7 +24,7 @@ function startAR(pinID) {
     geometry.scale( - 1, 1, 1 );
 
     var material = new THREE.MeshBasicMaterial( {
-        map: new THREE.TextureLoader().load('textures/20170111_112716.jpg')
+        map: new THREE.TextureLoader().load('textures/backgroundTexture.jpg')
     });
     
     var mesh = new THREE.Mesh(geometry, material);
