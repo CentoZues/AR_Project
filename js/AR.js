@@ -5,7 +5,7 @@ function startAR(pinID) {
 
     videoPlaying = true;
     container = document.getElementById('ARContainer');
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
     controls = new DeviceOrientationController(camera);
     controls.connect();
     controls.enableManualZoom = false;
@@ -20,7 +20,7 @@ function startAR(pinID) {
     //scene.add( mesh );
 
     //Background Image
-    var geometry = new THREE.SphereGeometry(1500, 16, 8);
+    var geometry = new THREE.SphereGeometry(3000, 16, 8);
     geometry.scale( - 1, 1, 1 );
 
     var material = new THREE.MeshBasicMaterial( {
