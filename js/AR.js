@@ -41,9 +41,6 @@ function startAR(pinID) {
     //texture.format = THREE.RGBFormat;
 
 
- --
-
-
 
     // //X Axis
     // var geometry = new THREE.BoxGeometry(5, 5, 5);
