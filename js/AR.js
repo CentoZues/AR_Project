@@ -31,11 +31,7 @@ function startAR(pinID) {
     //texture.format = THREE.RGBFormat;
 
 
-    var geometry = new THREE.PlaneGeometry( 900, 942, 4, 4 );
-    var material = new THREE.MeshBasicMaterial( { map: texture } );
-    var screen = new THREE.Mesh(geometry, material);
-    screen.position.set(0, 0, -800);
-    scene.add(screen);
+ --
 
 
 
