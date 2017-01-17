@@ -100,10 +100,6 @@ function startAR(pinID) {
 
     }
 
-    function return() {
-        $.fn.fullpage.moveTo(2);
-    }
-
     function render() {
         
         composer.render( scene, camera );
@@ -117,7 +113,6 @@ function startAR(pinID) {
         }
     }
 
-
     //On window resize.. Probably wont need because it'll be fullscreen on phone anyway. Doesn't hurt.
     window.addEventListener('resize', function() {
 
@@ -126,4 +121,10 @@ function startAR(pinID) {
         renderer.setSize( window.innerWidth, window.innerHeight );
 
     }, false);
+
+    //Return button
+    $(document).on('click touchstart touchend', 'toReturn', function() {
+        //alert("Button Pressed ( -> Map View )");
+        $.fn.fullpage.moveTo(2);
+    });
 }

@@ -178,27 +178,7 @@ button {
 }
 
 /*--------------Custome--------------CSS */
-.NavButton {
-	-webkit-box-shadow:inset 0px 1px 3px 0px #7f9491;
-	box-shadow:inset 0px 1px 3px 0px #7f9491;
-	background-color:transparent;
-	border-radius:5px;
-	border:1px solid #616161;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:15px;
-	font-weight:bold;
-	padding:11px 23px;
-	text-shadow:0px -1px 0px #535958;
-
+.VidNav {
 	float: left;
 	vertical-align: top;
-}
-.NavButton:hover {
-	background-color:transparent;
-}
-.NavButton:active {
-	position:relative;
-	top:1px;
 }
