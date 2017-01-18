@@ -211,5 +211,8 @@ $(function() {
         $.fn.fullpage.moveTo(2);
     });
 
+    $(document).on('click touchstart', '.videoOptionButton', function() {
+    	$.fn.fullpage.moveTo(2);
+    });
 
 });
