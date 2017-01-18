@@ -186,27 +186,27 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$(document).on('click touchstart touchend', '.toMapView', function() {
+	$(document).on('click touchstart', '.toMapView', function() {
 		//alert("Button Pressed ( -> Map View )");
 		$.fn.fullpage.moveTo(2);
 		//$('#walkPage .ui.sidebar').sidebar('show');
 	});
 
 	//Home Button
-	$(document).on('click touchstart touchend', '.toHome', function() {
+	$(document).on('click touchstart', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
 		$.fn.fullpage.moveTo(1);
 		$('#walkPage .ui.sidebar').sidebar('hide');
 	});
 
 	//Sidebar Button
-	$(document).on('click touchstart touchend', '.sidebartoggle', function() {
+	$(document).on('click touchstart', '.sidebartoggle', function() {
 		//alert("Button Pressed ( Sidebar Toggled )");
 		$('#walkPage .ui.sidebar').sidebar('show');
 	});
 
 	//Return button
-    $(document).on('click touchstart touchend', '.toReturn', function() {
+    $(document).on('click touchstart', '.toReturn', function() {
         //alert("Button Pressed ( -> Map View )");
         $.fn.fullpage.moveTo(2);
     });
