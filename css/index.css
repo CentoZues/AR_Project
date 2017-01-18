@@ -184,7 +184,7 @@ button {
 }
 
 .videoOptionButton {
-	transform: translate(50%, 50%);
-	top: 50%;
-    left: 50%;
+	text-align: center;
+    display: block !important;
+    top: 50%;
 }
