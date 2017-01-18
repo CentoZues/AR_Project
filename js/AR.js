@@ -40,7 +40,7 @@ function startAR(pinID) {
     texture.magFilter = THREE.LinearFilter;
     //texture.format = THREE.RGBFormat;
 
-    var geometry = new THREE.PlaneGeometry( 1280, 720, 4, 4 );
+    var geometry = new THREE.PlaneGeometry( 1000, 720, 4, 4 );
     var material = new THREE.MeshBasicMaterial( { map: texture } );
     var screen = new THREE.Mesh(geometry, material);
     screen.position.set(0, 0, -800);

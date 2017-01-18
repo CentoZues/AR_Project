@@ -124,9 +124,9 @@ button {
 }
 
 #arSlide {
-	background: url("../img/rye.jpg");
+	/*background: url("../img/rye.jpg");
 	-webkit-background-size: cover;
-	background-size: cover;
+	background-size: cover;*/
 }
 
 #vidOptions {
