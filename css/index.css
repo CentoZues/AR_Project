@@ -182,3 +182,7 @@ button {
 	top: 15px;
     left: 15px;
 }
+
+.videoOptionButton {
+	transform: translate(100%, 250%);
+}
