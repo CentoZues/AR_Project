@@ -2,7 +2,7 @@
 $('html, body').on('touchstart touchmove', function(e) {
 
 	e.preventDefault();
-	
+
 });
 
 
@@ -118,7 +118,7 @@ motionCap.on('swipeleft swiperight', function(ev) {
 	}
 });
 
-
+if(L.Browser.touch && Math.abs(offset.x) + Math.abs(offset.y) < 3) { return; }
 
 //////////////////////////
 //    Pin Management    //
