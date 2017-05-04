@@ -52,9 +52,9 @@ button {
 	display: none;
 }
 
-.ui.right.attached.button {
+#sidebartoggle {
 	position: fixed;
-	z-index: 2;
+	z-index: 100;
 	margin-top: -90vh;
 }
 
