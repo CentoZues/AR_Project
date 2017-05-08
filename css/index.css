@@ -178,7 +178,7 @@ button {
     width: 5px;
 }
 
-/*--------------Custome--------------CSS */
+/*--------------Custom--------------CSS */
 .VidNav {
 	top: 15px;
     left: 15px;
@@ -188,4 +188,8 @@ button {
 	text-align: center;
     display: block !important;
     top: 50%;
+}
+
+#backToMapHolder {
+	transform: translateZ(0);
 }

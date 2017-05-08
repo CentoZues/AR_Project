@@ -205,13 +205,13 @@ $(function() {
 		$('#walkPage .ui.sidebar').sidebar('show');
 	});
 
-	//Return button
-    $(document).on('click touchstart', '.toReturn', function() {
-        //alert("Button Pressed ( -> Map View )");
-        $.fn.fullpage.moveTo(2);
+    $(document).on('click touchstart', '.videoOptionButton', function() {
+    	console.log('videoOptionButtons pressed');
+    	$.fn.fullpage.moveTo(2);
     });
 
-    $(document).on('click touchstart', '.videoOptionButton', function() {
+    $('#backToMapButton').on('click touchstart', function() {
+    	console.log('backToMapButton pressed');
     	$.fn.fullpage.moveTo(2);
     });
 
