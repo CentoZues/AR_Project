@@ -193,3 +193,7 @@ button {
 #backToMapHolder {
 	transform: translateZ(0);
 }
+
+.toMapView {
+	font-size: 75px !important;
+}

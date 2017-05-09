@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "walkCount": 1,
+  "walks": [
+    {
+      "name": "World War One",
+      "lat": 51.629619,
+      "lng": -0.748514,
+      "backgroundImg": "img/slideBackgrounds/testSlideBackground1.jpg",
+      "pinCount": 3,
+      "pins": [
+        {
+          "lat": 51.630692,
+          "lng": -0.754866,
+          "name": "Tourist Information Centre",
+          "contentType": "ar",
+          "backgroundImg": "/img/test.png",
+          "video": "/vid/test.mp4"
+        },
+        {
+          "lat": 51.630716,
+          "lng": -0.752818,
+          "name": "'Hen & Chickens' site of tailors",
+          "contentType": "text",
+          "bodyText": "Text Goes Here!",
+          "img": [
+            "/img/test1.png",
+            "/img/test2.png",
+            "/img/test3.png"
+          ]
+        },
+        {
+          "lat": 51.630237,
+          "lng": -0.751395,
+          "name": "War Memorial and Youens Commemorative Stone",
+          "content-type": "text",
+          "body-text": "Text Goes Here!",
+          "img": [
+            "/img/test1.png",
+            "/img/test2.png"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World War Two",
+      "lat": 51.629619,
+      "lng": -0.748514,
+      "backgroundImg": "img/slideBackgrounds/testSlideBackground2.jpg",
+      "pinCount": 3,
+      "pins": [
+        {
+          "lat": 51.630692,
+          "lng": -0.754866,
+          "name": "Tourist Information Centre",
+          "contentType": "ar",
+          "backgroundImg": "/img/test.png",
+          "video": "/vid/test.mp4"
+        },
+        {
+          "lat": 51.630716,
+          "lng": -0.752818,
+          "name": "'Hen & Chickens' site of tailors",
+          "contentType": "text",
+          "bodyText": "Text Goes Here!",
+          "img": [
+            "/img/test1.png",
+            "/img/test2.png",
+            "/img/test3.png"
+          ]
+        },
+        {
+          "lat": 51.630237,
+          "lng": -0.751395,
+          "name": "War Memorial and Youens Commemorative Stone",
+          "contentType": "text",
+          "bodyText": "Text Goes Here!",
+          "img": [
+            "/img/test1.png",
+            "/img/test2.png"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,184 @@
+//Manages the whole app
+class WalkManager {
+	constructor() {
+		this.walks = [];
+	}
+
+	addWalk(name, defaultLat, defaultLng) {
+		this.walks.push(new Walk(this.walks.length, name, defaultLat, defaultLng));
+	}
+
+	loadWalks(data) {
+		//Creates all of the Map/Walk/Pin objects from the JSON object
+		console.log("Loading in walks", data);
+		var manager = this;
+		//Loop through Walks
+		jQuery.each(data.walks, function(i, walkVal) {
+			//console.log(walkVal);
+			manager.addWalk(walkVal.name, walkVal.backgroundImg, walkVal.lat, walkVal.lng);
+			//Loop through Pins
+			jQuery.each(walkVal.pins, function(i, pinVal) {
+				//console.log(pinVal);
+				manager.walks[(manager.walks.length - 1)].addPin(pinVal.lat, pinVal.lng, pinVal.name);
+			});
+		});
+
+		//this.display();
+		
+	}
+
+	display() {
+		console.log(JSON.stringify(this, null, 4));
+	}
+
+	createPages() {
+		//For each walk
+		for(var i = 0; i < this.walks.length; i++) {
+			//Add the selection page
+			PageManager.newSelectionPage(this.walks[i].getName(), this.walks[i].getId(), this.walks[i].getBackground());
+		}
+	}
+}
+
+//Manages each walk
+class Walk {
+	constructor(id, name, backgroundImg, defaultLat, defaultLng) {
+		this.id = id;
+		this.name = name;
+		this.selectionBackground = backgroundImg;
+		//Default Lat/Lng are for centering the map
+		this.lat = defaultLat;
+		this.lng = defaultLng;
+		this.pins = [];
+
+		//PageManager.newSelectionPage(this.name, this.id, this.selectionBackground);
+		//PageManager.newMapPage(this.name, this.id, this.selectionBackground);
+	}
+
+	addPin(lat, lng, name) {
+		this.pins.push(new Pin(this.pins.length, lat, lng, name));
+	}
+
+	getId() {
+		return this.id;
+	}
+
+	getName() {
+		return this.name;
+	}
+
+	getBackground() {
+		return this.selectionBackground;
+	}
+
+	getLat() {
+		return this.lat;
+	}
+
+	getLng() {
+		return this.lng;
+	}
+
+	getPins() {
+		return this.pins;
+	}
+}
+
+//Holds the pin
+class Pin {
+	constructor(id, lat, lng, name) {
+		this.id = id;
+		this.lat = lat;
+		this.lng = lng;
+		this.name = name;
+	}
+	
+	getPosition() {
+		return [this.lat, this.lng];
+	}
+}
+
+class PageManager {
+	constructor() {}
+
+	static newSelectionPage(walkName, id, img) {
+
+		var selectionPageHTML = '<div id="' + walkName.split(' ').join('_') + '" class="slide"><div class="pageTitle">';
+		selectionPageHTML += '<h1><b>' + walkName + '</b></h1></div>';
+		selectionPageHTML += '<div class="pageButton"><a class="circular ui icon button black tapable toMapView" data-map="' + id + '"><i class="arrow down icon"></i>';
+		selectionPageHTML += '</a></div></div>';
+		$('#walkPicker').append(selectionPageHTML);
+
+		//Background of slide to image
+		$('#' + walkName.split(' ').join('_')).css('background', "url('" + img + "') no-repeat center center");
+		$('#' + walkName.split(' ').join('_')).css('-webkit-background-size', "cover");
+		$('#' + walkName.split(' ').join('_')).css('-moz-background-size', "cover");
+		$('#' + walkName.split(' ').join('_')).css('-o-background-size', "cover");
+		$('#' + walkName.split(' ').join('_')).css('background-size', "cover");
+
+		//$('#' + walkName.split(' ').join('_')).css('background-color', "red");
+
+	}
+
+	static mapPagePins(pins) {
+		var pinHTML = '';
+		//Loop through each pin and add to the pin list in the sidebar
+		jQuery.each(pins, function(i, val) {
+			pinHTML += '<div class="item pin visitedPin">\
+				<div class="ui grid">\
+					<div class="row pinInfo">\
+						<div class="two wide column pinInfoColumn">\
+							<span class="pinInfoContent">1.</span>\
+						</div>\
+						<div class="ten wide column pinInfoColumn">\
+							<span class="pinInfoContent">Tourist Information Centre</span>\
+						</div>\
+						<div class="four wide column pinInfoColumn">\
+							<span class="pinInfoContent"><i class="big check circle outline green icon"></i></span>\
+						</div>\
+					</div>\
+				</div>\
+			</div>\
+			<div class="item distance">\
+				<div class="ui grid">\
+					<div class="centered row pinDistance">\
+						<div class="three wide column">\
+							<i class="clockwise rotated level up icon"></i>\
+						</div>\
+						<div class="ten wide column">\
+							Distance: 100 meters\
+						</div>\
+						<div class="three wide column">\
+							<i class="level down icon"></i>\
+						</div>\
+					</div>\
+				</div>\
+			</div>';
+		});
+		
+
+
+	}
+
+	static newContentARPage() {
+
+	}
+
+	static newContentStaticPage() {
+
+	}
+}
+
+var walkManager = new WalkManager();
+
+//Get JSON and load it in to objects
+$.getJSON("json/walks.json", function(data) {
+	walkManager.loadWalks(data);
+	walkManager.createPages();
+});
+
+
+
 //Remove ability for smartphone/tablets to scroll around the screen
 $('html, body').on('touchstart touchmove', function(e) {
 
@@ -187,7 +368,7 @@ $(function() {
 
 	//Button to Map View
 	$(document).on('click touchstart', '.toMapView', function() {
-		//alert("Button Pressed ( -> Map View )");
+		alert("Button Pressed ( -> Map View )");
 		$.fn.fullpage.moveTo(2);
 		//$('#walkPage .ui.sidebar').sidebar('show');
 	});
