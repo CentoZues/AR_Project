@@ -165,9 +165,14 @@ class PageManager {
 		});
 	}
 
-	static updateMapRouting(mapObj, walkID) {
+	static updateMapRouting(curRouting, mapObj, walkID) {
 		console.log("Updating map pins!", walkID);
 		var pinsArray = walkManager.getWalk(walkID).getPins();
+
+		//Remove old waypoints
+		if (curRouting != null) {
+			curRouting.spliceWaypoints(0, curRouting.getWaypoints().length);
+		}
 
 		//Create waypoint array
 		var waypointsArray = [];
@@ -176,7 +181,7 @@ class PageManager {
 		}
 
 		//Set Path
-		var mapControl = L.Routing.control({
+		var route = L.Routing.control({
 			waypoints: waypointsArray,
 			options: {
 				profile: 'mapbox/walking',
@@ -222,7 +227,9 @@ class PageManager {
 			show: false,
 			routeWhileDragging: false,
 			router: L.Routing.mapbox('pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2Ymc5d2pwMDAzZDJ5bDU2YmR2ZmJkayJ9.CDEBc8_Q-SZG-jxhHtRQ3A')
-		}).addTo(myMap);
+		}).addTo(mapObj);
+
+		return route;
 	}
 
 	static newContentARPage() {
@@ -235,6 +242,7 @@ class PageManager {
 }
 
 var walkManager = new WalkManager();
+var mapRouting = null;
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -357,7 +365,7 @@ $(function() {
 	$('#walkPicker').on('click touchstart', '.toMapView', function() {
 		alert("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
-		PageManager.updateMapRouting(myMap, $(this).attr('data-map'));
+		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
 		$.fn.fullpage.moveTo(2);
 		//$('#walkPage .ui.sidebar').sidebar('show');
 	});
