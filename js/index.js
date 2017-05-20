@@ -38,6 +38,10 @@ class WalkManager {
 			PageManager.newSelectionPage(this.walks[i].getName(), this.walks[i].getId(), this.walks[i].getBackground());
 		}
 	}
+
+	getWalk(id) {
+		return this.walks[id];
+	}
 }
 
 //Manages each walk
@@ -93,8 +97,12 @@ class Pin {
 		this.name = name;
 	}
 	
-	getPosition() {
-		return [this.lat, this.lng];
+	getLat() {
+		return this.lat;
+	}
+
+	getLng() {
+		return this.lng;
 	}
 }
 
@@ -155,9 +163,66 @@ class PageManager {
 				</div>\
 			</div>';
 		});
-		
+	}
 
+	static updateMapRouting(mapObj, walkID) {
+		console.log("Updating map pins!", walkID);
+		var pinsArray = walkManager.getWalk(walkID).getPins();
 
+		//Create waypoint array
+		var waypointsArray = [];
+		for (var i = 0; i < pinsArray.length; i++) {
+			waypointsArray.push(L.latLng(pinsArray[i].getLat(), pinsArray[i].getLng()));
+		}
+
+		//Set Path
+		var mapControl = L.Routing.control({
+			waypoints: waypointsArray,
+			options: {
+				profile: 'mapbox/walking',
+				useHints: false
+			},
+			createMarker: function(i, wp, nWps) {
+				//Numbered Markers
+				if (i > 0 && i < (nWps - 1)) {
+					return L.marker(wp.latLng, {
+						pinId: (i + 1),
+						draggable: false,
+						icon: L.ExtraMarkers.icon({
+							icon: 'fa-number',
+							number: (i + 1),
+							markerColor: 'blue'
+						})
+					}).on('click touchstart touchend', onPinTap);
+				} else if (i == 0) { //First Marker
+					return L.marker(wp.latLng, {
+						pinId: (i + 1),
+						draggable: false,
+						icon: L.ExtraMarkers.icon({
+							icon: 'pin icon',
+							shape: 'star',
+							markerColor: 'blue'
+						})
+					}).on('click touchstart touchend', onPinTap);
+				} else if (i == (nWps - 1)) { //Last Marker
+					return L.marker(wp.latLng, {
+						pinId: (i + 1),
+						draggable: false,
+						icon: L.ExtraMarkers.icon({
+							icon: 'flag outline icon',
+							shape: 'star',
+							markerColor: 'red'
+						})
+					}).on('click touchstart touchend', onPinTap);
+				}
+				
+			},
+			draggableWaypoints: false,
+			addWaypoints: false,
+			show: false,
+			routeWhileDragging: false,
+			router: L.Routing.mapbox('pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2Ymc5d2pwMDAzZDJ5bDU2YmR2ZmJkayJ9.CDEBc8_Q-SZG-jxhHtRQ3A')
+		}).addTo(myMap);
 	}
 
 	static newContentARPage() {
@@ -199,8 +264,8 @@ $('div').each(function(){
 //////////////////////////
 
 var myMap = L.map('mapid', {
-	center: [51.629619, -0.748514]
-	//zoom: 13
+	center: [51.629619, -0.748514],
+	zoom: 13
 });
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2MHZxcDFnMDA0eDJ0dDl6cGhsbnE0dyJ9.Bz2HQaXOIdZnpjvct4hq0g').addTo(myMap);
@@ -208,69 +273,7 @@ var pulsingIcon = L.icon.pulse({iconSize:[20,20], color: 'blue'});
 //Default Marker
 var marker = L.marker([51.629619, -0.748514], {icon: pulsingIcon}).addTo(myMap);
 
-//Set Path
-L.Routing.control({
-	waypoints: [
-		L.latLng(51.630692, -0.754866),
-		L.latLng(51.630716, -0.752818),
-		L.latLng(51.630237, -0.751395),
-		L.latLng(51.629330, -0.751587),
-		L.latLng(51.627156, -0.752722),
-		L.latLng(51.626712, -0.751070),
-		L.latLng(51.625302, -0.746766),
-		L.latLng(51.625655, -0.746381),
-		L.latLng(51.627754, -0.744933),
-		L.latLng(51.629814, -0.747010),
-		L.latLng(51.630373, -0.746702),
-		L.latLng(51.630800, -0.748020),
-		L.latLng(51.632365, -0.747696),
-		L.latLng(51.633427, -0.748983)
-	],
-	options: {
-		profile: 'mapbox/walking',
-		useHints: false
-	},
-	createMarker: function(i, wp, nWps) {
-		//Numbered Markers
-		if (i > 0 && i < (nWps - 1)) {
-			return L.marker(wp.latLng, {
-				pinId: (i + 1),
-				draggable: false,
-				icon: L.ExtraMarkers.icon({
-					icon: 'fa-number',
-					number: (i + 1),
-					markerColor: 'blue'
-				})
-			}).on('click touchstart touchend', onPinTap);
-		} else if (i == 0) { //First Marker
-			return L.marker(wp.latLng, {
-				pinId: (i + 1),
-				draggable: false,
-				icon: L.ExtraMarkers.icon({
-					icon: 'pin icon',
-					shape: 'star',
-					markerColor: 'blue'
-				})
-			}).on('click touchstart touchend', onPinTap);
-		} else if (i == (nWps - 1)) { //Last Marker
-			return L.marker(wp.latLng, {
-				pinId: (i + 1),
-				draggable: false,
-				icon: L.ExtraMarkers.icon({
-					icon: 'flag outline icon',
-					shape: 'star',
-					markerColor: 'red'
-				})
-			}).on('click touchstart touchend', onPinTap);
-		}
-		
-	},
-	draggableWaypoints: false,
-	addWaypoints: false,
-	show: false,
-	routeWhileDragging: false,
-	router: L.Routing.mapbox('pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2Ymc5d2pwMDAzZDJ5bDU2YmR2ZmJkayJ9.CDEBc8_Q-SZG-jxhHtRQ3A')
-}).addTo(myMap);
+
 
 function onPinTap(e) {
 	//console.log(this);
@@ -298,22 +301,6 @@ motionCap.on('swipeleft swiperight', function(ev) {
 		$.fn.fullpage.moveSlideLeft();
 	}
 });
-
-//////////////////////////
-//    Pin Management    //
-//////////////////////////
-
-function toggleVisited(id) {
-
-};
-
-function toggleCurrentlyAt(id) {
-	
-};
-
-
-
-
 
 
 
@@ -367,8 +354,10 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$(document).on('click touchstart', '.toMapView', function() {
-		alert("Button Pressed ( -> Map View )");
+	$('#walkPicker').on('click touchstart', '.toMapView', function() {
+		alert("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
+		//Set Map to use the correct positioning and pins
+		PageManager.updateMapRouting(myMap, $(this).attr('data-map'));
 		$.fn.fullpage.moveTo(2);
 		//$('#walkPage .ui.sidebar').sidebar('show');
 	});
