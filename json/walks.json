@@ -33,7 +33,7 @@
           "lat": 51.630237,
           "lng": -0.751395,
           "name": "War Memorial and Youens Commemorative Stone",
-          "content-type": "text",
+          "contentType": "text",
           "body-text": "Text Goes Here!",
           "img": [
             "/img/test1.png",

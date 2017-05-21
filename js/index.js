@@ -18,8 +18,8 @@ class WalkManager {
 			manager.addWalk(walkVal.name, walkVal.backgroundImg, walkVal.lat, walkVal.lng);
 			//Loop through Pins
 			jQuery.each(walkVal.pins, function(i, pinVal) {
-				//console.log(pinVal);
-				manager.walks[(manager.walks.length - 1)].addPin(pinVal.lat, pinVal.lng, pinVal.name);
+				//console.log(pinVal.contentType);
+				manager.walks[(manager.walks.length - 1)].addPin(pinVal.lat, pinVal.lng, pinVal.name, pinVal.contentType);
 			});
 		});
 
@@ -59,8 +59,8 @@ class Walk {
 		//PageManager.newMapPage(this.name, this.id, this.selectionBackground);
 	}
 
-	addPin(lat, lng, name) {
-		this.pins.push(new Pin(this.pins.length, lat, lng, name));
+	addPin(lat, lng, name, contentType) {
+		this.pins.push(new Pin(this.pins.length, lat, lng, name, contentType));
 	}
 
 	getId() {
@@ -86,15 +86,20 @@ class Walk {
 	getPins() {
 		return this.pins;
 	}
+
+	getPin(id) {
+		return this.pins[id];
+	}
 }
 
 //Holds the pin
 class Pin {
-	constructor(id, lat, lng, name) {
+	constructor(id, lat, lng, name, contentType) {
 		this.id = id;
 		this.lat = lat;
 		this.lng = lng;
 		this.name = name;
+		this.type = contentType;
 	}
 	
 	getLat() {
@@ -103,6 +108,14 @@ class Pin {
 
 	getLng() {
 		return this.lng;
+	}
+
+	getName() {
+		return this.name;
+	}
+
+	getType() {
+		return this.type;
 	}
 }
 
@@ -192,6 +205,7 @@ class PageManager {
 				if (i > 0 && i < (nWps - 1)) {
 					return L.marker(wp.latLng, {
 						pinId: (i + 1),
+						walkId: walkID,
 						draggable: false,
 						icon: L.ExtraMarkers.icon({
 							icon: 'fa-number',
@@ -202,6 +216,7 @@ class PageManager {
 				} else if (i == 0) { //First Marker
 					return L.marker(wp.latLng, {
 						pinId: (i + 1),
+						walkId: walkID,
 						draggable: false,
 						icon: L.ExtraMarkers.icon({
 							icon: 'pin icon',
@@ -212,6 +227,7 @@ class PageManager {
 				} else if (i == (nWps - 1)) { //Last Marker
 					return L.marker(wp.latLng, {
 						pinId: (i + 1),
+						walkId: walkID,
 						draggable: false,
 						icon: L.ExtraMarkers.icon({
 							icon: 'flag outline icon',
@@ -239,6 +255,10 @@ class PageManager {
 	static newContentStaticPage() {
 
 	}
+}
+
+if (location.protocol != 'https:') {
+	location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 }
 
 var walkManager = new WalkManager();
@@ -286,7 +306,8 @@ var marker = L.marker([51.629619, -0.748514], {icon: pulsingIcon}).addTo(myMap);
 function onPinTap(e) {
 	//console.log(this);
 	console.log("Pin ID: ", this.options.pinId);
-	startAR(this.options.pinId);
+	console.log("Content for pin: ", walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getName(), walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getType());
+	//startAR(this.options.pinId);
 	$.fn.fullpage.moveTo(3, 0);
 }
 
@@ -363,7 +384,7 @@ $(function() {
 
 	//Button to Map View
 	$('#walkPicker').on('click touchstart', '.toMapView', function() {
-		alert("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
+		console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
 		$.fn.fullpage.moveTo(2);
