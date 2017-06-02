@@ -1,3 +1,21 @@
 <div id="importContent">
-	<h1>Page One!</h1>
+	<!-- Style for the page -->
+	<style>
+		h1 {
+			text-decoration: underline;
+			text-decoration-style: dotted;
+		}
+	</style>
+
+	<!-- JavaScript for the page -->
+	<script>
+		var colours = ['red', 'blue', 'green'];
+
+		setInterval(function() {
+			$('#pageTitle').css('color', colours[Math.floor(Math.random() * 3)])
+		}, 2000);
+		
+	</script>
+
+	<h1 id="pageTitle">Page One!</h1>
 </div>
