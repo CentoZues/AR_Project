@@ -18,8 +18,8 @@ class WalkManager {
 			manager.addWalk(walkVal.name, walkVal.backgroundImg, walkVal.lat, walkVal.lng);
 			//Loop through Pins
 			jQuery.each(walkVal.pins, function(i, pinVal) {
-				//console.log(pinVal.contentType);
-				manager.walks[(manager.walks.length - 1)].addPin(pinVal.lat, pinVal.lng, pinVal.name, pinVal.contentType);
+				//console.log(pinVal.contentLink);
+				manager.walks[(manager.walks.length - 1)].addPin(pinVal.lat, pinVal.lng, pinVal.name, pinVal.contentLink);
 			});
 		});
 
@@ -59,8 +59,8 @@ class Walk {
 		//PageManager.newMapPage(this.name, this.id, this.selectionBackground);
 	}
 
-	addPin(lat, lng, name, contentType) {
-		this.pins.push(new Pin(this.pins.length, lat, lng, name, contentType));
+	addPin(lat, lng, name, contentLink) {
+		this.pins.push(new Pin(this.pins.length, lat, lng, name, contentLink));
 	}
 
 	getId() {
@@ -94,12 +94,16 @@ class Walk {
 
 //Holds the pin
 class Pin {
-	constructor(id, lat, lng, name, contentType) {
+	constructor(id, lat, lng, name, contentLink) {
 		this.id = id;
 		this.lat = lat;
 		this.lng = lng;
 		this.name = name;
-		this.type = contentType;
+		this.url = contentLink;
+	}
+
+	getID() {
+		return this.id;
 	}
 	
 	getLat() {
@@ -114,8 +118,8 @@ class Pin {
 		return this.name;
 	}
 
-	getType() {
-		return this.type;
+	getURL() {
+		return this.url;
 	}
 }
 
@@ -142,17 +146,21 @@ class PageManager {
 	}
 
 	static mapPagePins(pins) {
-		var pinHTML = '';
+		$('.sidebarPin').remove();
+		$('.sidebarPinDistance').remove();
+		
 		//Loop through each pin and add to the pin list in the sidebar
 		jQuery.each(pins, function(i, val) {
-			pinHTML += '<div class="item pin visitedPin">\
+			var pinHTML = '';
+			//console.log("Adding pin: ", val);
+			pinHTML += '<div class="item pin sidebarPin">\
 				<div class="ui grid">\
 					<div class="row pinInfo">\
 						<div class="two wide column pinInfoColumn">\
-							<span class="pinInfoContent">1.</span>\
+							<span class="pinInfoContent">' + (val.id + 1) + '.</span>\
 						</div>\
 						<div class="ten wide column pinInfoColumn">\
-							<span class="pinInfoContent">Tourist Information Centre</span>\
+							<span class="pinInfoContent">' + (val.name) + '</span>\
 						</div>\
 						<div class="four wide column pinInfoColumn">\
 							<span class="pinInfoContent"><i class="big check circle outline green icon"></i></span>\
@@ -160,14 +168,14 @@ class PageManager {
 					</div>\
 				</div>\
 			</div>\
-			<div class="item distance">\
+			<div class="item distance sidebarPinDistance">\
 				<div class="ui grid">\
 					<div class="centered row pinDistance">\
 						<div class="three wide column">\
 							<i class="clockwise rotated level up icon"></i>\
 						</div>\
 						<div class="ten wide column">\
-							Distance: 100 meters\
+							Distance: \<number\> meters\
 						</div>\
 						<div class="three wide column">\
 							<i class="level down icon"></i>\
@@ -175,6 +183,8 @@ class PageManager {
 					</div>\
 				</div>\
 			</div>';
+
+			$('#pinNavigationSidebar').append(pinHTML);
 		});
 	}
 
@@ -255,6 +265,20 @@ class PageManager {
 	static newContentStaticPage() {
 
 	}
+
+	static addPageImport(pins) {
+		jQuery.each(pins, function(i, val) {
+			//console.log(val);
+			var link = document.createElement('link');
+			link.rel = 'import';
+			link.href = val.url;
+			link.onload = function(e) {
+				console.log('\'' + val.url + '\' is loaded.');
+			}
+			document.head.appendChild(link);
+		});
+		
+	}
 }
 
 if (location.protocol != 'https:') {
@@ -306,8 +330,16 @@ var marker = L.marker([51.629619, -0.748514], {icon: pulsingIcon}).addTo(myMap);
 function onPinTap(e) {
 	//console.log(this);
 	console.log("Pin ID: ", this.options.pinId);
-	console.log("Content for pin: ", walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getName(), walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getType());
-	//startAR(this.options.pinId);
+	console.log("Content for pin: ", walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getID(), walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getName(), walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getURL(), this.options.pinId, this.options.walkId);
+	
+	//Clear div
+	$('#walkContent').empty();
+
+	//Add HTML from import
+	var link = document.querySelector('link[href="' + walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getURL() + '"]').import;
+	var content = link.querySelector('#importContent');
+	document.getElementById('walkContent').appendChild(content);
+
 	$.fn.fullpage.moveTo(3, 0);
 }
 
@@ -387,7 +419,13 @@ $(function() {
 		console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
+		//console.log(walkManager.getWalk($(this).attr('data-map')).getPins());
+		//Add pins to sidebar
+		PageManager.mapPagePins(walkManager.getWalk($(this).attr('data-map')).getPins());
+		//Move to map page
 		$.fn.fullpage.moveTo(2);
+		//Load content pages
+		PageManager.addPageImport(walkManager.getWalk($(this).attr('data-map')).getPins());
 		//$('#walkPage .ui.sidebar').sidebar('show');
 	});
 

@@ -1,6 +1,5 @@
 {
   "version": 1,
-  "walkCount": 1,
   "walks": [
     {
       "name": "World War One",
@@ -13,32 +12,19 @@
           "lat": 51.630692,
           "lng": -0.754866,
           "name": "Tourist Information Centre",
-          "contentType": "ar",
-          "backgroundImg": "/img/test.png",
-          "video": "/vid/test.mp4"
+          "contentLink" : "pages/pin1.html"
         },
         {
           "lat": 51.630716,
           "lng": -0.752818,
           "name": "'Hen & Chickens' site of tailors",
-          "contentType": "text",
-          "bodyText": "Text Goes Here!",
-          "img": [
-            "/img/test1.png",
-            "/img/test2.png",
-            "/img/test3.png"
-          ]
+          "contentLink" : "pages/pin2.html"
         },
         {
           "lat": 51.630237,
           "lng": -0.751395,
           "name": "War Memorial and Youens Commemorative Stone",
-          "contentType": "text",
-          "body-text": "Text Goes Here!",
-          "img": [
-            "/img/test1.png",
-            "/img/test2.png"
-          ]
+          "contentLink" : "pages/pin3.html"
         }
       ]
     },
@@ -53,32 +39,19 @@
           "lat": 51.629330,
           "lng": -0.751587,
           "name": "Guildhall stained glass window",
-          "contentType": "ar",
-          "backgroundImg": "/img/test.png",
-          "video": "/vid/test.mp4"
+          "contentLink" : "pages/pin4.html"
         },
         {
           "lat": 51.627156,
           "lng": -0.752722,
           "name": "Hospital and Tom Burts Hill",
-          "contentType": "text",
-          "bodyText": "Text Goes Here!",
-          "img": [
-            "/img/test1.png",
-            "/img/test2.png",
-            "/img/test3.png"
-          ]
+          "contentLink" : "pages/pin5.html"
         },
         {
           "lat": 51.626712,
           "lng": -0.751070,
           "name": "Wycombe Abbey",
-          "contentType": "text",
-          "bodyText": "Text Goes Here!",
-          "img": [
-            "/img/test1.png",
-            "/img/test2.png"
-          ]
+          "contentLink" : "pages/pin6.html"
         }
       ]
     }

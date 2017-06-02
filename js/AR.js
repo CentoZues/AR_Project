@@ -20,11 +20,12 @@ function startAR(pinID) {
     //scene.add( mesh );
 
     //Background Image
-    var geometry = new THREE.SphereGeometry(3000, 16, 8);
+    var geometry = new THREE.SphereGeometry(3000, 64, 64);
     geometry.scale( - 1, 1, 1 );
 
     var material = new THREE.MeshBasicMaterial( {
-        map: new THREE.TextureLoader().load('textures/backgroundTexture.jpg')
+        //map: new THREE.TextureLoader().load('textures/backgroundTexture.jpg')
+        map: new THREE.TextureLoader().load('textures/IMG_0244.jpg')
     });
     
     var mesh = new THREE.Mesh(geometry, material);
