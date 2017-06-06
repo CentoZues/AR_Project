@@ -282,7 +282,6 @@ class PageManager {
 }
 
 
-
 //Force HTTPS
 if (location.protocol != 'https:') {
 	location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
@@ -321,7 +320,8 @@ $('div').each(function(){
 
 var myMap = L.map('mapid', {
 	center: [51.629619, -0.748514],
-	zoom: 13
+	zoom: 5,
+	minZoom: 15
 });
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2MHZxcDFnMDA0eDJ0dDl6cGhsbnE0dyJ9.Bz2HQaXOIdZnpjvct4hq0g').addTo(myMap);
@@ -371,6 +371,7 @@ motionCap.on('swipeleft swiperight', function(ev) {
 
 //On Load
 $(function() {
+
 	//Slide settings
 	$('#fullpage').fullpage({
 		loopHorizontal: false,
@@ -408,8 +409,6 @@ $(function() {
 			console.log("Unable to obtain location, response timed out. Please try again.");
 		}
 	}
-
-
 
 	//////////////////////////
 	//    Button Presses    //
