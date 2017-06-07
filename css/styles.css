@@ -6,8 +6,9 @@
     margin: 0px;
     padding-bottom: 50px
 }
-h2{ 
+.table h2{ 
     font-family: 'Bree Serif', serif;
+    font-size: 35px;
 }
 
 .head{
@@ -33,7 +34,7 @@ h2{
     max-width: 700px;
     padding: 0 25px;
 }
-.title{
+.table .title{
     background: url(../img/title-bg.png) no-repeat;
     background-size: cover;
     font-size: 60px;
