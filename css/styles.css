@@ -1,5 +1,5 @@
 .table{
-    background-image: url(../images/bg.jpg);
+    background-image: url(../img/bg.jpg);
     background-size: contain;
     font-size: 25px;
     font-family: sans-serif;
@@ -16,7 +16,7 @@ h2{
     width: 100%;
 }
 .frogmoor .head:before{
-    background: url(../images/film.png) no-repeat;
+    background: url(../img/film.png) no-repeat;
     background-size: contain;
     position: absolute;
     left: -40px;
@@ -34,7 +34,7 @@ h2{
     padding: 0 25px;
 }
 .title{
-    background: url(../images/title-bg.png) no-repeat;
+    background: url(../img/title-bg.png) no-repeat;
     background-size: cover;
     font-size: 60px;
     color: #fff;
@@ -92,7 +92,7 @@ h2{
     }
 .view-360, .continue{
     color: #fff;
-    background: url(../images/360.jpg);
+    background: url(../img/360.jpg);
     width: 530px;
     height: 90px;
     text-align: center;
@@ -106,7 +106,7 @@ h2{
     max-width: 100%;
 }
 .continue{
-   background: url(../images/continue.jpg); 
+   background: url(../img/continue.jpg); 
    display: block;
     text-decoration: none;
     margin-top: -20px
@@ -121,7 +121,7 @@ h2{
     .text:before{
         position: absolute;
         top: -2px;
-        background: url(../images/paper-top.png) no-repeat;
+        background: url(../img/paper-top.png) no-repeat;
         background-size: cover;
         content: '';
         height: 321px;
@@ -131,7 +131,7 @@ h2{
     .text:after{
         position: absolute;
         bottom: -3px;
-        background: url(../images/paper-bottom.png) no-repeat;
+        background: url(../img/paper-bottom.png) no-repeat;
         background-size: cover;
         content: '';
         height: 321px;
@@ -149,7 +149,7 @@ h2{
     .news-article:before{
         position: absolute;
         top: -24px;
-        background: url(../images/news-top.png) no-repeat;
+        background: url(../img/news-top.png) no-repeat;
         background-size: cover;
         content: '';
         height: 321px;
@@ -159,7 +159,7 @@ h2{
     .news-article:after{
         position: absolute;
         bottom: -3px;
-        background: url(../images/news-bottom.png) no-repeat;
+        background: url(../img/news-bottom.png) no-repeat;
         background-size: cover;
         content: '';
         height: 321px;
@@ -173,7 +173,7 @@ h2{
 
 .gallery{
     padding: 51px 40px;
-    background: url(../images/gallery-bg.png) no-repeat;
+    background: url(../img/gallery-bg.png) no-repeat;
     background-size: contain;
     margin: 10px;
 }
@@ -186,13 +186,13 @@ h2{
 .owl-prev, .owl-next{
     width: 100px;
     height: 100px;
-    background: url(../images/prev.png) no-repeat;
+    background: url(../img/prev.png) no-repeat;
     position: absolute;
     left: -80px;
     top: 120px;
 }
 .owl-next{
-    background: url(../images/next.png) no-repeat;
+    background: url(../img/next.png) no-repeat;
     right: -80px;
     left: auto;
 }
