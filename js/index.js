@@ -98,9 +98,9 @@ class Pin {
 		this.id = id;
 		this.lat = lat;
 		this.lng = lng;
-		this.dist = distanceto;
 		this.name = name;
 		this.url = contentLink;
+		this.dist = distanceto;
 	}
 
 	getID() {
@@ -114,16 +114,14 @@ class Pin {
 	getLng() {
 		return this.lng;
 	}
-	getdist(){
-		return this.dist;
-	}
-
 	getName() {
 		return this.name;
 	}
-
 	getURL() {
 		return this.url;
+	}
+	getDist(){
+		return this.dist;
 	}
 }
 
