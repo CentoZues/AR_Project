@@ -114,7 +114,7 @@ class Pin {
 	getLng() {
 		return this.lng;
 	}
-	getDist(){
+	getdist(){
 		return this.dist;
 	}
 
@@ -179,7 +179,7 @@ class PageManager {
 							<i class="clockwise rotated level up icon"></i>\
 						</div>\
 						<div class="ten wide column">\
-							Distance:' + (val.dist) + 'meters\
+							Distance: ' + (val.dist) + ' meters\
 						</div>\
 						<div class="three wide column">\
 							<i class="level down icon"></i>\
