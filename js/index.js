@@ -94,10 +94,11 @@ class Walk {
 
 //Holds the pin
 class Pin {
-	constructor(id, lat, lng, name, contentLink) {
+	constructor(id, lat, lng, name, contentLink, distanceto) {
 		this.id = id;
 		this.lat = lat;
 		this.lng = lng;
+		this.dist = distanceto;
 		this.name = name;
 		this.url = contentLink;
 	}
@@ -112,6 +113,9 @@ class Pin {
 
 	getLng() {
 		return this.lng;
+	}
+	getDist(){
+		return this.dist;
 	}
 
 	getName() {
@@ -175,7 +179,7 @@ class PageManager {
 							<i class="clockwise rotated level up icon"></i>\
 						</div>\
 						<div class="ten wide column">\
-							Distance: \<number\> meters\
+							Distance:' + (val.dist) + 'meters\
 						</div>\
 						<div class="three wide column">\
 							<i class="level down icon"></i>\
@@ -313,6 +317,15 @@ $('div').each(function(){
 	this.onclick = function() {};
 
 });
+//////////////////////////
+//		distance		//
+//////////////////////////
+
+
+
+
+
+
 
 //////////////////////////
 //         Map          //
