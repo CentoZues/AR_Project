@@ -94,13 +94,13 @@ class Walk {
 
 //Holds the pin
 class Pin {
-	constructor(id, lat, lng, name, contentLink, distanceto) {
+	constructor(id, lat, lng, name, contentLink, distanceTo) {
 		this.id = id;
 		this.lat = lat;
 		this.lng = lng;
 		this.name = name;
 		this.url = contentLink;
-		this.dist = distanceto;
+		this.dist = distanceTo;
 	}
 
 	getID() {
