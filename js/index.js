@@ -345,6 +345,8 @@ function onPinTap(e) {
 	document.getElementById('walkContent').appendChild(content);
 
 	$.fn.fullpage.moveTo(3, 0);
+
+	$.fn.fullpage.reBuild();
 }
 
 
@@ -377,9 +379,14 @@ $(function() {
 		loopHorizontal: false,
 		slidesNavigation: true,
 		controlArrows: false,
-		normalScrollElements: '.section'
+		css3: true,
+		verticalCentered: false,
+		//normalScrollElements: '.section',
+		scrollOverflow: true,
+		scrollOverflowReset: true
 	});
 	$.fn.fullpage.setAllowScrolling(false);
+	$.fn.fullpage.setKeyboardScrolling(false);
 
 	//Initialize sidebar
 	$('#walkPage .ui.sidebar').sidebar({
