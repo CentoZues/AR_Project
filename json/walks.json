@@ -13,14 +13,14 @@
           "lng": -0.754866,
           "name": "Tourist Information Centre",
           "contentLink" : "pages/frogmoor.html",
-          "distanceTo" : "175.2"
+          "distanceTo" : 175.2
         },
         {
           "lat": 51.630854,
           "lng": -0.752781,
           "name": "'The Frogmoor Fountain",
           "contentLink" : "pages/pin2.html",
-          "distanceTo" : "35.4"
+          "distanceTo" : 35.4
 
         },
         {
@@ -28,70 +28,70 @@
           "lng": -0.752478,
           "name": "'Hen & Chickens' site of tailors",
           "contentLink" : "pages/pin3.html",
-          "distanceTo" : "85.5"
+          "distanceTo" : 85.5
         },
         {
           "lat": 51.630120,
           "lng": -0.751291,
-          "name": "War Memorial (Youens Commemorative Stone)",
+          "name": "War Memorial ( Youens Commemorative Stone )",
           "contentLink" : "pages/pin4.html",
-          "distanceTo" : "90"
+          "distanceTo" : 90
         },
         {
           "lat": 51.629345,
           "lng": -0.751428,
           "name": "The Guildhall",
           "contentLink" : "pages/pin5.html",
-          "distanceTo" : "5"
+          "distanceTo" : 5
         },
         {
           "lat": 51.629309,
           "lng": -0.751560,
           "name": "The Stained Glass Window",
           "contentLink" : "pages/pin6.html",
-          "distanceTo" : "227"
+          "distanceTo" : 227
         },
         {
           "lat": 51.628260,
           "lng": -0.748658,
           "name": "Jack's Garden",
           "contentLink" : "pages/pin7.html",
-          "distanceTo" : "308"
+          "distanceTo" : 308
         },
         {
           "lat": 51.626623,
           "lng": -0.750290,
           "name": "Wycombe Abbey",
           "contentLink" : "pages/pin8.html",
-          "distanceTo" : "212"
+          "distanceTo" : 212
         },
         {
           "lat": 51.626512,
           "lng": -0.746102,
           "name": "The Rye",
           "contentLink" : "pages/pin9.html",
-          "distanceTo" : "251"
+          "distanceTo" : 251
         },
         {
           "lat": 51.626918,
           "lng": -0.743769,
           "name": "The Factories By The Mill",
           "contentLink" : "pages/pin10.html",
-          "distanceTo" : "638"
+          "distanceTo" : 638
         },
         {
           "lat": 51.629755,
           "lng": -0.746290,
           "name": "High Wycombe Station",
           "contentLink" : "pages/pin11.html",
-          "distanceTo" : "213"
+          "distanceTo" : 213
         },
         {
           "lat": 51.630717,
           "lng": -0.748017,
           "name": "The Museum",
           "contentLink" : "pages/pin12.html",
-          "distanceTo" : "Null"
+          "distanceTo" : 0
         }
       ]
     },
