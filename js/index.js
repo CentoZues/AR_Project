@@ -19,7 +19,7 @@ class WalkManager {
 			//Loop through Pins
 			jQuery.each(walkVal.pins, function(i, pinVal) {
 				//console.log(pinVal.contentLink);
-				manager.walks[(manager.walks.length - 1)].addPin(pinVal.lat, pinVal.lng, pinVal.name, pinVal.contentLink);
+				manager.walks[(manager.walks.length - 1)].addPin(pinVal.lat, pinVal.lng, pinVal.name, pinVal.contentLink, pinVal.distanceTo);
 			});
 		});
 
@@ -59,8 +59,8 @@ class Walk {
 		//PageManager.newMapPage(this.name, this.id, this.selectionBackground);
 	}
 
-	addPin(lat, lng, name, contentLink) {
-		this.pins.push(new Pin(this.pins.length, lat, lng, name, contentLink));
+	addPin(lat, lng, name, contentLink, distanceTo) {
+		this.pins.push(new Pin(this.pins.length, lat, lng, name, contentLink, distanceTo));
 	}
 
 	getId() {
@@ -114,12 +114,15 @@ class Pin {
 	getLng() {
 		return this.lng;
 	}
+
 	getName() {
 		return this.name;
 	}
+
 	getURL() {
 		return this.url;
 	}
+
 	getDist(){
 		return this.dist;
 	}
