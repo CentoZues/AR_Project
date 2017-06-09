@@ -302,8 +302,6 @@ $.getJSON("json/walks.json", function(data) {
 	walkManager.createPages();
 });
 
-
-
 //Remove ability for smartphone/tablets to scroll around the screen
 $('html, body').on('touchstart touchmove', function(e) {
 
@@ -318,14 +316,6 @@ $('div').each(function(){
 	this.onclick = function() {};
 
 });
-//////////////////////////
-//		distance		//
-//////////////////////////
-
-
-
-
-
 
 
 //////////////////////////
@@ -352,15 +342,20 @@ function onPinTap(e) {
 	
 	//Clear div
 	$('#walkContent').empty();
+	//$.fn.fullpage.destroy();
 
 	//Add HTML from import
 	var link = document.querySelector('link[href="' + walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getURL() + '"]').import;
 	var content = link.querySelector('#importContent');
 	document.getElementById('walkContent').appendChild(content);
 
+	//setTimeout(function(){
+	//	$.fn.fullpage.reBuild();
+	//	console.log("Page rebuilt.");
+	//}, 2000);
+
 	$.fn.fullpage.moveTo(3, 0);
 
-	$.fn.fullpage.reBuild();
 }
 
 
@@ -393,11 +388,15 @@ $(function() {
 		loopHorizontal: false,
 		slidesNavigation: true,
 		controlArrows: false,
-		css3: true,
+		//css3: true,
 		verticalCentered: false,
-		//normalScrollElements: '.section',
+		normalScrollElements: '#importContent',
 		scrollOverflow: true,
-		scrollOverflowReset: true
+		scrollOverflowReset: true,
+		//anchors: ['walkSelection', 'mapRoute', 'pinContent'],
+		afterLoad: function(anchorLink, index) {
+			$.fn.fullpage.reBuild();
+		}
 	});
 	$.fn.fullpage.setAllowScrolling(false);
 	$.fn.fullpage.setKeyboardScrolling(false);

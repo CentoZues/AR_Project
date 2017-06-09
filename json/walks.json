@@ -55,70 +55,43 @@
           "lat": 51.628260,
           "lng": -0.748658,
           "name": "Jack's Garden",
-          "contentLink" : "pages/pin7.html",
+          "contentLink" : "pages/pin6.html",
           "distanceTo" : 308
         },
         {
           "lat": 51.626623,
           "lng": -0.750290,
           "name": "Wycombe Abbey",
-          "contentLink" : "pages/pin8.html",
+          "contentLink" : "pages/pin6.html",
           "distanceTo" : 212
         },
         {
           "lat": 51.626512,
           "lng": -0.746102,
           "name": "The Rye",
-          "contentLink" : "pages/pin9.html",
+          "contentLink" : "pages/pin6.html",
           "distanceTo" : 251
         },
         {
           "lat": 51.626918,
           "lng": -0.743769,
           "name": "The Factories By The Mill",
-          "contentLink" : "pages/pin10.html",
+          "contentLink" : "pages/pin6.html",
           "distanceTo" : 638
         },
         {
           "lat": 51.629755,
           "lng": -0.746290,
           "name": "High Wycombe Station",
-          "contentLink" : "pages/pin11.html",
+          "contentLink" : "pages/pin6.html",
           "distanceTo" : 213
         },
         {
           "lat": 51.630717,
           "lng": -0.748017,
           "name": "The Museum",
-          "contentLink" : "pages/pin12.html",
+          "contentLink" : "pages/pin6.html",
           "distanceTo" : 0
-        }
-      ]
-    },
-    {
-      "name": "World War Two",
-      "lat": 51.629619,
-      "lng": -0.748514,
-      "backgroundImg": "img/slideBackgrounds/testSlideBackground2.jpg",
-      "pinCount": 3,
-      "pins": [
-        {
-          "lat": 51.629330,
-          "lng": -0.751587,
-          "name": "Guildhall stained glass window",
-          "contentLink" : "pages/pin4.html"
-        },
-        {
-          "lat": 51.627156,
-          "lng": -0.752722,
-          "name": "Hospital and Tom Burts Hill",
-          "contentLink" : "pages/pin5.html"
-        },
-        {
-          "lat": 51.626712,
-          "lng": -0.751070,
-          "name": "Wycombe Abbey",
-          "contentLink" : "pages/pin6.html"
         }
       ]
     }
