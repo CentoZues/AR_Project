@@ -439,7 +439,7 @@ $(function() {
 	//////////////////////////
 	//    Button Presses    //
 	//////////////////////////
-	$('#locateMe').on('click touchstart', '.locator', function() {
+	$(document).on('click touchstart', '.locator', function() {
 		curLocation = L.latLng(curLocationLat, curLocationLng)
         myMap.panTo(curLocation);
         console.log("Current Location is: ", curLocation);
