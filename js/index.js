@@ -438,7 +438,7 @@ $(function() {
 	//////////////////////////
 	//    Button Presses    //
 	//////////////////////////
-	$('#fullpage').on("click", '#locator' function(){
+	$('#fullpage').on("click", '.locator' function(){
     	myMap.panTo([curLocationLat, curLocationLng]);
 	});
 
