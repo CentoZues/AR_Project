@@ -297,6 +297,7 @@ var walkManager = new WalkManager();
 var mapRouting = null;
 var curLocationLat = null;
 var curLocationLng = null;
+var curLocation = null;
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -439,7 +440,9 @@ $(function() {
 	//    Button Presses    //
 	//////////////////////////
 	$("#locator").click(function(){
-        myMap.panTo([curLocationLat, curLocationLng]);
+		curLocation = L.latLng(curLocationLat, curLocationLng)
+        myMap.panTo(curLocation);
+        console.log("Current Location is: ", curLocation);
     });
 	//iOS Safari Fix for button press
 
