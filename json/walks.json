@@ -9,8 +9,8 @@
       "pinCount": 12,
       "pins": [
         {
-          "lat": 51.630642,
-          "lng": -0.755739,
+          "lat": 51.630634,
+          "lng": -0.755297,
           "name": "Tourist Information Centre",
           "contentLink" : "pages/frogmoor.html",
           "distanceTo" : 175.2
