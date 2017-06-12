@@ -438,10 +438,9 @@ $(function() {
 	//////////////////////////
 	//    Button Presses    //
 	//////////////////////////
-	$('#fullpage').on("click", '.locator' function(){
-    	myMap.panTo([curLocationLat, curLocationLng]);
-	});
-
+	$("#locator").click(function(){
+        myMap.panTo([curLocationLat, curLocationLng]);
+    });
 	//iOS Safari Fix for button press
 
 	//Button to Map View
