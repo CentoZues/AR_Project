@@ -295,12 +295,15 @@ if (location.protocol != 'https:') {
 
 var walkManager = new WalkManager();
 var mapRouting = null;
+var curLocationLat = null;
+var curLocationLng = null;
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
 	walkManager.loadWalks(data);
 	walkManager.createPages();
 });
+
 
 //Remove ability for smartphone/tablets to scroll around the screen
 $('html, body').on('touchstart touchmove', function(e) {
@@ -418,6 +421,8 @@ $(function() {
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
 		//console.log("Location updated: ", position.coords);
+		curLocationLat = position.coords.latitude;
+		curLocationLng = position.coords.longitude;
 	}
 
 	function positionError(err) {
@@ -433,7 +438,9 @@ $(function() {
 	//////////////////////////
 	//    Button Presses    //
 	//////////////////////////
-
+	$('#fullpage').on("click", '#locator' function(){
+    	myMap.panTo([curLocationLat, curLocationLng]);
+	});
 
 	//iOS Safari Fix for button press
 
