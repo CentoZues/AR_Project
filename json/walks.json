@@ -9,8 +9,8 @@
       "pinCount": 12,
       "pins": [
         {
-          "lat": 51.630692,
-          "lng": -0.754866,
+          "lat": 51.630642,
+          "lng": -0.755739,
           "name": "Tourist Information Centre",
           "contentLink" : "pages/frogmoor.html",
           "distanceTo" : 175.2
@@ -38,8 +38,8 @@
           "distanceTo" : 90
         },
         {
-          "lat": 51.629345,
-          "lng": -0.751428,
+          "lat": 51.629380,
+          "lng": -0.751174,
           "name": "The Guildhall",
           "contentLink" : "pages/pin5.html",
           "distanceTo" : 5
@@ -52,22 +52,22 @@
           "distanceTo" : 227
         },
         {
-          "lat": 51.628260,
-          "lng": -0.748658,
+          "lat": 51.626906,
+          "lng": -0.749457,
           "name": "Jack's Garden",
           "contentLink" : "pages/pin6.html",
           "distanceTo" : 308
         },
         {
-          "lat": 51.626623,
-          "lng": -0.750290,
+          "lat": 51.626906,
+          "lng": -0.749457,
           "name": "Wycombe Abbey",
           "contentLink" : "pages/pin6.html",
           "distanceTo" : 212
         },
         {
-          "lat": 51.626512,
-          "lng": -0.746102,
+          "lat": 51.625364,
+          "lng": -0.746668,
           "name": "The Rye",
           "contentLink" : "pages/pin6.html",
           "distanceTo" : 251
@@ -76,6 +76,13 @@
           "lat": 51.626918,
           "lng": -0.743769,
           "name": "The Factories By The Mill",
+          "contentLink" : "pages/pin6.html",
+          "distanceTo" : 638
+        },
+        {
+          "lat": 51.627565,
+          "lng": -0.744383,
+          "name": "The Old Grammar School",
           "contentLink" : "pages/pin6.html",
           "distanceTo" : 638
         },
