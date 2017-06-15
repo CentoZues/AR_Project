@@ -297,14 +297,11 @@ if (location.protocol != 'https:') {
 
 var walkManager = new WalkManager();
 var mapRouting = null;
-<<<<<<< HEAD
 var compassHeading = 0;
 var menuShowing = true;
-=======
 var curLocationLat = null;
 var curLocationLng = null;
 var curLocation = null;
->>>>>>> origin/master
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
