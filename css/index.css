@@ -17,12 +17,13 @@ html.ios body {
 	z-index: 0;
 }
 
-#locator
+#locateMe
 {
-	position: fixed;
-    bottom: 10px;
-    right: 10px; 
-    z-index: 2;
+	position: absolute !important;
+	bottom: 30px;
+	display: flex;
+	justify-content: flex-end;
+	width: 100vw;
 }
 
 #ww1Slide {
