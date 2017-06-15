@@ -1,5 +1,21 @@
 <div id="importContent">
 	<div id="page2Content">
-		<h1 id="pageTitle">Page Two!</h1>
+		<button id="pageTitle">Page Two!</button>
 	</div>
+
+	<script>
+		//setInterval(function() {
+			//$('#pageTitle').text(compassHeading);
+		//}, 500);
+
+		$(function() {
+
+			$(document).on("click", "#pageTitle", function() {
+				//console.log("Button pressed");
+				$.fn.fullpage.moveTo(2);
+			});
+
+		});
+		
+	</script>
 </div>

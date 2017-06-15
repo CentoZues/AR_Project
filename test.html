@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<title>Test Page</title>
+
+	<!-- CSS Scripts -->
+	<link rel="stylesheet" href="dep/SemanticUI/semantic.min.css">
+	<!-- FullPageJS Stylesheets -->
+	<link rel="stylesheet" href="dep/fullPagejs/jquery.fullPage.css">
+
+</head>
+
+<body>
+	<div id="fullpage">
+		<div class="section active" style="background-color: red;">
+			<div id="introDiv">
+				Intro
+				<button id="leaveIntro" class="ui primary button">
+					Next!
+				</button>
+			</div>
+		</div>
+		<div class="section">
+			<div class="slide" style="background-color: yellow; max-width: 200px;">
+				<div id="sidebarList" class="ui relaxed divided list">
+				  	
+				</div>
+			</div>
+			<div class="slide" style="background-color: orange;">
+				<div id="mainDiv">
+					Main
+					<button id="leaveMiddle" class="ui primary button">
+						Next!
+					</button>
+					<button id="returnIntro" class="ui red button">
+						Back!
+					</button>
+					<button id="toggleMenu" class="ui orange button">
+						Menu!
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="section" style="background-color: green;">
+			<div id="endDiv">
+				End
+				<button id="returnMiddle" class="ui red button">
+					Back!
+				</button>
+			</div>
+		</div>
+	</div>
+	
+
+
+
+
+	<!-- Javascript Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<!--<script src="dep/iscroll/build/iscroll.js"></script>-->
+	<script src="dep/fullPagejs/vendors/scrolloverflow.min.js"></script>
+	<script src="dep/fullPagejs/jquery.fullPage.js"></script>
+
+	<script>
+
+	var menuShow = true;
+
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				navigation: false,
+				slidesNavigation: false,
+				scrollOverflow: true,
+				scrollOverflowReset: true,
+				keyboardScrolling: false,
+				setAutoScrolling: false,
+				verticalCentered: false,
+				controlArrows: false,
+				normalScrollElements: '#sidebarList, #introDiv, #mainDiv, #endDiv',
+				scrollOverflowOptions: {
+					fadeScrollbars: true
+				}
+			});
+			$.fn.fullpage.setAllowScrolling(false);
+
+			addMenuItems();
+
+			function addMenuItems() {
+				for(var i = 0; i < 50; i++) {
+					var html = '<div class="item">\
+				    	<div class="content">\
+				      		<a class="header"># ' + (i + 1) + '</a>\
+				      		<div class="description">Place name here</div>\
+				    	</div>\
+				  	</div>';
+					$('#sidebarList').append(html);
+				}
+
+				$.fn.fullpage.reBuild();
+			}
+
+			$('#leaveIntro').on('click', function() {
+				$.fn.fullpage.moveTo(2);
+			});
+
+			$('#leaveMiddle').on('click', function() {
+				$.fn.fullpage.moveTo(3);
+			});
+
+			$('#returnIntro').on('click', function() {
+				$.fn.fullpage.moveTo(1);
+			});
+
+			$('#returnMiddle').on('click', function() {
+				$.fn.fullpage.moveTo(2);
+			});
+
+			$('#toggleMenu').on('click', function() {
+				if (menuShow == true) {
+					$.fn.fullpage.moveTo(2, 1);
+					menuShow = false;
+				} else {
+					$.fn.fullpage.moveTo(2, 0);
+					menuShow = true;
+				}
+				
+			});
+		});
+	</script>
+</body>
+</html>

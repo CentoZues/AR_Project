@@ -1,9 +1,29 @@
-if(window.webkitCompassHeading) {
-	window.alert('webkitCompassHeading is supported');
+if (window.DeviceOrientationEvent) {
+
+	//var compassHeading = 0;
+
+	window.addEventListener('deviceorientation', function(e) {
+
+		//console.log(e);
+
+		if(event.webkitCompassHeading) {
+
+			compassHeading = e.webkitCompassHeading;
+
+		} else {
+
+			if (e.alpha != null) {
+
+				compassHeading = e.alpha;
+
+			}
+
+		}
+
+	});
+
 } else {
-	if(window.DeviceOrientationEvent) {
-		window.alert('DeviceOrientationEvent is supported');
-	} else {
-		window.alert('Compass data is NOT supported');
-	}
+
+	alert("Compass direction not supported");
+
 }

@@ -133,10 +133,10 @@ class PageManager {
 
 	static newSelectionPage(walkName, id, img) {
 
-		var selectionPageHTML = '<div id="' + walkName.split(' ').join('_') + '" class="slide"><div class="pageTitle">';
+		var selectionPageHTML = '<div id="' + walkName.split(' ').join('_') + '" class="slide"><div class="mapPickSlide"><div class="pageTitle">';
 		selectionPageHTML += '<h1><b>' + walkName + '</b></h1></div>';
 		selectionPageHTML += '<div class="pageButton"><a class="circular ui icon button black tapable toMapView" data-map="' + id + '"><i class="arrow down icon"></i>';
-		selectionPageHTML += '</a></div></div>';
+		selectionPageHTML += '</a></div></div></div>';
 		$('#walkPicker').append(selectionPageHTML);
 
 		//Background of slide to image
@@ -191,6 +191,8 @@ class PageManager {
 
 			$('#pinNavigationSidebar').append(pinHTML);
 		});
+
+		$.fn.fullpage.reBuild();
 	}
 
 	static updateMapRouting(curRouting, mapObj, walkID) {
@@ -295,6 +297,8 @@ if (location.protocol != 'https:') {
 
 var walkManager = new WalkManager();
 var mapRouting = null;
+var compassHeading = 0;
+var menuShowing = true;
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -385,28 +389,27 @@ $(function() {
 
 	//Slide settings
 	$('#fullpage').fullpage({
+		navigation: false,
 		loopHorizontal: false,
-		slidesNavigation: true,
+		slidesNavigation: false,
 		controlArrows: false,
-		//css3: true,
 		verticalCentered: false,
-		normalScrollElements: '#importContent',
+		normalScrollElements: '#importContent, #mapid, .mapPickSlide, #pinNavigationSidebar',
 		scrollOverflow: true,
 		scrollOverflowReset: true,
+		scrollOverflowOptions: {
+			fadeScrollbars: true
+		},
+		keyboardScrolling: false,
+		setAutoScrolling: false,
+
 		//anchors: ['walkSelection', 'mapRoute', 'pinContent'],
 		afterLoad: function(anchorLink, index) {
 			$.fn.fullpage.reBuild();
 		}
 	});
 	$.fn.fullpage.setAllowScrolling(false);
-	$.fn.fullpage.setKeyboardScrolling(false);
-
-	//Initialize sidebar
-	$('#walkPage .ui.sidebar').sidebar({
-		context: $('#walkPage'),
-		silent: true,
-		closable: true
-	}).sidebar('attach events', '.ui.launch.button');
+	$.fn.fullpage.setAutoScrolling(true);
 
 	//Get User Position (Constantly Polling)
 	if (navigator.geolocation) {
@@ -439,7 +442,7 @@ $(function() {
 
 	//Button to Map View
 	$('#walkPicker').on('click touchstart', '.toMapView', function() {
-		console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
+		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
 		//console.log(walkManager.getWalk($(this).attr('data-map')).getPins());
@@ -456,22 +459,27 @@ $(function() {
 	$(document).on('click touchstart', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
 		$.fn.fullpage.moveTo(1);
-		$('#walkPage .ui.sidebar').sidebar('hide');
 	});
 
 	//Sidebar Button
 	$(document).on('click touchstart', '.sidebartoggle', function() {
 		//alert("Button Pressed ( Sidebar Toggled )");
-		$('#walkPage .ui.sidebar').sidebar('show');
+		if(menuShowing == false) {
+			$.fn.fullpage.moveTo(2, 0);
+			menuShowing = true;
+		} else {
+			$.fn.fullpage.moveTo(2, 1);
+			menuShowing = false;
+		}
 	});
 
     $(document).on('click touchstart', '.videoOptionButton', function() {
-    	console.log('videoOptionButtons pressed');
+    	//console.log('videoOptionButtons pressed');
     	$.fn.fullpage.moveTo(2);
     });
 
     $('#backToMapButton').on('click touchstart', function() {
-    	console.log('backToMapButton pressed');
+    	//console.log('backToMapButton pressed');
     	$.fn.fullpage.moveTo(2);
     });
 

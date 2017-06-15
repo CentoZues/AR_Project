@@ -2,6 +2,15 @@ body {
 	/*overflow-y: scroll !important;*/
 }
 
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+html.ios,
+html.ios body {
+  height: initial !important;
+}
+
 #mapid {
 	height: 100vh;
 	width: 100vw;
@@ -28,18 +37,21 @@ body {
 	background-size: 100% 100%;
 }
 
+.mapPickSlide {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .pageTitle {
 	color: #FFF;
-	text-align: center;
 	text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
-	transform: translate(0%, -15%);
+	align-self: center;
 }
 
 .pageButton {
-	transform: translate(0%, 15%);
-	width: 186px;
-	font-size: 72px;
-	margin: auto;
+	align-self: center;
 }
 
 button {
@@ -115,12 +127,8 @@ button {
 		) !important;
 }
 
-#pinNavigationSidebar { /*iOS fix (of course...) */
-	overflow: auto;
-	overflow-y: scroll !important;
-	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch;
-	height: 100vh;
+#pinNavigationSidebar {
+	overflow: none;
 }
 
 .pinInfoContent {
@@ -200,4 +208,17 @@ button {
 
 .toMapView {
 	font-size: 75px !important;
+}
+
+#importContent {
+	min-height: 100vh;
+}
+
+.ui.black.button {
+	margin: auto;
+}
+
+#pinNavigationSidebarSlide {
+	width: 250px;
+	max-width: 60vw;
 }
