@@ -297,14 +297,21 @@ if (location.protocol != 'https:') {
 
 var walkManager = new WalkManager();
 var mapRouting = null;
+<<<<<<< HEAD
 var compassHeading = 0;
 var menuShowing = true;
+=======
+var curLocationLat = null;
+var curLocationLng = null;
+var curLocation = null;
+>>>>>>> origin/master
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
 	walkManager.loadWalks(data);
 	walkManager.createPages();
 });
+
 
 //Remove ability for smartphone/tablets to scroll around the screen
 $('html, body').on('touchstart touchmove', function(e) {
@@ -421,6 +428,8 @@ $(function() {
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
 		//console.log("Location updated: ", position.coords);
+		curLocationLat = position.coords.latitude;
+		curLocationLng = position.coords.longitude;
 	}
 
 	function positionError(err) {
@@ -436,8 +445,11 @@ $(function() {
 	//////////////////////////
 	//    Button Presses    //
 	//////////////////////////
-
-
+	$(document).on('click touchstart', '.locator', function() {
+		curLocation = L.latLng(curLocationLat, curLocationLng)
+        myMap.panTo(curLocation);
+        console.log("Current Location is: ", curLocation);
+    });
 	//iOS Safari Fix for button press
 
 	//Button to Map View
