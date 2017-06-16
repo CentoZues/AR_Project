@@ -25,12 +25,14 @@
 			</div>
 		</div>
 		<div class="section">
-			<div class="slide" style="background-color: yellow; max-width: 200px;">
+			
+			<div id="sidebarSlide" class="slide" style="background-color: yellow; max-width: 200px;">
 				<div id="sidebarList" class="ui relaxed divided list">
 				  	
 				</div>
 			</div>
-			<div class="slide" style="background-color: orange;">
+
+			<div id="mapSlide" class="slide" style="background-color: orange;">
 				<div id="mainDiv">
 					Main
 					<button id="leaveMiddle" class="ui primary button">
@@ -44,7 +46,11 @@
 					</button>
 				</div>
 			</div>
+
+			
+
 		</div>
+
 		<div class="section" style="background-color: green;">
 			<div id="endDiv">
 				End
@@ -68,6 +74,7 @@
 	<script>
 
 	var menuShow = true;
+	var lastVisitedSection = 0;
 
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
@@ -82,6 +89,22 @@
 				normalScrollElements: '#sidebarList, #introDiv, #mainDiv, #endDiv',
 				scrollOverflowOptions: {
 					fadeScrollbars: true
+				},
+				onLeave: function(index, nextIndex, direction) {
+					lastVisitedSection = index;
+
+					if(index == 1 && nextIndex == 2) {
+						menuShow = false;
+						$('#sidebarSlide').removeClass('active');
+						$('#mapSlide').addClass('active');
+						$.fn.fullpage.reBuild();
+
+					}
+				},
+				afterLoad: function(anchorLink, index) {
+					if (index == 2 && lastVisitedSection == 1) {
+						//$.fn.fullpage.silentMoveTo(2, 1);
+					}
 				}
 			});
 			$.fn.fullpage.setAllowScrolling(false);

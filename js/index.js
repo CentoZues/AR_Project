@@ -150,7 +150,7 @@ class PageManager {
 
 	}
 
-	static mapPagePins(pins) {
+	static mapPagePins(pins, walkId) {
 		$('.sidebarPin').remove();
 		$('.sidebarPinDistance').remove();
 		
@@ -158,36 +158,38 @@ class PageManager {
 		jQuery.each(pins, function(i, val) {
 			var pinHTML = '';
 			//console.log("Adding pin: ", val);
-			pinHTML += '<div class="item pin sidebarPin">\
+			pinHTML += '<div class="item pin sidebarPin" data-pinId="' + val.id + '" data-walkId="' + walkId + '">\
 				<div class="ui grid">\
 					<div class="row pinInfo">\
-						<div class="two wide column pinInfoColumn">\
+						<div class="three wide column pinInfoColumn">\
 							<span class="pinInfoContent">' + (val.id + 1) + '.</span>\
 						</div>\
-						<div class="ten wide column pinInfoColumn">\
+						<div class="ten wide column pinInfoColumn pinNameDisplay">\
 							<span class="pinInfoContent">' + (val.name) + '</span>\
 						</div>\
-						<div class="four wide column pinInfoColumn">\
+						<div class="three wide column pinInfoColumn">\
 							<span class="pinInfoContent"><i class="big check circle outline green icon"></i></span>\
 						</div>\
 					</div>\
 				</div>\
-			</div>\
-			<div class="item distance sidebarPinDistance">\
-				<div class="ui grid">\
-					<div class="centered row pinDistance">\
-						<div class="three wide column">\
-							<i class="clockwise rotated level up icon"></i>\
-						</div>\
-						<div class="ten wide column">\
-							Distance: ' + (val.dist) + ' meters\
-						</div>\
-						<div class="three wide column">\
-							<i class="level down icon"></i>\
+			</div>';
+			if (val.dist != 0) {
+				pinHTML += '<div class="item distance sidebarPinDistance">\
+					<div class="ui grid">\
+						<div class="centered row pinDistance">\
+							<div class="three wide column">\
+								<i class="clockwise rotated level up icon"></i>\
+							</div>\
+							<div class="ten wide column pinDistanceDisplay">\
+								Distance: ' + (val.dist) + ' meters\
+							</div>\
+							<div class="three wide column">\
+								<i class="level down icon"></i>\
+							</div>\
 						</div>\
 					</div>\
-				</div>\
-			</div>';
+				</div>';
+			}
 
 			$('#pinNavigationSidebar').append(pinHTML);
 		});
@@ -333,7 +335,7 @@ $('div').each(function(){
 var myMap = L.map('mapid', {
 	center: [51.629619, -0.748514],
 	zoom: 5,
-	minZoom: 15
+	minZoom: 18
 });
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2MHZxcDFnMDA0eDJ0dDl6cGhsbnE0dyJ9.Bz2HQaXOIdZnpjvct4hq0g').addTo(myMap);
@@ -402,7 +404,8 @@ $(function() {
 		scrollOverflow: true,
 		scrollOverflowReset: true,
 		scrollOverflowOptions: {
-			fadeScrollbars: true
+			fadeScrollbars: true,
+			tap: true
 		},
 		keyboardScrolling: false,
 		setAutoScrolling: false,
@@ -410,7 +413,16 @@ $(function() {
 		//anchors: ['walkSelection', 'mapRoute', 'pinContent'],
 		afterLoad: function(anchorLink, index) {
 			$.fn.fullpage.reBuild();
+		},
+		onLeave: function(index, nextIndex, direction) {
+
+		if(index == 1 && nextIndex == 2) {
+			menuShowing = false;
+			$('#pinNavigationSidebarSlide').removeClass('active');
+			$('#mapDisplaySlide').addClass('active');
+			$.fn.fullpage.reBuild();
 		}
+	}
 	});
 	$.fn.fullpage.setAllowScrolling(false);
 	$.fn.fullpage.setAutoScrolling(true);
@@ -456,12 +468,14 @@ $(function() {
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
 		//console.log(walkManager.getWalk($(this).attr('data-map')).getPins());
 		//Add pins to sidebar
-		PageManager.mapPagePins(walkManager.getWalk($(this).attr('data-map')).getPins());
+		PageManager.mapPagePins(walkManager.getWalk($(this).attr('data-map')).getPins(), $(this).attr('data-map'));
 		//Move to map page
 		$.fn.fullpage.moveTo(2);
+		menuShowing = false;
 		//Load content pages
 		PageManager.addPageImport(walkManager.getWalk($(this).attr('data-map')).getPins());
 		//$('#walkPage .ui.sidebar').sidebar('show');
+
 	});
 
 	//Home Button
@@ -476,9 +490,16 @@ $(function() {
 		if(menuShowing == false) {
 			$.fn.fullpage.moveTo(2, 0);
 			menuShowing = true;
+			$('#mapid').on('click touchstart', function() {
+				$.fn.fullpage.moveTo(2, 1);
+				menuShowing = false;
+				$('#mapid').off('click touchstart');
+				console.log("Hiding sidebar");
+			});
 		} else {
 			$.fn.fullpage.moveTo(2, 1);
 			menuShowing = false;
+			
 		}
 	});
 
@@ -490,6 +511,28 @@ $(function() {
     $('#backToMapButton').on('click touchstart', function() {
     	//console.log('backToMapButton pressed');
     	$.fn.fullpage.moveTo(2);
+    });
+
+    $(document).on('tap', '.sidebarPin', function() {
+    	//console.log(this);
+		console.log("Pin ID: ", $(this).attr('data-pinId'), $(this).attr('data-walkId'));
+		console.log("Content for pin: ", walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getID(), walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getName(), walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getURL(), $(this).attr('data-pinId'), $(this).attr('data-walkId'));
+		
+		//Clear div
+		$('#walkContent').empty();
+		//$.fn.fullpage.destroy();
+
+		//Add HTML from import
+		var link = document.querySelector('link[href="' + walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getURL() + '"]').import;
+		var content = link.querySelector('#importContent');
+		document.getElementById('walkContent').appendChild(content);
+
+		//setTimeout(function(){
+		//	$.fn.fullpage.reBuild();
+		//	console.log("Page rebuilt.");
+		//}, 2000);
+
+		$.fn.fullpage.moveTo(3, 0);
     });
 
 });
