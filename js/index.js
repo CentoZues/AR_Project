@@ -231,7 +231,9 @@ class PageManager {
 							number: (i + 1),
 							markerColor: 'blue'
 						})
-					}).on('click touchstart touchend', onPinTap);
+					}).on('click touchstart touchend', function() {
+						loadPageContent(walkID, i);
+					});
 				} else if (i == 0) { //First Marker
 					return L.marker(wp.latLng, {
 						pinId: (i + 1),
@@ -242,7 +244,9 @@ class PageManager {
 							shape: 'star',
 							markerColor: 'blue'
 						})
-					}).on('click touchstart touchend', onPinTap);
+					}).on('click touchstart touchend', function() {
+						loadPageContent(walkID, i);
+					});
 				} else if (i == (nWps - 1)) { //Last Marker
 					return L.marker(wp.latLng, {
 						pinId: (i + 1),
@@ -253,7 +257,9 @@ class PageManager {
 							shape: 'star',
 							markerColor: 'red'
 						})
-					}).on('click touchstart touchend', onPinTap);
+					}).on('click touchstart touchend', function() {
+						loadPageContent(walkID, i);
+					});
 				}
 				
 			},
@@ -265,14 +271,6 @@ class PageManager {
 		}).addTo(mapObj);
 
 		return route;
-	}
-
-	static newContentARPage() {
-
-	}
-
-	static newContentStaticPage() {
-
 	}
 
 	static addPageImport(pins) {
@@ -304,6 +302,7 @@ var menuShowing = true;
 var curLocationLat = null;
 var curLocationLng = null;
 var curLocation = null;
+var loadedContentPages = [];
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -344,32 +343,6 @@ var pulsingIcon = L.icon.pulse({iconSize:[20,20], color: 'blue'});
 var marker = L.marker([51.629619, -0.748514], {icon: pulsingIcon}).addTo(myMap);
 
 
-
-function onPinTap(e) {
-	//console.log(this);
-	console.log("Pin ID: ", this.options.pinId);
-	console.log("Content for pin: ", walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getID(), walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getName(), walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getURL(), this.options.pinId, this.options.walkId);
-	
-	//Clear div
-	$('#walkContent').empty();
-	//$.fn.fullpage.destroy();
-
-	//Add HTML from import
-	var link = document.querySelector('link[href="' + walkManager.getWalk(this.options.walkId).getPin(this.options.pinId - 1).getURL() + '"]').import;
-	var content = link.querySelector('#importContent');
-	document.getElementById('walkContent').appendChild(content);
-
-	//setTimeout(function(){
-	//	$.fn.fullpage.reBuild();
-	//	console.log("Page rebuilt.");
-	//}, 2000);
-
-	$.fn.fullpage.moveTo(3, 0);
-
-}
-
-
-
 //////////////////////////
 //   Gesture Controls   //
 //////////////////////////
@@ -387,6 +360,40 @@ motionCap.on('swipeleft swiperight', function(ev) {
 		$.fn.fullpage.moveSlideLeft();
 	}
 });
+
+
+
+function loadPageContent(walkId, pinId) {
+	console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
+	console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
+
+	//Clear Div
+	$('#walkContent').empty();
+
+	//Loop through and check for existing content
+	var itemIndex = null;
+	jQuery.each(loadedContentPages, function(i, val) {
+		if(val.walkId == walkId && val.pinId == pinId) {
+			itemIndex = i;
+		}
+	});
+
+	if(itemIndex != null) {
+		console.log(String(loadedContentPages[itemIndex].pageContent), itemIndex);
+		$('#walkContent').append(String(loadedContentPages[itemIndex].pageContent));
+
+	} else {
+		//Add HTML from import
+		var link = document.querySelector('link[href="' + walkManager.getWalk(walkId).getPin(pinId).getURL() + '"]').import;
+		var content = link.querySelector('#importContent');
+		document.getElementById('walkContent').appendChild(content);
+		loadedContentPages.push({'walkId': walkId, 'pinId': pinId, 'pageContent': content.outerHTML});
+	}
+	
+
+	//Move to page
+	$.fn.fullpage.moveTo(3, 0);
+}
 
 
 
@@ -514,25 +521,9 @@ $(function() {
     });
 
     $(document).on('tap', '.sidebarPin', function() {
-    	//console.log(this);
-		console.log("Pin ID: ", $(this).attr('data-pinId'), $(this).attr('data-walkId'));
-		console.log("Content for pin: ", walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getID(), walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getName(), walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getURL(), $(this).attr('data-pinId'), $(this).attr('data-walkId'));
-		
-		//Clear div
-		$('#walkContent').empty();
-		//$.fn.fullpage.destroy();
 
-		//Add HTML from import
-		var link = document.querySelector('link[href="' + walkManager.getWalk($(this).attr('data-walkId')).getPin($(this).attr('data-pinId')).getURL() + '"]').import;
-		var content = link.querySelector('#importContent');
-		document.getElementById('walkContent').appendChild(content);
+    	loadPageContent($(this).attr('data-walkId'), $(this).attr('data-pinId'));
 
-		//setTimeout(function(){
-		//	$.fn.fullpage.reBuild();
-		//	console.log("Page rebuilt.");
-		//}, 2000);
-
-		$.fn.fullpage.moveTo(3, 0);
     });
 
 });
