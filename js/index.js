@@ -10,7 +10,7 @@ class WalkManager {
 
 	loadWalks(data) {
 		//Creates all of the Map/Walk/Pin objects from the JSON object
-		console.log("Loading in walks", data);
+		//console.log("Loading in walks", data);
 		var manager = this;
 		//Loop through Walks
 		jQuery.each(data.walks, function(i, walkVal) {
@@ -198,7 +198,7 @@ class PageManager {
 	}
 
 	static updateMapRouting(curRouting, mapObj, walkID) {
-		console.log("Updating map pins!", walkID);
+		//console.log("Updating map pins!", walkID);
 		var pinsArray = walkManager.getWalk(walkID).getPins();
 
 		//Remove old waypoints
@@ -280,7 +280,7 @@ class PageManager {
 			link.rel = 'import';
 			link.href = val.url;
 			link.onload = function(e) {
-				console.log('\'' + val.url + '\' is loaded.');
+				//console.log('\'' + val.url + '\' is loaded.');
 			}
 			document.head.appendChild(link);
 		});
@@ -351,7 +351,7 @@ var trackingElement = document.getElementById('walkPicker');
 var motionCap = new Hammer(trackingElement);
 
 motionCap.on('swipeleft swiperight', function(ev) {
-	console.log("Gesture: " + ev.type);
+	//console.log("Gesture: " + ev.type);
 	if(ev.type == 'swipeleft') {
 		//move forward one element
 		$.fn.fullpage.moveSlideRight();
@@ -364,8 +364,8 @@ motionCap.on('swipeleft swiperight', function(ev) {
 
 
 function loadPageContent(walkId, pinId) {
-	console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
-	console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
+	//console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
+	//console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
 
 	//Clear Div
 	$('#walkContent').empty();
@@ -379,7 +379,7 @@ function loadPageContent(walkId, pinId) {
 	});
 
 	if(itemIndex != null) {
-		console.log(String(loadedContentPages[itemIndex].pageContent), itemIndex);
+		//console.log(String(loadedContentPages[itemIndex].pageContent), itemIndex);
 		$('#walkContent').append(String(loadedContentPages[itemIndex].pageContent));
 
 	} else {
@@ -391,7 +391,7 @@ function loadPageContent(walkId, pinId) {
 	}
 	
 
-	//Move to page
+	//Move to pagef
 	$.fn.fullpage.moveTo(3, 0);
 }
 
@@ -464,7 +464,7 @@ $(function() {
 	$(document).on('click touchstart', '.locator', function() {
 		curLocation = L.latLng(curLocationLat, curLocationLng)
         myMap.panTo(curLocation);
-        console.log("Current Location is: ", curLocation);
+        //console.log("Current Location is: ", curLocation);
     });
 	//iOS Safari Fix for button press
 
@@ -477,6 +477,7 @@ $(function() {
 		//Add pins to sidebar
 		PageManager.mapPagePins(walkManager.getWalk($(this).attr('data-map')).getPins(), $(this).attr('data-map'));
 		//Move to map page
+		$('#mapid').removeClass("fadedBlack");
 		$.fn.fullpage.moveTo(2);
 		menuShowing = false;
 		//Load content pages
@@ -501,12 +502,14 @@ $(function() {
 				$.fn.fullpage.moveTo(2, 1);
 				menuShowing = false;
 				$('#mapid').off('click touchstart');
-				console.log("Hiding sidebar");
+				$('#mapid').removeClass("fadedBlack");
+				//console.log("Hiding sidebar");
 			});
+			$('#mapid').addClass("fadedBlack");
 		} else {
 			$.fn.fullpage.moveTo(2, 1);
 			menuShowing = false;
-			
+			$('#mapid').removeClass("fadedBlack");
 		}
 	});
 
