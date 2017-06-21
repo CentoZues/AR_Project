@@ -560,7 +560,7 @@ $(function() {
 
 	//Modal Buttons
 	$(document).on('click touchstart', '#modalButton', function() {
-			loadPageContent(modalid);
+			loadPageContent(walkid, modalid);
 	});
 
 	//Sidebar Button
