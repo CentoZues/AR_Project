@@ -320,10 +320,11 @@ $('html, body').on('touchstart touchmove', function(e) {
 	e.preventDefault();
 
 });
-function DistanceCheck(pins)
+function DistanceCheck(walkVal.pins)
 {
+	
 	console.log("Entered distcheck");
-	console.log(pins);
+	console.log(walkVal.pins);
 	var DistCheckArray = [];
 
 	jQuery.each(pins, function(i, val) {
@@ -505,7 +506,7 @@ $(function() {
 	}
 
 	//Initialise distance check function
-    var myVar = setInterval(function(){DistanceCheck(walkManager.getWalk($(this).attr('data-map')).getPins(), $(this).attr('data-map'))}, 30000);
+    var myVar = setInterval(function(){DistanceCheck()}, 30000);
 
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
