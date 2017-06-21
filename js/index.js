@@ -304,6 +304,8 @@ var curLocationLng = null;
 var curLocation = null;
 var loadedContentPages = [];
 var modalid;
+var curSlide;
+
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -318,31 +320,27 @@ $('html, body').on('touchstart touchmove', function(e) {
 	e.preventDefault();
 
 });
-function DistanceCheck(pins){
+function DistanceCheck(pins)
+{
 	var DistCheckArray = [];
-		jQuery.each(pins, function(i, val) {
-		var pincoord = val.lat + ", " + val.lng;
-		var curDistanceFrom = curLocation.distanceTo(pincoord)
-		if (curDistanceFrom < 5) {
-			DistCheckArray.push("yes");
-		}
-		else
-		{
-			DistCheckArray.push("no");
-		}
-		}
-$.fn.fullpage({
-    'afterLoad': function (anchorLink, index) {
-			var loadedSection = $(this);
-			if(index != 3){
-			if(DistCheckArray.indexOf("yes"))
-			{
+	var pincoord = val.lat + ", " + val.lng;
+	var curDistanceFrom = curLocation.distanceTo(pincoord)
+
+	jQuery.each(pins, function(i, val) {
+	if (curDistanceFrom < 5) {
+		DistCheckArray.push("yes");
+	}
+	else
+	{
+		DistCheckArray.push("no");
+	}
+	});
+	if (curSlide == 3) {
+		if (DistCheckArray.indexOf("yes")) {
 			var closestPin = DistCheckArray.indexOf("yes");
 			pageModal(closestPin);
 		}
-		}
-		}
-	});
+	}
 }
 function pageModal(closestPin){
 var modalHTML = '';
@@ -476,6 +474,7 @@ $(function() {
 		//anchors: ['walkSelection', 'mapRoute', 'pinContent'],
 		afterLoad: function(anchorLink, index) {
 			$.fn.fullpage.reBuild();
+			curSlide = index;
 		},
 		onLeave: function(index, nextIndex, direction) {
 
