@@ -323,10 +323,10 @@ $('html, body').on('touchstart touchmove', function(e) {
 function DistanceCheck(pins)
 {
 	var DistCheckArray = [];
-	var pincoord = val.lat + ", " + val.lng;
-	var curDistanceFrom = curLocation.distanceTo(pincoord)
 
 	jQuery.each(pins, function(i, val) {
+	var pincoord = val.lat + ", " + val.lng;
+	var curDistanceFrom = curLocation.distanceTo(pincoord);
 	if (curDistanceFrom < 5) {
 		DistCheckArray.push("yes");
 	}
@@ -498,7 +498,7 @@ $(function() {
 
 	//Initialise distance check function
     var myVar = setInterval(function(){DistanceCheck()}, 30000);
-    
+
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
 		//console.log("Location updated: ", position.coords);
