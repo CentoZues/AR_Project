@@ -331,9 +331,8 @@ function DistanceCheck(pins){
 			DistCheckArray.push("no");
 		}
 		}
-		$('#fullpage').fullpage({
-
-		afterLoad: function(anchorLink, index){
+$.fn.fullpage({
+    'afterLoad': function (anchorLink, index) {
 			var loadedSection = $(this);
 			if(index != 3){
 			if(DistCheckArray.indexOf("yes"))
