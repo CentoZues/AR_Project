@@ -326,6 +326,7 @@ function DistanceCheck(pins)
 	var DistCheckArray = [];
 
 	jQuery.each(pins, function(i, val) {
+		console.log("Entered for each");
 	var pincoord = val.lat + ", " + val.lng;
 	var curDistanceFrom = curLocation.distanceTo(pincoord);
 	if (curDistanceFrom < 5) {
@@ -338,6 +339,7 @@ function DistanceCheck(pins)
 		console.log("added a no");
 	}
 	});
+	console.log(DistCheckArray);
 	if (curSlide == 3) {
 		if (DistCheckArray.indexOf("yes")) {
 			var closestPin = DistCheckArray.indexOf("yes");
