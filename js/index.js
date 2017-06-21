@@ -497,10 +497,8 @@ $(function() {
 	}
 
 	//Initialise distance check function
-    function StartDistanceCheckFunction() {
     var myVar = setInterval(function(){DistanceCheck()}, 30000);
-	}
-
+    
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
 		//console.log("Location updated: ", position.coords);
