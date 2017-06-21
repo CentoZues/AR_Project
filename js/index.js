@@ -322,6 +322,7 @@ $('html, body').on('touchstart touchmove', function(e) {
 });
 function DistanceCheck(pins)
 {
+	console.log("Entered distcheck");
 	var DistCheckArray = [];
 
 	jQuery.each(pins, function(i, val) {
@@ -329,22 +330,25 @@ function DistanceCheck(pins)
 	var curDistanceFrom = curLocation.distanceTo(pincoord);
 	if (curDistanceFrom < 5) {
 		DistCheckArray.push("yes");
+		console.log("added a yes");
 	}
 	else
 	{
 		DistCheckArray.push("no");
+		console.log("added a no");
 	}
 	});
 	if (curSlide == 3) {
 		if (DistCheckArray.indexOf("yes")) {
 			var closestPin = DistCheckArray.indexOf("yes");
 			pageModal(closestPin);
+			console.log("request pagemodal");
 		}
 	}
 }
 function pageModal(closestPin){
 var modalHTML = '';
-
+	console.log("Entered pagemodal");
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
 			pinHTML += '<div class="ui modal">\
@@ -367,6 +371,7 @@ var modalHTML = '';
 			  </div>\
 			</div>';
 			$('#PinModal').append(modalHTML);
+			console.log("html created");
 		$('.ui.modal').modal('show');
 	}
 
