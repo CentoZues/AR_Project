@@ -420,7 +420,6 @@ motionCap.on('swipeleft swiperight', function(ev) {
 function loadPageContent(walkId, pinId) {
 	//console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
 	//console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
-	document.body.style.overflow = "auto";
 	//Clear Div
 	$('#walkContent').empty();
 
@@ -443,11 +442,9 @@ function loadPageContent(walkId, pinId) {
 		document.getElementById('walkContent').appendChild(content);
 		loadedContentPages.push({'walkId': walkId, 'pinId': pinId, 'pageContent': content.outerHTML});
 	}
-
-	
-
 	//Move to pagef
 	$.fn.fullpage.moveTo(3, 0);
+	document.body.style.overflow = "auto";
 }
 
 
