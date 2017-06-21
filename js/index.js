@@ -367,9 +367,9 @@ var modalHTML = '';
 			  </div>\
 			</div>';
 			$('#PinModal').append(modalHTML);
+		$('.ui.modal').modal('show');
 	}
-	$('.ui.modal').modal('show');
-}
+
 
 
 
