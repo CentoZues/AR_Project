@@ -320,11 +320,11 @@ $('html, body').on('touchstart touchmove', function(e) {
 	e.preventDefault();
 
 });
-function DistanceCheck(walkVal.pins)
+function DistanceCheck(pins)
 {
-	
+
 	console.log("Entered distcheck");
-	console.log(walkVal.pins);
+	console.log(pins);
 	var DistCheckArray = [];
 
 	jQuery.each(pins, function(i, val) {
@@ -352,6 +352,7 @@ function DistanceCheck(walkVal.pins)
 		}
 	}
 }
+
 function pageModal(closestPin){
 var modalHTML = '';
 	console.log("Entered pagemodal");
@@ -506,7 +507,7 @@ $(function() {
 	}
 
 	//Initialise distance check function
-    var myVar = setInterval(function(){DistanceCheck()}, 30000);
+    
 
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
@@ -550,7 +551,7 @@ $(function() {
 		//Load content pages
 		PageManager.addPageImport(walkManager.getWalk($(this).attr('data-map')).getPins());
 		//$('#walkPage .ui.sidebar').sidebar('show');
-
+		var myVar = setInterval(function(){DistanceCheck(walkManager.getWalk($(this).attr('data-map')).getPins())}, 30000);
 	});
 
 	//Home Button
