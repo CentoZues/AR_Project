@@ -505,7 +505,7 @@ $(function() {
 	}
 
 	//Initialise distance check function
-    var myVar = setInterval(function(){DistanceCheck()}, 30000);
+    var myVar = setInterval(function(){DistanceCheck(walkManager.getWalk($(this).attr('data-map')).getPins(), $(this).attr('data-map'))}, 30000);
 
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
