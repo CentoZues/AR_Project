@@ -420,7 +420,7 @@ motionCap.on('swipeleft swiperight', function(ev) {
 function loadPageContent(walkId, pinId) {
 	//console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
 	//console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
-
+	document.body.style.overflow = "auto";
 	//Clear Div
 	$('#walkContent').empty();
 
@@ -443,6 +443,7 @@ function loadPageContent(walkId, pinId) {
 		document.getElementById('walkContent').appendChild(content);
 		loadedContentPages.push({'walkId': walkId, 'pinId': pinId, 'pageContent': content.outerHTML});
 	}
+
 	
 
 	//Move to pagef
@@ -582,8 +583,10 @@ $(function() {
     });
 
     $('#backToMapButton').on('click touchstart', function() {
+    	document.body.style.overflow = "hidden";
     	//console.log('backToMapButton pressed');
     	$.fn.fullpage.moveTo(2);
+
     });
 
     $(document).on('tap', '.sidebarPin', function() {
