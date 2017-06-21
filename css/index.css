@@ -36,6 +36,12 @@ html.ios body {
 	z-index: 0;
 }
 
+#PinModal{
+	z-index: 2;
+	width: 45%;
+	height: 45%;
+}
+
 #ww1Slide {
 	background: url('../img/background-ww1.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
