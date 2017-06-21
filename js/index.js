@@ -303,6 +303,7 @@ var curLocationLat = null;
 var curLocationLng = null;
 var curLocation = null;
 var loadedContentPages = [];
+var modalid;
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -317,6 +318,62 @@ $('html, body').on('touchstart touchmove', function(e) {
 	e.preventDefault();
 
 });
+function DistanceCheck(pins){
+	var DistCheckArray = [];
+		jQuery.each(pins, function(i, val) {
+		var pincoord = val.lat + ", " + val.lng;
+		var curDistanceFrom = curLocation.distanceTo(pincoord)
+		if (curDistanceFrom < 5) {
+			DistCheckArray.push("yes");
+		}
+		else
+		{
+			DistCheckArray.push("no");
+		}
+		}
+		$('#fullpage').fullpage({
+
+		afterLoad: function(anchorLink, index){
+			var loadedSection = $(this);
+			if(index != 3){
+			if(DistCheckArray.indexOf("yes"))
+			{
+			var closestPin = DistCheckArray.indexOf("yes");
+			pageModal(closestPin);
+		}
+		}
+		}
+	});
+}
+function pageModal(closestPin){
+var modalHTML = '';
+
+	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
+	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
+			pinHTML += '<div class="ui modal">\
+			  <i class="close icon"></i>\
+			  <div class="header">\
+			    You Have Arrived at '+ modalName +'\
+			  </div>\
+			    <div class="description">\
+			      <div class="ui header">Would you like to Access the content for this '+ modalName +'?</div>\
+			    </div>\
+			  </div>\
+			  <div class="actions">\
+			    <div class="ui black deny button">\
+			      No Thank You!\
+			    </div>\
+			    <div id="modalButton" class="ui positive right labeled icon button">\
+			      Yes, Please!\
+			      <i class="checkmark icon"></i>\
+			    </div>\
+			  </div>\
+			</div>';
+			$('#PinModal').append(modalHTML);
+	}
+	$('.ui.modal').modal('show');
+}
+
 
 
 
@@ -441,6 +498,11 @@ $(function() {
 		alert("GeoLocation not supported. Please enable GPS.");
 	}
 
+	//Initialise distance check function
+    function StartDistanceCheckFunction() {
+    var myVar = setInterval(function(){DistanceCheck()}, 30000);
+	}
+
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
 		//console.log("Location updated: ", position.coords);
@@ -490,6 +552,11 @@ $(function() {
 	$(document).on('click touchstart', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
 		$.fn.fullpage.moveTo(1);
+	});
+
+	//Modal Buttons
+	$(document).on('click touchstart', '#modalButton', function() {
+			loadPageContent(modalid);
 	});
 
 	//Sidebar Button
