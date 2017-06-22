@@ -341,6 +341,7 @@ function DistanceCheck(pins)
 	}
 	});
 	console.log(DistCheckArray);
+	console.log(curSlide);
 	if (curSlide != 3) {
 		if (DistCheckArray.indexOf("yes")) {
 			var closestPin = DistCheckArray.indexOf("yes");
