@@ -322,13 +322,10 @@ $('html, body').on('touchstart touchmove', function(e) {
 });
 function DistanceCheck(pins)
 {
-
-	console.log("Entered distcheck");
-	console.log(pins);
 	var DistCheckArray = [];
+	console.log(curLocation);
 
 	jQuery.each(pins, function(i, val) {
-	console.log("Entered for each");
 	var latlng = L.latLng(val.lat, val.lng);
 	console.log(latlng);
 	var curDistanceFrom = curLocation.distanceTo(latlng);
