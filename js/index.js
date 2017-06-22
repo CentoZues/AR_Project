@@ -344,6 +344,7 @@ function DistanceCheck(pins)
 	console.log(DistCheckArray);
 
 	if (curSlide != 3) {
+		console.log("entering curSLide");
 		if (DistCheckArray.indexOf("yes")) {
 			var closestPin = DistCheckArray.indexOf("yes");
 			pageModal(closestPin);
