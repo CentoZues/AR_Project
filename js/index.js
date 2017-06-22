@@ -341,7 +341,7 @@ function DistanceCheck(pins)
 	}
 	});
 	console.log(DistCheckArray);
-	if (curSlide == 3) {
+	if (curSlide != 3) {
 		if (DistCheckArray.indexOf("yes")) {
 			var closestPin = DistCheckArray.indexOf("yes");
 			pageModal(closestPin);
