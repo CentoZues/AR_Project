@@ -541,17 +541,20 @@ $(function() {
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
+		var pins = walkManager.getWalk($(this).attr('data-map')).getPins();
 		//console.log(walkManager.getWalk($(this).attr('data-map')).getPins());
 		//Add pins to sidebar
-		PageManager.mapPagePins(walkManager.getWalk($(this).attr('data-map')).getPins(), $(this).attr('data-map'));
+		PageManager.mapPagePins(pins, $(this).attr('data-map'));
 		//Move to map page
 		$('#mapid').removeClass("fadedBlack");
 		$.fn.fullpage.moveTo(2);
 		menuShowing = false;
 		//Load content pages
-		PageManager.addPageImport(walkManager.getWalk($(this).attr('data-map')).getPins());
+		PageManager.addPageImport(pins);
 		//$('#walkPage .ui.sidebar').sidebar('show');
-		var myVar = setInterval(function(){DistanceCheck(walkManager.getWalk($(this).attr('data-map')).getPins())}, 30000);
+		var myVar = setInterval(function() {
+			DistanceCheck(pins);
+		}, 30000);
 	});
 
 	//Home Button

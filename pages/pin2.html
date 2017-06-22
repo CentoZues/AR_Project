@@ -4,6 +4,9 @@
 		<p id="compassHeadingDisplay"></p></br>
 		<button id="to360View">To 360 View!</button>
 	</div>
+	<div id="">
+
+	</div>
 
 	<script>
 		//setInterval(function() {
@@ -13,6 +16,11 @@
 		$(function() {
 
 			$(document).on("click", "#pageTitle", function() {
+				//console.log("Button pressed");
+				$.fn.fullpage.moveTo(2);
+			});
+
+			$(document).on("click", "#to360View", function() {
 				//console.log("Button pressed");
 				$.fn.fullpage.moveTo(2);
 			});
