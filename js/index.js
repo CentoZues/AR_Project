@@ -305,6 +305,7 @@ var curLocation = null;
 var loadedContentPages = [];
 var modalid;
 var curSlide;
+var closestPin = null;
 
 
 //Get JSON and load it in to objects
@@ -345,9 +346,9 @@ function DistanceCheck(pins)
 
 	if (curSlide != 3) {
 		console.log("entering curSLide");
-		if (DistCheckArray.indexOf("yes")) {
+		closestPin = DistCheckArray.indexOf("yes");
+		if (closestPin != null) {
 			console.log("entering indexOf");
-			var closestPin = DistCheckArray.indexOf("yes");
 			pageModal(closestPin);
 			console.log("request pagemodal");
 		}
