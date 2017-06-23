@@ -146,7 +146,8 @@ class PageManager {
 		$('#' + walkName.split(' ').join('_')).css('-o-background-size', "cover");
 		$('#' + walkName.split(' ').join('_')).css('background-size', "cover");
 
-		//$('#' + walkName.split(' ').join('_')).css('background-color', "red");
+		//Force 100% Height
+		$('#' + walkName.split(' ').join('_')).css('height', "100% !important");
 
 	}
 
