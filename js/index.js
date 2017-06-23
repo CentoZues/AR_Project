@@ -581,8 +581,8 @@ $(function() {
 		//alert("Button Pressed ( -> Home )");
 		$.fn.fullpage.moveTo(1);
 		positionTracking = false;
-    	$(this).addClass('black');
-    	$(this).removeClass('green');
+    	$('#locator').addClass('black');
+    	$('#locator').removeClass('green');
 	});
 
 	//Modal Buttons
