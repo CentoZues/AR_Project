@@ -307,12 +307,14 @@ var loadedContentPages = [];
 var modalid;
 var curSlide;
 var closestPin = null;
+var positionTracking = false;
 
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
 	walkManager.loadWalks(data);
 	walkManager.createPages();
+	setTimeout(function(){}, 500);
 });
 
 
@@ -357,33 +359,33 @@ function DistanceCheck(pins)
 }
 
 function pageModal(closestPin){
-var modalHTML = '';
+	var modalHTML = '';
 	console.log("Entered pagemodal");
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
-			pinHTML += '<div class="ui modal">\
-			  <i class="close icon"></i>\
-			  <div class="header">\
-			    You Have Arrived at '+ modalName +'\
-			  </div>\
-			    <div class="description">\
-			      <div class="ui header">Would you like to Access the content for this '+ modalName +'?</div>\
-			    </div>\
-			  </div>\
-			  <div class="actions">\
-			    <div class="ui black deny button">\
-			      No Thank You!\
-			    </div>\
-			    <div id="modalButton" class="ui positive right labeled icon button">\
-			      Yes, Please!\
-			      <i class="checkmark icon"></i>\
-			    </div>\
-			  </div>\
-			</div>';
-			$('#PinModal').append(modalHTML);
-			console.log("html created");
-		$('.ui.modal').modal('show');
-	}
+		pinHTML += '<div class="ui modal">\
+		  <i class="close icon"></i>\
+		  <div class="header">\
+		    You Have Arrived at '+ modalName +'\
+		  </div>\
+		    <div class="description">\
+		      <div class="ui header">Would you like to Access the content for this '+ modalName +'?</div>\
+		    </div>\
+		  </div>\
+		  <div class="actions">\
+		    <div class="ui black deny button">\
+		      No Thank You!\
+		    </div>\
+		    <div id="modalButton" class="ui positive right labeled icon button">\
+		      Yes, Please!\
+		      <i class="checkmark icon"></i>\
+		    </div>\
+		  </div>\
+		</div>';
+		$('#PinModal').append(modalHTML);
+		console.log("html created");
+	$('.ui.modal').modal('show');
+}
 
 
 
@@ -401,15 +403,15 @@ $('div').each(function(){
 //////////////////////////
 
 var myMap = L.map('mapid', {
-	center: [51.629619, -0.748514],
-	zoom: 5,
-	minZoom: 18
+	//center: [51.629619, -0.748514],
+	maxZoom: 18,
+	minZoom: 15
 });
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2MHZxcDFnMDA0eDJ0dDl6cGhsbnE0dyJ9.Bz2HQaXOIdZnpjvct4hq0g').addTo(myMap);
 var pulsingIcon = L.icon.pulse({iconSize:[20,20], color: 'blue'});
 //Default Marker
-var marker = L.marker([51.629619, -0.748514], {icon: pulsingIcon}).addTo(myMap);
+var marker = L.marker([0, 0], {icon: pulsingIcon}).addTo(myMap);
 
 
 //////////////////////////
@@ -517,6 +519,9 @@ $(function() {
 		//console.log("Location updated: ", position.coords);
 		curLocationLat = position.coords.latitude;
 		curLocationLng = position.coords.longitude;
+		if (positionTracking == true) {
+			myMap.panTo(new L.latLng(curLocationLat, curLocationLng));
+		}
 	}
 
 	function positionError(err) {
@@ -534,8 +539,15 @@ $(function() {
 	//////////////////////////
 	$(document).on('click touchstart', '.locator', function() {
 		curLocation = L.latLng(curLocationLat, curLocationLng)
-        myMap.panTo(curLocation);
-        //console.log("Current Location is: ", curLocation);
+        if (positionTracking == false) {
+        	positionTracking = true;
+        	$(this).addClass('green');
+        	$(this).removeClass('black');
+        } else {
+        	positionTracking = false;
+        	$(this).addClass('black');
+        	$(this).removeClass('green');
+        }
     });
 	//iOS Safari Fix for button press
 
@@ -558,12 +570,19 @@ $(function() {
 		var myVar = setInterval(function() {
 			DistanceCheck(pins);
 		}, 30000);
+
+		setTimeout(function() {
+			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
+		}, 500);
 	});
 
 	//Home Button
 	$(document).on('click touchstart', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
 		$.fn.fullpage.moveTo(1);
+		positionTracking = false;
+    	$(this).addClass('black');
+    	$(this).removeClass('green');
 	});
 
 	//Modal Buttons
