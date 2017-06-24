@@ -314,7 +314,7 @@ var positionTracking = false;
 $.getJSON("json/walks.json", function(data) {
 	walkManager.loadWalks(data);
 	walkManager.createPages();
-	setTimeout(function(){}, 500);
+	setTimeout(function(){}, 10000);
 });
 
 
@@ -460,8 +460,8 @@ function loadPageContent(walkId, pinId) {
 		loadedContentPages.push({'walkId': walkId, 'pinId': pinId, 'pageContent': content.outerHTML});
 	}
 	//Move to pagef
-	$.fn.fullpage.moveTo(3, 0);
-	document.body.style.overflow = "auto";
+	$.fn.fullpage.moveTo(4, 0);
+	//document.body.style.overflow = "auto";
 }
 
 
@@ -470,39 +470,42 @@ function loadPageContent(walkId, pinId) {
 $(function() {
 
 	//Slide settings
-	$('#fullpage').fullpage({
-		navigation: false,
-		loopHorizontal: false,
-		slidesNavigation: false,
-		controlArrows: false,
-		verticalCentered: false,
-		normalScrollElements: '#importContent, #mapid, .mapPickSlide, #pinNavigationSidebar',
-		scrollOverflow: true,
-		scrollOverflowReset: true,
-		scrollOverflowOptions: {
-			fadeScrollbars: true,
-			tap: true
-		},
-		keyboardScrolling: false,
-		setAutoScrolling: false,
+	function initFullpage() {
+		$('#fullpage').fullpage({
+			navigation: false,
+			loopHorizontal: false,
+			slidesNavigation: false,
+			controlArrows: false,
+			verticalCentered: false,
+			normalScrollElements: '#importContent, #mapid, .mapPickSlide, #pinNavigationSidebar',
+			scrollOverflow: true,
+			scrollOverflowReset: true,
+			scrollOverflowOptions: {
+				fadeScrollbars: true,
+				tap: true
+			},
+			keyboardScrolling: false,
+			setAutoScrolling: false,
 
-		//anchors: ['walkSelection', 'mapRoute', 'pinContent'],
-		afterLoad: function(anchorLink, index) {
-			$.fn.fullpage.reBuild();
-			curSlide = index;
-		},
-		onLeave: function(index, nextIndex, direction) {
+			//anchors: ['walkSelection', 'mapRoute', 'pinContent'],
+			afterLoad: function(anchorLink, index) {
+				$.fn.fullpage.reBuild();
+				curSlide = index;
+			},
+			onLeave: function(index, nextIndex, direction) {
 
-		if(index == 1 && nextIndex == 2) {
-			menuShowing = false;
-			$('#pinNavigationSidebarSlide').removeClass('active');
-			$('#mapDisplaySlide').addClass('active');
-			$.fn.fullpage.reBuild();
-		}
+				if(index == 2 && nextIndex == 3) {
+					menuShowing = false;
+					$('#pinNavigationSidebarSlide').removeClass('active');
+					$('#mapDisplaySlide').addClass('active');
+					$.fn.fullpage.reBuild();
+				}
+			}
+		});
+		$.fn.fullpage.setAllowScrolling(false);
+		$.fn.fullpage.setAutoScrolling(true);
 	}
-	});
-	$.fn.fullpage.setAllowScrolling(false);
-	$.fn.fullpage.setAutoScrolling(true);
+	initFullpage();
 
 	//Get User Position (Constantly Polling)
 	if (navigator.geolocation) {
@@ -562,7 +565,7 @@ $(function() {
 		PageManager.mapPagePins(pins, $(this).attr('data-map'));
 		//Move to map page
 		$('#mapid').removeClass("fadedBlack");
-		$.fn.fullpage.moveTo(2);
+		$.fn.fullpage.moveTo(3);
 		menuShowing = false;
 		//Load content pages
 		PageManager.addPageImport(pins);
@@ -579,7 +582,7 @@ $(function() {
 	//Home Button
 	$(document).on('click touchstart', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
-		$.fn.fullpage.moveTo(1);
+		$.fn.fullpage.moveTo(2);
 		positionTracking = false;
     	$('#locator').addClass('black');
     	$('#locator').removeClass('green');
@@ -594,10 +597,10 @@ $(function() {
 	$(document).on('click touchstart', '.sidebartoggle', function() {
 		//alert("Button Pressed ( Sidebar Toggled )");
 		if(menuShowing == false) {
-			$.fn.fullpage.moveTo(2, 0);
+			$.fn.fullpage.moveTo(3, 0);
 			menuShowing = true;
 			$('#mapid').on('click touchstart', function() {
-				$.fn.fullpage.moveTo(2, 1);
+				$.fn.fullpage.moveTo(3, 1);
 				menuShowing = false;
 				$('#mapid').off('click touchstart');
 				$('#mapid').removeClass("fadedBlack");
@@ -605,7 +608,7 @@ $(function() {
 			});
 			$('#mapid').addClass("fadedBlack");
 		} else {
-			$.fn.fullpage.moveTo(2, 1);
+			$.fn.fullpage.moveTo(3, 1);
 			menuShowing = false;
 			$('#mapid').removeClass("fadedBlack");
 		}
@@ -613,13 +616,13 @@ $(function() {
 
     $(document).on('click touchstart', '.videoOptionButton', function() {
     	//console.log('videoOptionButtons pressed');
-    	$.fn.fullpage.moveTo(2);
+    	$.fn.fullpage.moveTo(3);
     });
 
     $('#backToMapButton').on('click touchstart', function() {
     	document.body.style.overflow = "hidden";
     	//console.log('backToMapButton pressed');
-    	$.fn.fullpage.moveTo(2);
+    	$.fn.fullpage.moveTo(3);
 
     });
 
@@ -627,6 +630,12 @@ $(function() {
 
     	loadPageContent($(this).attr('data-walkId'), $(this).attr('data-pinId'));
 
+    });
+
+    $('#startButton').on('click touchstart', function() {
+    	$.fn.fullpage.destroy('all');
+		initFullpage();
+    	$.fn.fullpage.moveTo(2);
     });
 
 });
