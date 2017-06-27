@@ -281,7 +281,7 @@
     .logo img{
         max-width: 100%;
     }
-    .head {
+    .face {
         position: absolute;
         top: -44px;
         right: 89px;
@@ -346,7 +346,7 @@
         font-size: 59px;
         font-weight: bold;
         text-align: center;
-        padding: 20px 0px;
+        padding: 40px 0px;
         border: none;
         width: 100%;
         max-width: 620px;
@@ -360,7 +360,7 @@
         font-size: 45px;
         font-weight: bold;
         text-align: center;
-        padding: 20px 0px;
+        padding: 35px 0px;
         border: none;
         width: 100%;
         max-width: 620px;

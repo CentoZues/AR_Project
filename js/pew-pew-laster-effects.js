@@ -1,5 +1,5 @@
 $(function() {	
-    if ($(".head")[0]){
+    if ($(".face")[0]){
 		
 	var soldierFace = false
 	function soldier() {
