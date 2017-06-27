@@ -1,3 +1,385 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700');
+/* HOME PAGE */
+
+    #introPage{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#46a3e0+0,345797+100 */
+        background: #46a3e0; /* Old browsers */
+        background: -moz-linear-gradient(top, #46a3e0 0%, #345797 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #46a3e0 0%,#345797 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #46a3e0 0%,#345797 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46a3e0', endColorstr='#345797',GradientType=0 ); /* IE6-9 */
+        min-height: 100%;
+
+    }
+    #Clouds {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 30%;
+  overflow: hidden;
+  -webkit-animation: FadeIn 3s ease-out;
+          animation: FadeIn 3s ease-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+@-webkit-keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.Cloud {
+  position: absolute;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 70px;
+  -webkit-animation-duration: 120s;
+          animation-duration: 120s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-name: Float, FadeFloat;
+          animation-name: Float, FadeFloat;
+  z-index: 1;
+}
+.Cloud.Foreground {
+  height: 10%;
+  min-height: 10px;
+  z-index: 3;
+}
+.Cloud.Background {
+  height: 9.09090909%;
+  min-height: 8px;
+  -webkit-animation-duration: 210s;
+          animation-duration: 210s;
+}
+@-webkit-keyframes Float {
+  from {
+    -webkit-transform: translateX(100%) translateZ(0);
+            transform: translateX(100%) translateZ(0);
+  }
+  to {
+    -webkit-transform: translateX(-15%) translateZ(0);
+            transform: translateX(-15%) translateZ(0);
+  }
+}
+@keyframes Float {
+  from {
+    -webkit-transform: translateX(100%) translateZ(0);
+            transform: translateX(100%) translateZ(0);
+  }
+  to {
+    -webkit-transform: translateX(-15%) translateZ(0);
+            transform: translateX(-15%) translateZ(0);
+  }
+}
+/*
+@keyframes Float {
+  from { transform: translateX(100%) translateY(-100%) translateZ(0); }
+  50% { transform: translateX(55%) translateY(0) translateZ(0); }
+  to { transform: translateX(-5%) translateY(-100%) translateZ(0); }
+}
+*/
+@-webkit-keyframes FadeFloat {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  90% {
+    opacity: 1;
+  }
+}
+@keyframes FadeFloat {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  90% {
+    opacity: 1;
+  }
+}
+.Cloud:nth-child(10) {
+  -webkit-animation-delay: -184.61538462s;
+          animation-delay: -184.61538462s;
+  top: 60%;
+}
+.Cloud.Foreground:nth-child(10) {
+  -webkit-animation-duration: 80s;
+          animation-duration: 80s;
+  height: 15%;
+}
+.Cloud.Background:nth-child(10) {
+  -webkit-animation-duration: 110s;
+          animation-duration: 110s;
+  height: -3.40909091%;
+}
+.Cloud:nth-child(9) {
+  -webkit-animation-delay: -166.15384615s;
+          animation-delay: -166.15384615s;
+  top: 54%;
+}
+.Cloud.Foreground:nth-child(9) {
+  -webkit-animation-duration: 84s;
+          animation-duration: 84s;
+  height: 12.5%;
+}
+.Cloud.Background:nth-child(9) {
+  -webkit-animation-duration: 114s;
+          animation-duration: 114s;
+  height: -2.15909091%;
+}
+.Cloud:nth-child(8) {
+  -webkit-animation-delay: -147.69230769s;
+          animation-delay: -147.69230769s;
+  top: 28%;
+}
+.Cloud.Foreground:nth-child(8) {
+  -webkit-animation-duration: 88s;
+          animation-duration: 88s;
+  height: 10%;
+}
+.Cloud.Background:nth-child(8) {
+  -webkit-animation-duration: 118s;
+          animation-duration: 118s;
+  height: -0.90909091%;
+}
+.Cloud:nth-child(7) {
+  -webkit-animation-delay: -129.23076923s;
+          animation-delay: -129.23076923s;
+  top: 42%;
+}
+.Cloud.Foreground:nth-child(7) {
+  -webkit-animation-duration: 92s;
+          animation-duration: 92s;
+  height: 8%;
+}
+.Cloud.Background:nth-child(7) {
+  -webkit-animation-duration: 122s;
+          animation-duration: 122s;
+  height: 0.34090909%;
+}
+.Cloud:nth-child(6) {
+  -webkit-animation-delay: -110.76923077s;
+          animation-delay: -110.76923077s;
+  top: 36%;
+}
+.Cloud.Foreground:nth-child(6) {
+  -webkit-animation-duration: 96s;
+          animation-duration: 96s;
+  height: 25%;
+}
+.Cloud.Background:nth-child(6) {
+  -webkit-animation-duration: 126s;
+          animation-duration: 126s;
+  height: 1.59090909%;
+}
+.Cloud:nth-child(5) {
+  -webkit-animation-delay: -92.30769231s;
+          animation-delay: -92.30769231s;
+  top: 30%;
+}
+.Cloud.Foreground:nth-child(5) {
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  height: 13%;
+}
+.Cloud.Background:nth-child(5) {
+  -webkit-animation-duration: 130s;
+          animation-duration: 130s;
+  height: 2.84090909%;
+}
+.Cloud:nth-child(4) {
+  -webkit-animation-delay: -73.84615385s;
+          animation-delay: -73.84615385s;
+  top: 24%;
+}
+.Cloud.Foreground:nth-child(4) {
+  -webkit-animation-duration: 104s;
+          animation-duration: 104s;
+  height: 11%;
+}
+.Cloud:nth-child(3) {
+  -webkit-animation-delay: -55.38461538s;
+          animation-delay: -55.38461538s;
+  top: 18%;
+}
+.Cloud.Foreground:nth-child(3) {
+  -webkit-animation-duration: 108s;
+          animation-duration: 108s;
+  height: 11%;
+}
+.Cloud.Background:nth-child(3) {
+  -webkit-animation-duration: 138s;
+          animation-duration: 138s;
+  height: 5.34090909%;
+}
+.Cloud:nth-child(2) {
+  -webkit-animation-delay: -36.92307692s;
+          animation-delay: -36.92307692s;
+  top: 12%;
+}
+.Cloud.Foreground:nth-child(2) {
+  -webkit-animation-duration: 112s;
+          animation-duration: 112s;
+  height: 8%;
+}
+.Cloud.Background:nth-child(2) {
+  -webkit-animation-duration: 142s;
+          animation-duration: 142s;
+  height: 6.59090909%;
+}
+.Cloud:nth-child(1) {
+  -webkit-animation-delay: -18.46153846s;
+          animation-delay: -18.46153846s;
+  top: 6%;
+}
+.Cloud.Foreground:nth-child(1) {
+  -webkit-animation-duration: 116s;
+          animation-duration: 116s;
+  height: 9%;
+}
+.Cloud.Background:nth-child(1) {
+  -webkit-animation-duration: 146s;
+          animation-duration: 146s;
+  height: 7.84090909%;
+}
+.Cloud {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAAAUCAYAAADWQYA8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIyNkRBRDA0NUFCNjExRTdBOEQzRTA2QkQyMEFDRDg3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIyNkRBRDA1NUFCNjExRTdBOEQzRTA2QkQyMEFDRDg3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjI2REFEMDI1QUI2MTFFN0E4RDNFMDZCRDIwQUNEODciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MjI2REFEMDM1QUI2MTFFN0E4RDNFMDZCRDIwQUNEODciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7wh4z5AAABtElEQVR42uzXSyhEcRTH8XtnplCalJA8SsoCC4+UyGq8SpJC1pSFKDs2bNhQUhYUG9kpO5RHsZBHJGSpiY2iJI+FhRjfP+fWNOVxmztzZ6Y59VnM3Obfnd/9z/mf0W9f77QQlBudaEWuvFaceBbXOMcpNvGg2Vy6xWE40I9hpJr43Dt2MYdlvEV7GG75InVBrnODMcxLSGErh4VB7FgQhKoszOIABdEWho4FlFl8bxU4QXs0hdEljTIUlYwlDERDGEkYDXVfwxT6Ij2MXmSGaRdPoyVSTxOnzArZYexxTyiH94frRWhECfKQBhdeZLbxSh9aw5WVYdRiy4ZxYB81+PB7rx7jEsJ/yieD3hDOrPiZNNs0KFZJ0zZqBOsmgjD6UAOO0fPXzlDHmgcpuJencRjwNC5QbFMg6qbzUY2NINfySS9acQVcSMeipBZYqj9MyMicgEIb/0ZkyO6wYshTu2QG2/47Q50Ke9J4fqsjTMr5b2ddIhE5Fq3XbYShSzP0mNhauhZbtWo00A4TQWgxGISqUiOMQS1eGSqMSpVKPAvNpcJoi+fwVY8qjKZ4Dt+n06cAAwBycl1W8m4FvQAAAABJRU5ErkJggg==);
+}
+.Cloud.Background {
+  background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEoAAAAqCAYAAAAUJM0rAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkRGNzU2NDk4NUI3MTExRTc4MzJBRDk2N0REQTI4MzUyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkRGNzU2NDk5NUI3MTExRTc4MzJBRDk2N0REQTI4MzUyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6REY3NTY0OTY1QjcxMTFFNzgzMkFEOTY3RERBMjgzNTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY3NTY0OTc1QjcxMTFFNzgzMkFEOTY3RERBMjgzNTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4HJEOGAAACc0lEQVR42uyaT0gUURzHn7vRSUQ6SHQIGUNwD8J2KDCMFsVTlKCXungQD9Ipom4RIoES6Cnwsgjin6OydGojBD0IEXQpsHYH7BAWS0RBxDKU3x++lWGZbZ7z582+fe8LHwZ2h/3z4ffevPebaXMch0mIBTrAPTAMun3O/wi2wDKoAjuuH5ZOp4XOa4tZFAkaBTOgPeBnfAEPwV4cwpIWRYKugzxIRfSZFXCHy7JVF2VxMWvgSkxVugqeRCUrCVEk6Rx4I2HO+wyGQEk1UTIl1fIbZPnEr4yoDHjP5OcQXAszDGWKomraARdYMimA+0FliYpKRSBpOkFJlFvgctxfEraiesE+Sz60KO0LUlWiFXUmZDU9Zc2Rs2AEvKx73W6GiiJRZdZcqXJplJ/gA9gALxqJkzGZ3+ULS1VCsh4Axy1Mhqgi3+CqlinwuiYrblE07N6CTqZmFsBzkiVDVJmpncdgHaJsI8o/gxC1a0SJba5zIlWVYnrnIjgftqIsfhxgxw2zDO8QUCqu91VPARV1O4goiy/anoGbGlQVLUyzfsOvXhRJGgfzmg3BntOIsrigcQ3nKmFRJGmWb0uYEeV91avdMdFV0g/Rq16rrInCrKVegQN+POR7QLte1CMNJ2+/LPGr/okwEvUVxy7jxjM5qjiSRaL+GR/+sowowauiESWWBSNKLH+MKMGQqF8s+LNL2oRW5itGg1hFXcLxk1HhX1F/wZxR8f9tjrt7sAn6jRPPTNT3o4qsdVq8UeUdGPPqcC6y40dpTBj7Dq5ir1dq1DOnGwl5zTfL22DS3T1odKLFRdHTbDc0krbH//M3d0/qSIABAJXf2lVkFyLUAAAAAElFTkSuQmCC')
+}
+    
+     .logo{
+        margin: 0 auto;
+        position: relative;
+        max-width: 100%;
+        width: 538px;
+        z-index: 2;
+         top: 100px
+    }
+    .logo img{
+        max-width: 100%;
+    }
+    .head {
+        position: absolute;
+        top: -44px;
+        right: 89px;
+        z-index: 50
+        -webkit-animation-duration: 3s;
+        animation-duration: 3s;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: headMove;
+        animation-name: headMove;
+    }
+        @-webkit-keyframes headMove {
+            0%{
+                top: -44px;  
+            }
+            50%{
+                top: -40px; 
+            }
+            100% {
+                top: -44px; 
+            }
+        }
+        @keyframes headMove {
+          0%{
+                top: -44px;  
+            }
+            50%{
+                top: -40px; 
+            }
+            100% {
+                top: -44px; 
+            }
+        }
+    .eyes{
+        position: absolute;
+        top: 78px;
+        left: 45px;
+    }
+    .mouth{
+        position: absolute;
+        top: 112px;
+        left: 50px;
+    }
+    .blink, .smile{
+        display: none;
+    }
+    .logos, .logos img{
+        max-width: 100%;
+        text-align: center;
+    }
+    .logos img{
+        margin: 0 25px;
+    }
+    .buttons{
+        margin: 150px 25px 50px;
+        text-align: center;
+    }
+    .btn.start{
+        border-radius: 25px;
+        background: #990a22;
+        color: #ffff;
+        font-size: 59px;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px 0px;
+        border: none;
+        width: 100%;
+        max-width: 620px;
+        display: block;
+        margin: 0 auto;  
+    }
+    .btn.info{
+        border-radius: 25px;
+        background: #fff;
+        color: #282727;
+        font-size: 45px;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px 0px;
+        border: none;
+        width: 100%;
+        max-width: 620px;
+        display: block;
+        margin: 25px auto 0;  
+    }
+    .logos{
+        padding-bottom: 50px;
+    }
+    .logos h2{  
+        font-family: 'Bitter', serif;
+        color: #fff;
+        font-size: 45px;
+        margin-bottom: 25px
+    }
+
+
+/* LOCATIONS */
+
 .table{
     background-image: url(../img/bg.jpg);
     background-size: contain;
