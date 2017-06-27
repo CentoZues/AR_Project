@@ -10,7 +10,7 @@
         right: 37px;
     }
     .buttons{
-        margin: 55px 25px 15px;
+        margin: 60px 25px 15px;
     }
     .logos h2{
         font-size: 25px;
@@ -21,7 +21,7 @@
     }
     .btn.info{
         font-size: 32px;
-        padding: 22px 0px;
+        padding: 18px 0px;
         margin: 18px auto 0;
     }
 }
