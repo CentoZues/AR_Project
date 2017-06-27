@@ -285,7 +285,7 @@
         position: absolute;
         top: -44px;
         right: 89px;
-        z-index: 50
+        z-index: 99;
         -webkit-animation-duration: 3s;
         animation-duration: 3s;
         -webkit-animation-iteration-count: infinite;
@@ -325,8 +325,16 @@
         top: 112px;
         left: 50px;
     }
+    .eyes div{
+        width: 44px;
+        height: 11px;
+    }
     .mouth div, .eyes div{
         position: absolute;
+    }
+    .mouth div{
+        width: 39px;
+        height: 16px;
     }
     .blink, .smile{
         display: none;
