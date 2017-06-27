@@ -325,6 +325,9 @@
         top: 112px;
         left: 50px;
     }
+    .mouth div, .eyes div{
+        position: absolute;
+    }
     .blink, .smile{
         display: none;
     }
