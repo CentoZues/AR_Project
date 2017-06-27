@@ -2,12 +2,26 @@
 
     .logo{
         width: 379px !important;
+        height: 48px;
     }
     .face{
         transform: scale(0.8);
         margin-top: -20px;
         right: 37px;
     }
-    
-    
+    .buttons{
+        margin: 55px 25px 15px;
+    }
+    .logos h2{
+        font-size: 25px;
+    }
+    .btn.start{
+        padding: 9px 0px;
+        font-size: 43px;
+    }
+    .btn.info{
+        font-size: 32px;
+        padding: 22px 0px;
+        margin: 18px auto 0;
+    }
 }

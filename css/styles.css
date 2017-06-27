@@ -340,11 +340,10 @@
         display: none;
     }
     .logos, .logos img{
-        max-width: 100%;
         text-align: center;
     }
     .logos img{
-        margin: 0 25px;
+       max-width: 100%;
     }
     .buttons{
         margin: 150px 25px 50px;
@@ -362,7 +361,8 @@
         width: 100%;
         max-width: 620px;
         display: block;
-        margin: 0 auto;  
+        margin: 0 auto; 
+        line-height: initial;
     }
     .btn.info{
         border-radius: 25px;
@@ -377,9 +377,11 @@
         max-width: 620px;
         display: block;
         margin: 25px auto 0;  
+        line-height: initial;
     }
     .logos{
         padding-bottom: 50px;
+        margin: 0 25px;
     }
     .logos h2{  
         font-family: 'Bitter', serif;
