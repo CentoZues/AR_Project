@@ -2,7 +2,7 @@
 
     .logo{
         width: 379px !important;
-        height: 48px;
+        top: 37px;
     }
     .face{
         transform: scale(0.8);

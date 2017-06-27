@@ -275,7 +275,7 @@
         position: relative;
         max-width: 100%;
         width: 538px;
-        z-index: 2;
+        z-index: 5;
          top: 100px
     }
     .logo img{
