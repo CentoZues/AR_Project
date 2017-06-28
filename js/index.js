@@ -593,8 +593,8 @@ $(function() {
 	$(document).on('click touchstart', '#modalButton', function() {
 		modalActive = null;
 		var curwalkid = 0;
+		$("#PinModal").empty();
 		loadPageContent(curwalkid, modalid);
-		modalClear();
 	});
 	$(document).on('click touchstart', '.clearable', function() {
 		modalActive = null;
