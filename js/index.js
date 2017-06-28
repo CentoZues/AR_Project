@@ -343,6 +343,9 @@ function DistanceCheck(pins)
 	console.log(DistCheckArray);
 
 	if (curSlide != 4) {
+		var arrcheck = DistCheckArray.includes("yes"); 
+		console.log(arrcheck);
+		if (arrcheck = true) {
 		if (modalActive != 1) {
 			console.log("entering curSLide");
 			closestPin = DistCheckArray.indexOf("yes");
@@ -350,6 +353,7 @@ function DistanceCheck(pins)
 			console.log(closestPin);
 			pageModal(closestPin);
 			console.log("request pagemodal");
+		}
 		}
 	}
 }
@@ -365,7 +369,7 @@ function pageModal(closestPin){
 		    You Have Arrived at '+ modalName +'\
 		  </div>\
 		    <div class="description">\
-		      <div class="ui header">Would you like to Access the content for this '+ modalName +'?</div>\
+		      <div class="ui header"> Would you like to Access the content for this '+ modalName +'?</div>\
 		    </div>\
 		  </div>\
 		  <div class="actions">\
