@@ -356,7 +356,7 @@ function pageModal(closestPin){
 	console.log("Entered pagemodal");
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
-		pinHTML += '<div class="ui modal">\
+		modalHTML += '<div class="ui modal">\
 		  <i class="close icon"></i>\
 		  <div class="header">\
 		    You Have Arrived at '+ modalName +'\
