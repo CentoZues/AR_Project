@@ -518,6 +518,7 @@ $(function() {
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
 		//console.log("Location updated: ", position.coords);
+		curLocation = L.latLng(curLocationLat, curLocationLng);
 		curLocationLat = position.coords.latitude;
 		curLocationLng = position.coords.longitude;
 		if (positionTracking == true) {
@@ -539,7 +540,6 @@ $(function() {
 	//    Button Presses    //
 	//////////////////////////
 	$(document).on('click touchstart', '.locator', function() {
-		curLocation = L.latLng(curLocationLat, curLocationLng);
         if (positionTracking == false) {
         	positionTracking = true;
         	$(this).addClass('green');
