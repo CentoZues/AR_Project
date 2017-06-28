@@ -350,11 +350,9 @@ function DistanceCheck(pins)
 	if (curSlide != 3) {
 		console.log("entering curSLide");
 		closestPin = DistCheckArray.indexOf("yes");
-		if (closestPin != null) {
 			console.log("entering indexOf");
 			pageModal(closestPin);
 			console.log("request pagemodal");
-		}
 	}
 }
 
