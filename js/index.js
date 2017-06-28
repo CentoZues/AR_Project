@@ -327,27 +327,21 @@ $('html, body').on('touchstart touchmove', function(e) {
 function DistanceCheck(pins)
 {
 	var DistCheckArray = [];
-	console.log(curLocation);
 
 	jQuery.each(pins, function(i, val) {
 	var latlng = L.latLng(val.lat, val.lng);
-	console.log(latlng);
 	var curDistanceFrom = curLocation.distanceTo(latlng);
-	console.log(curDistanceFrom);
 	if (curDistanceFrom < 5) {
 		DistCheckArray.push("yes");
-		console.log("added a yes");
 	}
 	else
 	{
 		DistCheckArray.push("no");
-		console.log("added a no");
 	}
 	});
-	console.log(curSlide);
 	console.log(DistCheckArray);
 
-	if (curSlide != 3) {
+	if (curSlide != 4) {
 		console.log("entering curSLide");
 		closestPin = DistCheckArray.indexOf("yes");
 			console.log("entering indexOf");
