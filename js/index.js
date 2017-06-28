@@ -351,12 +351,13 @@ function DistanceCheck(pins)
 
 function pageModal(closestPin){
 	var modalHTML = '';
-	$('#PinModal').empty();
+	$('#clearable').empty();
 	console.log("Entered pagemodal");
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
 	console.log(modalid);
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
-		modalHTML += '<div class="ui modal">\
+		modalHTML += '<div id="clearable">\
+		<div class="ui modal">\
 		  <i class="close icon clearable"></i>\
 		  <div class="header">\
 		    You Have Arrived at the '+ modalName +'\
@@ -378,6 +379,7 @@ function pageModal(closestPin){
 		      <i class="checkmark icon"></i>\
 		    </div>\
 		  </div>\
+		</div>\
 		</div>';
 		$('#PinModal').append(modalHTML);
 		modalActive = 1;
