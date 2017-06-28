@@ -350,7 +350,7 @@ function DistanceCheck(pins)
 }
 
 function pageModal(closestPin){
-	document.getElementById("PinModal").innerHTML = "";
+	$('#PinModal').append('empty');
 	var modalHTML = '';
 	console.log("Entered pagemodal");
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
