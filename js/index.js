@@ -539,7 +539,7 @@ $(function() {
 	//    Button Presses    //
 	//////////////////////////
 	$(document).on('click touchstart', '.locator', function() {
-		curLocation = L.latLng(curLocationLat, curLocationLng)
+		curLocation = L.latLng(curLocationLat, curLocationLng);
         if (positionTracking == false) {
         	positionTracking = true;
         	$(this).addClass('green');
