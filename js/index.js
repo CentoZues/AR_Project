@@ -599,6 +599,7 @@ $(function() {
 		modalClear();
 	});
 	$(document).on('click touchstart', '.clearable', function() {
+		modalActive = null;
 		modalClear();
 	});
 
