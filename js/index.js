@@ -597,7 +597,8 @@ $(function() {
 	//Modal Buttons
 	$(document).on('click touchstart', '#modalButton', function() {
 			modalActive = null;
-			loadPageContent(0, modalid);
+			var curwalkid = 0;
+			loadPageContent(curwalkid, modalid);
 	});
 
 	//Sidebar Button
