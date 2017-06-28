@@ -383,11 +383,9 @@ function pageModal(closestPin){
 		console.log("html created");
 	$('.ui.modal').modal('show');
 }
-function modalClear(){
 
-			var modalHTML = '';
-			modalHTML += '';
-			$('#PinModal').append(modalHTML);
+function modalClear(){
+	$("#PinModal").html("");
 }
 
 
