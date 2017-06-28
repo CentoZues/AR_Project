@@ -345,6 +345,7 @@ function DistanceCheck(pins)
 		console.log("entering curSLide");
 		closestPin = DistCheckArray.indexOf("yes");
 			console.log("entering indexOf");
+			console.log(closestPin);
 			pageModal(closestPin);
 			console.log("request pagemodal");
 	}
