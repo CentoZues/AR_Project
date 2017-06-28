@@ -387,13 +387,6 @@ function pageModal(closestPin){
 	$('.ui.modal').modal({allowMultiple: false}).modal('show');
 }
 
-function modalClear(){
-	$("#PinModal").empty();
-}
-
-
-
-
 
 $('div').each(function(){
 
@@ -596,12 +589,7 @@ $(function() {
 	$(document).on('click touchstart', '#modalButton', function() {
 		modalActive = null;
 		var curwalkid = 0;
-		$("#PinModal").empty();
 		loadPageContent(curwalkid, modalid);
-	});
-	$(document).on('click touchstart', '.clearable', function() {
-		modalActive = null;
-		modalClear();
 	});
 
 	//Sidebar Button
