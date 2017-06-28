@@ -381,7 +381,7 @@ function pageModal(closestPin){
 		$('#PinModal').append(modalHTML);
 		modalActive = 1;
 		console.log("html created");
-	$('.ui.modal').modal('show');
+	$('.ui.modal').modal({allowMultiple: false}).modal('show');
 }
 
 function modalClear(){
