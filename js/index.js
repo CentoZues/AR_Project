@@ -385,7 +385,7 @@ function pageModal(closestPin){
 }
 
 function modalClear(){
-	$("#PinModal").html("");
+	$("#PinModal").empty();
 }
 
 
