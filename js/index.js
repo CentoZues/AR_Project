@@ -323,7 +323,7 @@ function DistanceCheck(pins)
 	jQuery.each(pins, function(i, val) {
 	var latlng = L.latLng(val.lat, val.lng);
 	var curDistanceFrom = curLocation.distanceTo(latlng);
-	if (curDistanceFrom < 5) {
+	if (curDistanceFrom < 10) {
 		DistCheckArray.push("yes");
 	}
 	else
