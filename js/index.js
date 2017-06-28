@@ -308,6 +308,7 @@ var modalid;
 var curSlide;
 var closestPin = null;
 var positionTracking = false;
+var modalActive = null;
 
 
 //Get JSON and load it in to objects
@@ -342,12 +343,14 @@ function DistanceCheck(pins)
 	console.log(DistCheckArray);
 
 	if (curSlide != 4) {
-		console.log("entering curSLide");
-		closestPin = DistCheckArray.indexOf("yes");
+		if (modalActive != 1) {
+			console.log("entering curSLide");
+			closestPin = DistCheckArray.indexOf("yes");
 			console.log("entering indexOf");
 			console.log(closestPin);
 			pageModal(closestPin);
 			console.log("request pagemodal");
+		}
 	}
 }
 
@@ -376,6 +379,7 @@ function pageModal(closestPin){
 		  </div>\
 		</div>';
 		$('#PinModal').append(modalHTML);
+		modalActive = 1;
 		console.log("html created");
 	$('.ui.modal').modal('show');
 }
@@ -583,6 +587,7 @@ $(function() {
 
 	//Modal Buttons
 	$(document).on('click touchstart', '#modalButton', function() {
+			modalActive = null;
 			loadPageContent(walkid, modalid);
 	});
 
