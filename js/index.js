@@ -356,7 +356,7 @@ function pageModal(closestPin){
 	console.log(modalid);
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
 		modalHTML += '<div class="ui modal">\
-		  <i class="close icon"></i>\
+		  <i class="close icon clearable"></i>\
 		  <div class="header">\
 		    You Have Arrived at the '+ modalName +'\
 		  </div>\
@@ -369,7 +369,7 @@ function pageModal(closestPin){
 		    </div>\
 		  </div>\
 		  <div class="actions">\
-		    <div class="ui black deny button">\
+		    <div class="ui black deny button clearable">\
 		      No Thank You!\
 		    </div>\
 		    <div id="modalButton" class="ui positive right labeled icon button">\
@@ -382,6 +382,12 @@ function pageModal(closestPin){
 		modalActive = 1;
 		console.log("html created");
 	$('.ui.modal').modal('show');
+}
+function modalClear(){
+
+			var modalHTML = '';
+			modalHTML += '';
+			$('#PinModal').append(modalHTML);
 }
 
 
@@ -587,9 +593,13 @@ $(function() {
 
 	//Modal Buttons
 	$(document).on('click touchstart', '#modalButton', function() {
-			modalActive = null;
-			var curwalkid = 0;
-			loadPageContent(curwalkid, modalid);
+		modalActive = null;
+		var curwalkid = 0;
+		loadPageContent(curwalkid, modalid);
+		modalClear();
+	});
+	$(document).on('click touchstart', '.clearable', function() {
+		modalClear();
 	});
 
 	//Sidebar Button
