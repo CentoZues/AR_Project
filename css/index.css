@@ -244,7 +244,6 @@ button {
 	max-width: 70vw !important;
 	color: white;
 	background-color: #1b1c1d;
-	padding: 10px;
 }
 
 .item {
@@ -269,7 +268,10 @@ button {
 }
 
 .pinDistanceDisplay {
-	text-align: center !important;
+	/*text-align: center !important;*/
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
 }
 
 .fadedBlack {
@@ -283,4 +285,16 @@ button {
 
 #mapDisplaySlide {
 	background-color: #000000;
+}
+
+.pinNameDisplay {
+	padding-right: 10px;
+}
+
+.sidebarPinDistance {
+	background-color: #212121;
+}
+
+.pinDistance {
+	height: 70px;
 }

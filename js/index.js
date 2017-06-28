@@ -165,11 +165,8 @@ class PageManager {
 						<div class="three wide column pinInfoColumn">\
 							<span class="pinInfoContent">' + (val.id + 1) + '.</span>\
 						</div>\
-						<div class="ten wide column pinInfoColumn pinNameDisplay">\
+						<div class="thirteen wide column pinInfoColumn pinNameDisplay">\
 							<span class="pinInfoContent">' + (val.name) + '</span>\
-						</div>\
-						<div class="three wide column pinInfoColumn">\
-							<span class="pinInfoContent"><i class="big check circle outline green icon"></i></span>\
 						</div>\
 					</div>\
 				</div>\
@@ -178,14 +175,8 @@ class PageManager {
 				pinHTML += '<div class="item distance sidebarPinDistance">\
 					<div class="ui grid">\
 						<div class="centered row pinDistance">\
-							<div class="three wide column">\
-								<i class="clockwise rotated level up icon"></i>\
-							</div>\
-							<div class="ten wide column pinDistanceDisplay">\
-								Distance: ' + (val.dist) + ' meters\
-							</div>\
-							<div class="three wide column">\
-								<i class="level down icon"></i>\
+							<div class="sixteen wide column pinDistanceDisplay">\
+								<i class="long arrow down big icon"></i>' + (val.dist) + ' meters\
 							</div>\
 						</div>\
 					</div>\
@@ -650,4 +641,7 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
+    $(document).on('click touchstart', '.continue', function() {
+    	$.fn.fullpage.moveTo(3);
+    });
 });
