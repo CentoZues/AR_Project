@@ -373,7 +373,6 @@ function pageModal(closestPin){
 		    </div>\
 		    <div class="description">\
 		      <div class="ui header"> </div>\
-		      <p>Weve grabbed the following image from the \
 		      <p>Would you like to Access the content for the '+ modalName +'?</p>\
 		    </div>\
 		  </div>\
