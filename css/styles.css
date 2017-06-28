@@ -352,7 +352,7 @@
     .btn.start{
         border-radius: 25px;
         background: #990a22;
-        color: #ffff;
+        color: #FFF;
         font-size: 59px;
         font-weight: bold;
         text-align: center;
@@ -594,7 +594,7 @@
 }
 .additional-info{
     background: #bb472d;
-    padding: 10px 30px 50px;
+    padding: 40px 30px 50px;
     margin-top: 25px;
 }
     .additional-info a, .additional-info h2{
@@ -606,7 +606,8 @@
         position: relative;
         text-decoration: none;
         border-bottom: 1px solid #fff;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
+		padding-bottom: 16px;
     }
         .additional-info a:after{
             content: '\f105';
