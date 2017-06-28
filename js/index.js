@@ -351,7 +351,7 @@ function DistanceCheck(pins)
 
 function pageModal(closestPin){
 	var modalHTML = '';
-	$('#PinModal').append(modalHTML);
+	$('#PinModal').empty();
 	console.log("Entered pagemodal");
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
 	console.log(modalid);
