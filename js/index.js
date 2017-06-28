@@ -623,10 +623,14 @@ $(function() {
 
     });
 
-    $('#startButton').on('click touchstart', function() {
+    $('#startButton, #getStartedButton').on('click touchstart', function() {
     	$.fn.fullpage.destroy('all');
 		initFullpage();
     	$.fn.fullpage.moveTo(2);
+    });
+
+    $('#infoButton').on('click touchstart', function() {
+    	$.fn.fullpage.moveTo(1, 1);
     });
 
 });
