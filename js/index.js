@@ -362,6 +362,7 @@ function pageModal(closestPin){
 	var modalHTML = '';
 	console.log("Entered pagemodal");
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
+	console.log(modalid);
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
 		modalHTML += '<div class="ui modal">\
 		  <i class="close icon"></i>\
@@ -596,7 +597,7 @@ $(function() {
 	//Modal Buttons
 	$(document).on('click touchstart', '#modalButton', function() {
 			modalActive = null;
-			loadPageContent(walkid, modalid);
+			loadPageContent(0, modalid);
 	});
 
 	//Sidebar Button
