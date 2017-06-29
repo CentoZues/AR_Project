@@ -641,7 +641,7 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
-    $(document).on('click touchstart', '.continue', function() {
+    $(document).on('click touchstart', '.continue, .back', function() {
     	$.fn.fullpage.moveTo(3);
     });
 });

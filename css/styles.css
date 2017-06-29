@@ -392,7 +392,18 @@
 
 
 /* LOCATIONS */
-
+.back{
+	background: #222223;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 20px 29px;
+    z-index: 9;
+    color: #fff;
+    font-size: 41px;
+    box-shadow: 0 0 31px -3px #000;
+    cursor: pointer;
+}
 .table{
     background-image: url(../img/bg.jpg);
     background-size: contain;
@@ -442,7 +453,8 @@
     text-align: center;
     padding: 30px 0;
     font-weight: bold;
-    margin: 25px auto 8px
+    margin: 25px auto 8px;
+	line-height: normal;
 }
 .video{
     text-align: center;
@@ -503,7 +515,7 @@
 	cursor: pointer;
 }
 .view-360{
-	width: 315px;
+	width: 267px;
 	float: left;
 	margin: 4px 20px -7px
 }
