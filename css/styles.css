@@ -486,7 +486,7 @@
         max-width: 100%;
         display: inherit;
     }
-.view-360, .continue{
+.view-360, .continue, .dialog{
     color: #fff;
     background: url(../img/360.jpg);
     width: 530px;
@@ -500,6 +500,17 @@
     z-index: 3;
     position: relative;
     max-width: 100%;
+	cursor: pointer;
+}
+.view-360{
+	width: 315px;
+	float: left;
+	margin: 4px 20px -7px
+}
+.dialog{
+	width: 300px;
+	float: left;
+	background: url(../img/dialog.png) #46a3e0;
 }
 .continue{
    background: url(../img/continue.jpg); 
