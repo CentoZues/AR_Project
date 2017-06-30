@@ -631,7 +631,7 @@ $(function() {
 
     });
 
-    $('#startButton, #getStartedButton').on('click touchstart', function() {
+    $('#startButton').on('click touchstart', function() {
     	$.fn.fullpage.destroy('all');
 		initFullpage();
     	$.fn.fullpage.moveTo(2);
@@ -639,6 +639,10 @@ $(function() {
 
     $('#infoButton').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
+    });
+
+    $('##getStartedButton').on('click touchstart', function() {
+    	$.fn.fullpage.moveTo(1, 0);
     });
 
     $(document).on('click touchstart', '.continue, .back', function() {
