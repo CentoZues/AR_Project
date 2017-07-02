@@ -40,11 +40,12 @@
 	}
 	.dialog{
 		width: 155px;
+		margin: 0px auto -15px;
 	}
 	.view-360 {
 		width: 168px;
 		float: left;
-		margin: 4px 2px -7px 0;
+		margin: 0 10px -7px 0;
 	}
 	.back{
 		font-size: 21px;
@@ -52,5 +53,20 @@
 	}
 	.table .title{
 		margin-top: 35px
+	}
+	.gallery{
+		padding: 36px 10px;
+	}
+	.owl-prev, .owl-next{
+		top: 50px;
+		background-size: contain;
+		left: -47px;
+	}
+	.owl-next{
+		background-size: contain;
+		right: -50px;
+	}
+	.continue{
+		margin-top: 10px;
 	}
 }
