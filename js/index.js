@@ -458,7 +458,7 @@ function loadPageContent(walkId, pinId) {
 	}
 	//Move to pagef
 	$.fn.fullpage.moveTo(4, 0);
-	
+	 $(".owl-carousel").owlCarousel('destroy'); 
 	 $(".owl-carousel").owlCarousel({
 		items:1,
 		nav: true,
