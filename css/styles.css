@@ -631,6 +631,7 @@
         border-bottom: 1px solid #fff;
         margin-bottom: 16px;
 		padding-bottom: 16px;
+		line-height: normal;
     }
         .additional-info a:after{
             content: '\f105';

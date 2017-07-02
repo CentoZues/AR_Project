@@ -24,4 +24,33 @@
         padding: 18px 0px;
         margin: 18px auto 0;
     }
+	
+	
+	
+	.video:before{
+		font-size: 85px;
+		margin-top: -26px;
+	}
+	.video:after{
+		font-size: 35px;
+		bottom: 34px;
+	}
+	.view-360, .continue, .dialog{
+		font-size: 24px
+	}
+	.dialog{
+		width: 155px;
+	}
+	.view-360 {
+		width: 168px;
+		float: left;
+		margin: 4px 2px -7px 0;
+	}
+	.back{
+		font-size: 21px;
+		padding: 15px 20px;
+	}
+	.table .title{
+		margin-top: 35px
+	}
 }
