@@ -16,6 +16,20 @@ html.ios body {
 	width: 100vw;
 	z-index: 0;
 }
+#quickBack{
+	position: absolute !important;
+	top: 30px;
+	display: flex;
+	justify-content: flex-end;
+	width: 100vw;
+}
+#retur360{
+	position: absolute !important;
+	top: 30px;
+	display: flex;
+	justify-content: flex-end;
+	width: 100vw;
+}
 
 #locateMe {
 	position: absolute !important;
