@@ -35,7 +35,6 @@ function startAR(imagePath, offsetDeg, containerName) {
     renderer.setClearColor( 0xffffff, 0);
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = 0;
-    renderer.domElement.ID = "360content";
     container.appendChild(renderer.domElement);
 
 

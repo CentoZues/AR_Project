@@ -1,12 +1,15 @@
 <div id="importContent">
 	<div id="page2Content">
+
 	<div id="pageContent">
 		<div id="quickBack" class="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
 		<button id="pageTitle">Page Two!</button></br>
 		<p id="compassHeadingDisplay"></p></br>
 		<button id="360View">360 View!</button>
 	</div>
+
 	</div>
+
 	<div id="ReturnFrom360" class="hidden">
 		<button id="360Back" class="ui black icon button large 360Back">
 		<i class="remove circle icon"></i>
@@ -20,8 +23,9 @@
 		$(function() {
 
 			$(document).on("click touchstart", "#360Back", function() {
+			$("page2Content").children().hide();
 			$("#ReturnFrom360").addClass('hidden');
-			$('#page2Content').removeClass('hidden');
+			$('#pageContent').removeClass('hidden');
 			});
 
 
@@ -32,7 +36,6 @@
 
 			$(document).on("click touchstart", "#360View", function() {
 				$("#ReturnFrom360").removeClass('hidden');
-				$("#360content").removeClass('hidden');
 				$('#pageContent').addClass('hidden');
 				startAR('img/Church360.jpg', 90, 'page2Content');
 			});
