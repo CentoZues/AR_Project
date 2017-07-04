@@ -17,8 +17,8 @@ html.ios body {
 	z-index: 0;
 }
 .hidden{
-	visibility: hidden !important;
-	display: none !important;
+	visibility: hidden;
+	display: none;
 }
 #quickBack{
 	position: absolute !important;
