@@ -17,6 +17,7 @@ html.ios body {
 	z-index: 0;
 }
 .hidden{
+	visibility: hidden;
 	display:none;
 }
 #quickBack{
