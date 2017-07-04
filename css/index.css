@@ -26,10 +26,12 @@ html.ios body {
 	margin-left: 90%;
 }
 #retur360{
+	z-index: 2;
 	position: absolute !important;
 	display: flex;
 	justify-content: flex-end;
-	margin-left: 90%;
+	top: 30px;
+	right: 30px;
 }
 
 #locateMe {
