@@ -11,7 +11,7 @@
 	</div>
 
 	<div id="ReturnFrom360" class="hidden">
-		<button id="360Back" class="ui black icon button large 360Back">
+		<button id="360Back" class="ui black icon button massive 360Back">
 		<i class="remove circle icon"></i>
 		</button>
 	</div>
@@ -22,7 +22,7 @@
 
 		$(function() {
 
-			$(document).on("click touchstart", "#360Back", function() {
+			$(document).on("click touchstart", ".360Back", function() {
 			$("div").find("canvas").hide();
 			$("#ReturnFrom360").addClass('hidden');
 			$('#pageContent').removeClass('hidden');
