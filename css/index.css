@@ -28,6 +28,7 @@ html.ios body {
 }
 #ReturnFrom360{
 	margin-left: 90vw;
+	margin-top: 15px;
 	position: fixed;
 }
 
