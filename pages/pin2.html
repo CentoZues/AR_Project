@@ -1,6 +1,6 @@
 <div id="importContent">
 	<div id="page2Content">
-	<canvas id="360content"></canvas>
+	<canvas id="360content" class="hidden"></canvas>
 	<div id="pageContent">
 		<div id="quickBack" class="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
 		<button id="pageTitle">Page Two!</button></br>
@@ -21,7 +21,6 @@
 		$(function() {
 
 			$(document).on("click touchstart", "#360Back", function() {
-			canvas.style.display="none";
 			$("#ReturnFrom360").addClass('hidden');
 			$('#page2Content').removeClass('hidden');
 			});
@@ -34,8 +33,9 @@
 
 			$(document).on("click touchstart", "#360View", function() {
 				$("#ReturnFrom360").removeClass('hidden');
+				$("#360content").removeClass('hidden');
 				$('#pageContent').addClass('hidden');
-				startAR('img/Church360.jpg', 90, 'page2Content');
+				startAR('img/Church360.jpg', 90, '360content');
 			});
 
 			setInterval(function(){
