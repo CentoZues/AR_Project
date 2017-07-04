@@ -30,6 +30,7 @@ html.ios body {
 	z-index: 2;
 	top: 30px;
 	right: 30px;
+	margin-left: 90vw;
 }
 
 #locateMe {
