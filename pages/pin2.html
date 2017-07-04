@@ -20,8 +20,8 @@
 		$(function() {
 
 			$(document).on("click touchstart", "#360Back", function() {
+			canvas.style.display="none";
 			$("#ReturnFrom360").addClass('hidden');
-			$('#360Content').hide();
 			$('#page2Content').removeClass('hidden');
 			});
 
