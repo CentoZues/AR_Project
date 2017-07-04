@@ -21,7 +21,7 @@
 			$(document).on("click touchstart", "#360Back", function() {
 			$("#ReturnFrom360").addClass('hidden');
 			$('#360Content').hide();
-			$('#page2Content').children().show();
+			$('#page2Content').removeClass('hidden');
 			});
 
 
@@ -32,7 +32,7 @@
 
 			$(document).on("click touchstart", "#360View", function() {
 				$("#ReturnFrom360").removeClass('hidden');
-				$('#page2Content').children().hide();
+				$('#page2Content').addClass('hidden');
 				startAR('img/Church360.jpg', 90, '360Content');
 			});
 
