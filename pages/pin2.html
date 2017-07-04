@@ -12,12 +12,12 @@
 
 		$(function() {
 
-			$(document).on("click", "#pageTitle", function() {
+			$(document).on("click touchstart", "#pageTitle", function() {
 				//console.log("Button pressed");
 				$.fn.fullpage.moveTo(3);
 			});
 
-			$(document).on("click", "#360View", function() {
+			$(document).on("click touchstart", "#360View", function() {
 				$('#page2Content').children().hide();
 				startAR('img/Church360.jpg', 90, 'page2Content');
 			});
