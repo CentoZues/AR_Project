@@ -1,4 +1,4 @@
-function startAR(imagePath, containerName) {
+function startAR(imagePath, offsetDeg, containerName) {
 
     //Create 3D Scene
     var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying;
@@ -23,6 +23,9 @@ function startAR(imagePath, containerName) {
     });
     
     var mesh = new THREE.Mesh(geometry, material);
+    //Rotation to match North
+    mesh.rotateOnAxis(new THREE.Vector3(0, 1, 0), -(THREE.Math.degToRad(offsetDeg)));
+    //Rotation to match user angle
     mesh.rotateOnAxis(new THREE.Vector3(0, 1, 0), -(THREE.Math.degToRad(sceneRotation)));
     scene.add(mesh);
 
