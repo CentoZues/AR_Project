@@ -1,11 +1,12 @@
 <div id="importContent">
 	<div id="page2Content">
-	<div id="quickBack" class="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+	<div id="pageContent">
+		<div id="quickBack" class="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
 		<button id="pageTitle">Page Two!</button></br>
 		<p id="compassHeadingDisplay"></p></br>
 		<button id="360View">360 View!</button>
 	</div>
-	<div id="360Content"></div>
+	</div>
 	<div id="ReturnFrom360" class="hidden">
 		<button id="360Back" class="ui black icon button large 360Back">
 		<i class="remove circle icon"></i>
@@ -32,8 +33,8 @@
 
 			$(document).on("click touchstart", "#360View", function() {
 				$("#ReturnFrom360").removeClass('hidden');
-				$('#page2Content').addClass('hidden');
-				startAR('img/Church360.jpg', 90, '360Content');
+				$('#pageContent').addClass('hidden');
+				startAR('img/Church360.jpg', 90, 'page2Content');
 			});
 
 			setInterval(function(){
