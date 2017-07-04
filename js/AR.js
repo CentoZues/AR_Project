@@ -1,10 +1,10 @@
-function startAR(imagePath) {
+function startAR(imagePath, containerName) {
 
     //Create 3D Scene
     var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying;
 
     videoPlaying = true;
-    container = document.getElementById('page2Content');
+    container = document.getElementById(containerName);
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
     controls = new DeviceOrientationController(camera);
     controls.connect();
