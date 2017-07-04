@@ -17,8 +17,8 @@ html.ios body {
 	z-index: 0;
 }
 .hidden{
-	visibility: hidden;
-	display: none;
+	visibility: hidden !important;
+	display: none !important;
 }
 #quickBack{
 	position: absolute !important;
@@ -28,6 +28,9 @@ html.ios body {
 }
 #ReturnFrom360{
 	z-index: 2;
+	position: absolute !important;
+	display: flex;
+	justify-content: flex-end;
 	top: 30px;
 	right: 30px;
 }
