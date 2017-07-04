@@ -23,7 +23,7 @@
 		$(function() {
 
 			$(document).on("click touchstart", "#360Back", function() {
-			$("page2Content").children().hide();
+			$("page2Content").children("canvas").hide();
 			$("#ReturnFrom360").addClass('hidden');
 			$('#pageContent').removeClass('hidden');
 			});
