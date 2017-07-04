@@ -1,23 +1,17 @@
-function startAR(pinID) {
+function startAR(imagePath) {
 
     //Create 3D Scene
     var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying;
 
     videoPlaying = true;
-    container = document.getElementById('ARContainer');
+    container = document.getElementById('page2Content');
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
     controls = new DeviceOrientationController(camera);
     controls.connect();
     controls.enableManualZoom = false;
 
     scene = new THREE.Scene();
-    
-    //Wireframe Sphere
-    //var geometry = new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 );
-    //var geometry = new THREE.SphereGeometry( 100, 20, 20 );
-    //var material = new THREE.MeshBasicMaterial( { color: 0xff00ff, side: THREE.BackSide, wireframe: true } );
-    //var mesh = new THREE.Mesh( geometry, material );
-    //scene.add( mesh );
+
 
     //Background Image
     var geometry = new THREE.SphereGeometry(3000, 64, 64);
@@ -25,54 +19,11 @@ function startAR(pinID) {
 
     var material = new THREE.MeshBasicMaterial( {
         //map: new THREE.TextureLoader().load('textures/backgroundTexture.jpg')
-        map: new THREE.TextureLoader().load('textures/IMG_0244.jpg')
+        map: new THREE.TextureLoader().load(imagePath)
     });
     
     var mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
-
-    //Manage Video
-    video = document.getElementById('video');
-    makeVideoPlayableInline(video);
-    video.volume = 0.01;
-
-    var texture = new THREE.VideoTexture(video);
-    texture.minFilter = THREE.LinearFilter;
-    texture.magFilter = THREE.LinearFilter;
-    //texture.format = THREE.RGBFormat;
-
-    var geometry = new THREE.PlaneGeometry( 1280, 720, 4, 4 );
-    var material = new THREE.MeshBasicMaterial( { map: texture } );
-    var screen = new THREE.Mesh(geometry, material);
-    screen.position.set(0, 0, -800);
-    scene.add(screen);
-
-    // //X Axis
-    // var geometry = new THREE.BoxGeometry(5, 5, 5);
-    // var material = new THREE.MeshBasicMaterial( { color: 0xFF0000 } );
-    // var cube = new THREE.Mesh(geometry, material);
-    // cube.position.x = 50; //Forward
-    // cube.position.y = 0; //Up
-    // cube.position.z = 0; //Side
-    // scene.add(cube);
-
-    // //Y Axis
-    // var geometry = new THREE.BoxGeometry(5, 5, 5);
-    // var material = new THREE.MeshBasicMaterial( { color: 0x00FF00 } );
-    // var cube = new THREE.Mesh(geometry, material);
-    // cube.position.x = 0; //Forward
-    // cube.position.y = 50; //Up
-    // cube.position.z = 0; //Side
-    // scene.add(cube);
-
-    // //Z Axis
-    // var geometry = new THREE.BoxGeometry(5, 5, 5);
-    // var material = new THREE.MeshBasicMaterial( { color: 0x0000FF } );
-    // var cube = new THREE.Mesh(geometry, material);
-    // cube.position.x = 0; //Forward
-    // cube.position.y = 0; //Up
-    // cube.position.z = 50; //Side
-    // scene.add(cube);
 
     renderer = new THREE.WebGLRenderer( { alpha: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
@@ -92,11 +43,6 @@ function startAR(pinID) {
     effect.renderToScreen = true;
     composer.addPass(effect);
 
-    //var effect = new THREE.ShaderPass(THREE.RGBShiftShader);
-    //effect.uniforms['amount'].value = 0.0015;
-    //effect.renderToScreen = true;
-    //composer.addPass(effect);
-
 
     animate();
 
@@ -104,21 +50,12 @@ function startAR(pinID) {
         window.requestAnimationFrame(animate);
         controls.update();
         render();
-        checkVidTime(video);
 
     }
 
     function render() {
         
         composer.render( scene, camera );
-    }
-
-    function checkVidTime(video) {
-        if (video.duration - video.currentTime <= 2 && video.duration > 1 && videoPlaying == true) {
-            $('#vidOptionsYesCol').addClass('showFromLeft');
-            $('#vidOptionsNoCol').addClass('showFromRight');
-            videoPlaying = false;
-        }
     }
 
     //On window resize.. Probably wont need because it'll be fullscreen on phone anyway. Doesn't hurt.
