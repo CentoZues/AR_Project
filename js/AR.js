@@ -1,7 +1,7 @@
 function startAR(imagePath, offsetDeg, containerName) {
 
     //Create 3D Scene
-    var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying;
+    var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying, id;
     var sceneRotation = compassHeading;
     videoPlaying = true;
     container = document.getElementById(containerName);
@@ -51,7 +51,7 @@ function startAR(imagePath, offsetDeg, containerName) {
     animate();
 
     function animate() {
-        window.requestAnimationFrame(animate);
+        id = window.requestAnimationFrame(animate);
         controls.update();
         render();
 
@@ -60,7 +60,22 @@ function startAR(imagePath, offsetDeg, containerName) {
     function render() {
         
         composer.render( scene, camera );
+        console.log('1');
     }
+
+    $(document).on("click touchstart", ".360Back", function() {
+        renderer.forceContextLoss();
+        cancelAnimationFrame(id);
+        renderer.domElement.addEventListener('dblclick', null, false);
+        scene = null;
+        projector = null;
+        camera = null;
+        controls = null;
+
+        $("div").find("canvas").hide();
+        $("#ReturnFrom360").addClass('hidden');
+        $('#pageContent').removeClass('hidden');
+    });
 
     //On window resize.. Probably wont need because it'll be fullscreen on phone anyway. Doesn't hurt.
     window.addEventListener('resize', function() {

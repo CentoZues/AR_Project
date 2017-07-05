@@ -22,13 +22,6 @@
 
 		$(function() {
 
-			$(document).on("click touchstart", ".360Back", function() {
-			$("div").find("canvas").hide();
-			$("#ReturnFrom360").addClass('hidden');
-			$('#pageContent').removeClass('hidden');
-			});
-
-
 			$(document).on("click touchstart", "#pageTitle", function() {
 				//console.log("Button pressed");
 				$.fn.fullpage.moveTo(3);
