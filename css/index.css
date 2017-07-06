@@ -25,6 +25,7 @@ html.ios body {
 	display: flex;
 	justify-content: flex-end;
 	right: 5%;
+	max-width: 81px; 
 }
 #ReturnFrom360{
 	right: 5%;
