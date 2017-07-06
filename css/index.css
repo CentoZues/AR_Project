@@ -24,10 +24,10 @@ html.ios body {
 	position: absolute !important;
 	display: flex;
 	justify-content: flex-end;
-	right: 2%;
+	right: 5%;
 }
 #ReturnFrom360{
-	right: 2%;
+	right: 5%;
 	margin-top: 15px;
 	position: fixed;
 }
