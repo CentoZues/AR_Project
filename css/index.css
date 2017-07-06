@@ -321,7 +321,7 @@ button {
 	top: 0px;
 	width: 50%;
 	height: 100vh;
-	z-index: 10;
+	z-index: 3;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
