@@ -21,7 +21,7 @@ html.ios body {
 	display: none;
 }
 #quickBack{
-	position: absolute !important;
+	position: fixed !important;
 	display: flex;
 	justify-content: flex-end;
 	float: right;
