@@ -21,11 +21,12 @@ html.ios body {
 	display: none;
 }
 #quickBack{
-	position: fixed !important;
+	position: sticky !important;
 	display: flex;
 	justify-content: flex-end;
 	float: right;
 	right: 5%;
+	margin-top: 15px;
 }
 #ReturnFrom360{
 	right: 5%;
