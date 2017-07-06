@@ -654,4 +654,20 @@ $(function() {
     $(document).on('click touchstart', '.continue, .back', function() {
     	$.fn.fullpage.moveTo(3);
     });
+
+    $('#helpButton').on('click touchstart', function() {
+    	$('#helpModal').modal('show');
+    });
+
+    $('#helpModalClose').on('click touchstart', function() {
+    	$('#helpModal').modal('hide');
+    });
+
+    $('#reloadLink').on('click touchstart', function() {
+    	location.reload(true);
+    });
+
+    $('#emailLink').on('click touchstart', function() {
+
+    });
 });
