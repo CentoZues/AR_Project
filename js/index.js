@@ -670,4 +670,12 @@ $(function() {
     $('#emailLink').on('click touchstart', function() {
 
     });
+
+    function tStart(event)
+	{
+		$('#helpModal').modal('show');
+	}
+
+	 divid = document.getElementById("helpButton");
+	 divid.addEventListener('touchstart', function(){tStart(window.event)},false);
 });
