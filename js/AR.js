@@ -2,7 +2,8 @@ function startAR(imagePath, offsetDeg, containerName) {
 
     //Create 3D Scene
     var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying, id;
-    var sceneRotation = compassHeading;
+    //var sceneRotation = compassHeading;
+    var sceneRotation = 360 - compassHeading;
     videoPlaying = true;
     container = document.getElementById(containerName);
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
@@ -26,6 +27,7 @@ function startAR(imagePath, offsetDeg, containerName) {
     //Rotation to match North
     mesh.rotateOnAxis(new THREE.Vector3(0, 1, 0), -(THREE.Math.degToRad(offsetDeg)));
     //Rotation to match user angle
+    console.log("Rotation used", sceneRotation);
     mesh.rotateOnAxis(new THREE.Vector3(0, 1, 0), -(THREE.Math.degToRad(sceneRotation)));
     scene.add(mesh);
 
