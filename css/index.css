@@ -339,6 +339,9 @@ button {
     justify-content: center;
     align-items: center;
     pointer-events: all;
+    border-color: black;
+    border-width: 2px 0px 2px 2px;
+    border-style: solid;
 }
 
 #helpButtonText {
@@ -355,4 +358,9 @@ button {
 
 #reloadLink {
 	cursor: pointer;
+}
+
+#emailLink {
+	cursor: pointer;
+	color: #4183C4;
 }

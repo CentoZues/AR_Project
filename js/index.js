@@ -668,7 +668,7 @@ $(function() {
     });
 
     $('#emailLink').on('click touchstart', function() {
-
+    	window.location = "mailto:wdc-heritage@acuras.co.uk?subject=Bug%20Report";
     });
 
     function tStart(event)
