@@ -357,7 +357,7 @@ function pageModal(closestPin){
 	console.log(modalid);
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
 		modalHTML += '<div id="clearable">\
-		<div class="ui modal">\
+		<div class="ui modal notification">\
 		  <i class="close icon clearable"></i>\
 		  <div class="header">\
 		    You Have Arrived at the '+ modalName +'\
@@ -384,7 +384,7 @@ function pageModal(closestPin){
 		$('#PinModal').append(modalHTML);
 		modalActive = 1;
 		console.log("html created");
-	$('.ui.modal').modal({allowMultiple: false}).modal('show');
+	$('.ui.modal.notification').modal({allowMultiple: false}).modal('show');
 }
 
 
@@ -656,11 +656,11 @@ $(function() {
     });
 
     $('#helpButton').on('click touchstart', function() {
-    	$('#helpModal').modal('show');
+    	$('.ui.modal.helpModal').modal('show');
     });
 
     $('#helpModalClose').on('click touchstart', function() {
-    	$('#helpModal').modal('hide');
+    	$('.ui.modal.helpModal').modal('hide');
     });
 
     $('#reloadLink').on('click touchstart', function() {
@@ -670,12 +670,4 @@ $(function() {
     $('#emailLink').on('click touchstart', function() {
     	window.location = "mailto:wdc-heritage@acuras.co.uk?subject=Bug%20Report";
     });
-
-    function tStart(event)
-	{
-		$('#helpModal').modal('show');
-	}
-
-	 divid = document.getElementById("helpButton");
-	 divid.addEventListener('touchstart', function(){tStart(window.event)},false);
 });
