@@ -435,8 +435,9 @@ function loadPageContent(walkId, pinId) {
 	//console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
 	//console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
 	//Clear Div
+	$(".owl-carousel").owlCarousel('destroy'); 
 	$('#walkContent').empty();
-
+	
 	//Loop through and check for existing content
 	var itemIndex = null;
 	jQuery.each(loadedContentPages, function(i, val) {
@@ -458,7 +459,6 @@ function loadPageContent(walkId, pinId) {
 	}
 	//Move to pagef
 	$.fn.fullpage.moveTo(4, 0);
-	 $(".owl-carousel").owlCarousel('destroy'); 
 	 $(".owl-carousel").owlCarousel({
 		items:1,
 		nav: true,

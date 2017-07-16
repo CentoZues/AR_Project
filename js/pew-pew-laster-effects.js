@@ -39,12 +39,12 @@ $(function() {
 	}
 	
 	
-	$( "#walkContent" ).on( "click", ".dialog", function() {
+	$( ".dialog" ).on( "click", function() {
 	  	$('.notes').hide();
 		$('.dial').show();
 		$('.dialog').html('<i class="fa fa-file-text-o" aria-hidden="true"></i> Notes').addClass('note').removeClass('dialog');
 	});
-	$( "#walkContent" ).on( "click", ".note", function() {
+	$( ".note" ).on( "click", function() {
 	  	$('.dial').hide();
 		$('.notes').show();
 		$('.dialog').html('<i class="fa fa-commenting-o" aria-hidden="true"></i> Dialog').addClass('dialog').removeClass('note');
