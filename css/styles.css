@@ -498,7 +498,7 @@
         max-width: 100%;
         display: inherit;
     }
-.view-360, .continue, .dialog{
+.view-360, .continue, .dialog, .note{
     color: #fff;
     background: url(../img/360.jpg);
     width: 530px;
@@ -519,7 +519,7 @@
 	float: left;
 	margin: 4px 20px -7px
 }
-.dialog{
+.dialog, .note{
 	width: 300px;
 	float: left;
 	background: url(../img/dialog.png) #46a3e0;
