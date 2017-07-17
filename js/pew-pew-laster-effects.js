@@ -43,11 +43,11 @@ $(function() {
 		if($(this).hasClass('note')){
 			$('.dial').hide();
 			$('.notes').show();
-			$('.dialog').html('<i class="fa fa-commenting-o" aria-hidden="true"></i> Dialog').addClass('dialog').removeClass('note');
+			$('.dialog').html('<i class="fa fa-commenting-o" aria-hidden="true"></i> Dialog').removeClass('note');
 		}else{
 			$('.notes').hide();
 			$('.dial').show();
-			$('.dialog').html('<i class="fa fa-file-text-o" aria-hidden="true"></i> Notes').addClass('note').removeClass('dialog');	
+			$('.dialog').html('<i class="fa fa-file-text-o" aria-hidden="true"></i> Notes').addClass('note');
 		}
 	});
 

@@ -464,6 +464,7 @@
     margin: 0 auto 13px;
     width: 567px;
     max-width: 100%;
+	background: #000;
 }
  /*   .video:before{
         content: '\f01d';
