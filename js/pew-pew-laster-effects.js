@@ -40,7 +40,7 @@ $(function() {
 	
 	
 	$( "#walkContent" ).on( "click", ".dialog", function() {
-		if(this.hasClass() == 'note'){
+		if($(this).hasClass('note')){
 			$('.dial').hide();
 			$('.notes').show();
 			$('.dialog').html('<i class="fa fa-commenting-o" aria-hidden="true"></i> Dialog').addClass('dialog').removeClass('note');
