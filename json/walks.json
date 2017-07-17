@@ -27,14 +27,14 @@
           "lat": 51.630596,
           "lng": -0.752478,
           "name": "'Hen & Chickens' site of tailors",
-          "contentLink" : "pages/pin3.html",
+          "contentLink" : "pages/hen-chicken.html",
           "distanceTo" : 93
         },
         {
           "lat": 51.630120,
           "lng": -0.751291,
           "name": "War Memorial ( Youens Commemorative Stone )",
-          "contentLink" : "pages/pin4.html",
+          "contentLink" : "pages/war-memorial.html",
           "distanceTo" : 90
         },
         {
