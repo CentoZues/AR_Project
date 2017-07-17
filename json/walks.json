@@ -12,14 +12,14 @@
           "lat": 51.630751,
           "lng": -0.755227,
           "name": "Tourist Information Centre",
-          "contentLink" : "pages/frogmoor.html",
+          "contentLink" : "pages/tourist-office.html",
           "distanceTo" : 198
         },
         {
           "lat": 51.630771,
           "lng": -0.752861,
           "name": "'The Frogmoor Fountain",
-          "contentLink" : "pages/pin2.html",
+          "contentLink" : "pages/frogmoor.html",
           "distanceTo" : 35
 
         },
