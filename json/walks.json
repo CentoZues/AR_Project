@@ -41,63 +41,63 @@
           "lat": 51.629380,
           "lng": -0.751174,
           "name": "The Guildhall",
-          "contentLink" : "pages/pin5.html",
+          "contentLink" : "pages/guildhall.html",
           "distanceTo" : 20
         },
         {
           "lat": 51.629309,
           "lng": -0.751560,
           "name": "The Stained Glass Window",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/glass-window.html",
           "distanceTo" : 327
         },
         {
           "lat": 51.627118,
           "lng": -0.749562,
           "name": "Jack's Garden",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/queen-victoria-road.html",
           "distanceTo" : 41
-        },
+        },/*
         {
           "lat": 51.626945,
           "lng": -0.748951,
           "name": "Wycombe Abbey",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/war-office-railings.html",
           "distanceTo" : 445
-        },
+        },*/
         {
           "lat": 51.625364,
           "lng": -0.746668,
           "name": "The Rye",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/war-office-railing.html",
           "distanceTo" : 394
         },
         {
           "lat": 51.626918,
           "lng": -0.743769,
           "name": "The Factories By The Mill",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/mill.html",
           "distanceTo" : 120
         },
         {
           "lat": 51.627565,
           "lng": -0.744383,
           "name": "The Old Grammar School",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/school.html",
           "distanceTo" : 527
         },
         {
           "lat": 51.629755,
           "lng": -0.746290,
           "name": "High Wycombe Station",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/station.html",
           "distanceTo" : 214
         },
         {
           "lat": 51.630717,
           "lng": -0.748017,
           "name": "The Museum",
-          "contentLink" : "pages/pin6.html",
+          "contentLink" : "pages/museum.html",
           "distanceTo" : 0
         }
       ]
