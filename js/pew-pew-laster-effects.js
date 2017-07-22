@@ -2,7 +2,7 @@ $(function() {
 	
 	
 	$(".burger-menu").click(function () {
-	   			$(this).toggleClass("menu-on");
+	   	$(this, '.side-menu').toggleClass("menu-on");
 	});
 	
 	
