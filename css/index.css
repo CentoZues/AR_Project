@@ -244,10 +244,6 @@ button {
 	transform: translateZ(0);
 }
 
-.toMapView {
-	font-size: 75px !important;
-}
-
 #importContent {
 	min-height: 100vh;
 }
