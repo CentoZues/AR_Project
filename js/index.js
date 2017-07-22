@@ -651,7 +651,7 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
-    $(document).on('click touchstart', '.continue, .back, .to-map', function() {
+    $(document).on('click touchstart', '.continue, .back', function() {
     	$.fn.fullpage.moveTo(3);
     });
 

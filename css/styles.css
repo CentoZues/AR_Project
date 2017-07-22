@@ -65,8 +65,8 @@
 	background: linear-gradient(to bottom, #1c1c1c 0%,#0d0d0d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c1c1c', endColorstr='#0d0d0d',GradientType=0 ); /* IE6-9 */
 	min-height: 100%;
-	transition: all 0.5s ease-in-out;
-  	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.3s ease-in-out;
+  	-webkit-transition: all 0.3s ease-in-out;
 	z-index: 98;
 }
 	.side-menu.menu-on{

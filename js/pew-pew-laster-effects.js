@@ -1,7 +1,7 @@
 $(function() {	
 	
 	
-	$(".burger-menu").click(function () {
+	$(".burger-menu, .menu").click(function () {
 	   	$(this).toggleClass("menu-on");
 		$('.side-menu').toggleClass("menu-on");
 	});
