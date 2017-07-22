@@ -558,7 +558,7 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$('body').on('click touchstart', '.toMapView, .to-map', function() {
+	$('body').on('click touchstart', '.toMapView', function() {
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
