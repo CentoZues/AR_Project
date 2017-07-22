@@ -54,7 +54,9 @@
 .burger-menu.menu-on .burger{
  background: rgba(111,111,111,.0);
 }
-
+.side-menu{
+	position: absolute;
+}
 
     #introPage{
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#46a3e0+0,345797+100 */
