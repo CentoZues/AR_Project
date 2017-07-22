@@ -1,4 +1,11 @@
 $(function() {	
+	
+	
+	$(".burger-menu").click(function () {
+	   			$(this).toggleClass("menu-on");
+	});
+	
+	
     if ($(".face")[0]){
 		
 	var soldierFace = false
