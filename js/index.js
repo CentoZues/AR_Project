@@ -647,7 +647,7 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
-    $('#getStartedButton').on('click touchstart', function() {
+    $('#getStartedButton, .to-home').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
