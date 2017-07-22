@@ -643,7 +643,7 @@ $(function() {
     	$.fn.fullpage.moveTo(2);
     });
 
-    $('#infoButton').on('click touchstart', function() {
+    $('#infoButton, .to-instructions').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
@@ -651,11 +651,11 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
-    $(document).on('click touchstart', '.continue, .back', function() {
+    $(document).on('click touchstart', '.continue, .back, .to-map', function() {
     	$.fn.fullpage.moveTo(3);
     });
 
-    $('#helpButton').on('click touchstart', function() {
+    $('#helpButton, .open-help').on('click touchstart', function() {
     	$('.ui.modal.helpModal').modal('show');
     });
 
@@ -670,4 +670,6 @@ $(function() {
     $('#emailLink').on('click touchstart', function() {
     	window.location = "mailto:wdc-heritage@acuras.co.uk?subject=Bug%20Report";
     });
+	
+	
 });
