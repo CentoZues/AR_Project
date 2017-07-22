@@ -498,7 +498,7 @@
 .table .title{
     background: url(../img/title-bg.png) no-repeat;
     background-size: cover;
-    font-size: 60px;
+    font-size: 35px;
     color: #fff;
     text-shadow: 0 0 10px #000;
     z-index: 1;
