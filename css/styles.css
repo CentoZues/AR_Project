@@ -742,4 +742,9 @@
 .instructions-content{
 	background: #fff;
 	margin: 15px;
+	border-radius: 15px;
+	font-size: 25px;
 }
+	.instructions-content img{
+		text-align: center;
+	}
