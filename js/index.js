@@ -305,7 +305,7 @@ var modalActive = null;
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
 	walkManager.loadWalks(data);
-	walkManager.createPages();
+	//walkManager.createPages();
 	setTimeout(function(){}, 10000);
 });
 
@@ -411,26 +411,6 @@ var pulsingIcon = L.icon.pulse({iconSize:[20,20], color: 'blue'});
 var marker = L.marker([0, 0], {icon: pulsingIcon}).addTo(myMap);
 
 
-//////////////////////////
-//   Gesture Controls   //
-//////////////////////////
-
-var trackingElement = document.getElementById('walkPicker');
-var motionCap = new Hammer(trackingElement);
-
-motionCap.on('swipeleft swiperight', function(ev) {
-	//console.log("Gesture: " + ev.type);
-	if(ev.type == 'swipeleft') {
-		//move forward one element
-		$.fn.fullpage.moveSlideRight();
-	} else if (ev.type == 'swiperight') {
-		//move back one element
-		$.fn.fullpage.moveSlideLeft();
-	}
-});
-
-
-
 function loadPageContent(walkId, pinId) {
 	//console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
 	//console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
@@ -458,7 +438,7 @@ function loadPageContent(walkId, pinId) {
 		loadedContentPages.push({'walkId': walkId, 'pinId': pinId, 'pageContent': content.outerHTML});
 	}
 	//Move to pagef
-	$.fn.fullpage.moveTo(4, 0);
+	$.fn.fullpage.moveTo(3, 0);
 	 $(".owl-carousel").owlCarousel({
 		items:1,
 		nav: true,
@@ -561,14 +541,14 @@ $(function() {
 	$('body').on('click touchstart', '.toMapView', function() {
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
-		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, $(this).attr('data-map'));
-		var pins = walkManager.getWalk($(this).attr('data-map')).getPins();
+		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, 0);
+		var pins = walkManager.getWalk(0).getPins();
 		//console.log(walkManager.getWalk($(this).attr('data-map')).getPins());
 		//Add pins to sidebar
-		PageManager.mapPagePins(pins, $(this).attr('data-map'));
+		PageManager.mapPagePins(pins, 0);
 		//Move to map page
 		$('#mapid').removeClass("fadedBlack");
-		$.fn.fullpage.moveTo(3);
+		$.fn.fullpage.moveTo(2);
 		menuShowing = false;
 		//Load content pages
 		PageManager.addPageImport(pins);
@@ -585,7 +565,7 @@ $(function() {
 	//Home Button
 	$(document).on('click touchstart', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
-		$.fn.fullpage.moveTo(2);
+		$.fn.fullpage.moveTo(1);
 		positionTracking = false;
     	$('#locator').addClass('black');
     	$('#locator').removeClass('green');
@@ -627,7 +607,7 @@ $(function() {
     $('#backToMapButton').on('click touchstart', function() {
     	document.body.style.overflow = "hidden";
     	//console.log('backToMapButton pressed');
-    	$.fn.fullpage.moveTo(3);
+    	$.fn.fullpage.moveTo(2);
 
     });
 
@@ -640,7 +620,27 @@ $(function() {
     $('#startButton').on('click touchstart', function() {
     	$.fn.fullpage.destroy('all');
 		initFullpage();
-    	$.fn.fullpage.moveTo(2);
+    	//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
+		//Set Map to use the correct positioning and pins
+		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, 0);
+		var pins = walkManager.getWalk(0).getPins();
+		//console.log(walkManager.getWalk($(this).attr('data-map')).getPins());
+		//Add pins to sidebar
+		PageManager.mapPagePins(pins, 0);
+		//Move to map page
+		$('#mapid').removeClass("fadedBlack");
+		$.fn.fullpage.moveTo(2);
+		menuShowing = false;
+		//Load content pages
+		PageManager.addPageImport(pins);
+		//$('#walkPage .ui.sidebar').sidebar('show');
+		var myVar = setInterval(function() {
+			DistanceCheck(pins);
+		}, 30000);
+
+		setTimeout(function() {
+			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
+		}, 500);
     });
 
     $('#infoButton, .to-instructions').on('click touchstart', function() {
@@ -652,7 +652,7 @@ $(function() {
     });
 
     $(document).on('click touchstart', '.continue, .back', function() {
-    	$.fn.fullpage.moveTo(3);
+    	$.fn.fullpage.moveTo(2);
     });
 
     $('#helpButton, .open-help').on('click touchstart', function() {
