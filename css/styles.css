@@ -21,6 +21,7 @@
 	right: 0px;
 	margin-top: -4px;
 	opacity: 1;
+	box-shadow: 0 0 13px #000;
 }
 .burger::before {
 	position: absolute;
@@ -30,6 +31,7 @@
 	top: 11px;
 	content: "";
 	display: block;
+	box-shadow: 0 0 13px #000;
 }
 .burger::after {
 	position: absolute;
@@ -39,6 +41,7 @@
 	bottom: 12px;
 	content: "";
 	display: block;
+	box-shadow: 0 0 13px #000;
 }
 .burger::after, .burger::before, .burger {
   transition: all .3s ease-in-out;
