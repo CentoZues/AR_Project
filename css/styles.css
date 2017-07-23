@@ -743,9 +743,14 @@
 	background: #fff;
 	margin: 15px;
 	border-radius: 15px;
-	font-size: 25px;
+	font-size: 20px;
 	padding: 20px
 }
 	.instructions-content img{
+		display: block;
+		margin: 0 auto;
+	}
+	.instructions-content h2{
 		text-align: center;
+		font-size: 35px;
 	}
