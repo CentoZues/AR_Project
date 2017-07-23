@@ -19,7 +19,7 @@
 	right: 0px;
 	margin-top: -4px;
 	opacity: 1;
-	box-shadow: 0 0 13px #000;
+	box-shadow: 0 0 28px #000;
 }
 .burger::before {
 	position: absolute;
@@ -29,7 +29,7 @@
 	top: 11px;
 	content: "";
 	display: block;
-	box-shadow: 0 0 13px #000;
+	box-shadow: 0 0 28px #000;
 }
 .burger::after {
 	position: absolute;
@@ -39,7 +39,6 @@
 	bottom: 12px;
 	content: "";
 	display: block;
-	box-shadow: 0 0 13px #000;
 }
 .burger::after, .burger::before, .burger {
   transition: all .3s ease-in-out;
@@ -546,13 +545,25 @@
 }
 .video{
     text-align: center;
-    position: relative;
     border: 6px solid #fff;
     box-shadow: 0 0 25px -5px #000;
     margin: 0 auto 13px;
     width: 567px;
     max-width: 100%;
 	background: #000;
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video iframe, .video object, .video embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
 }
  /*   .video:before{
         content: '\f01d';
@@ -583,10 +594,8 @@
         font-weight: bold;
         
     } */
-    .video iframe{
-        max-width: 100%;
-        display: inherit;
-    }
+    } */
+    } */
 .view-360, .continue, .dialog, .note{
     color: #fff;
     background: url(../img/360.jpg);
