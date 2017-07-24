@@ -1,7 +1,7 @@
 $(function() {	
 	
 	
-	$(".burger-menu, .menu").click(function () {
+	$(".burger-menu, .menu").on('click touchstart', function() {
 	   	$('.burger-menu').toggleClass("menu-on");
 		$('.side-menu').toggleClass("menu-on");
 	});
@@ -47,7 +47,7 @@ $(function() {
 	}
 	
 	
-	$( "#walkContent" ).on( "click", ".dialog", function() {
+	$( "#walkContent" ).on( "click touchstart", ".dialog", function() {
 		if($(this).hasClass('note')){
 			$('.dial').hide();
 			$('.notes').show();
