@@ -73,3 +73,12 @@
 		margin-top: 10px;
 	}
 }
+
+@media only screen and (max-width : 375px) {
+	.view-360{
+		widows: 158px;
+	}
+	.dialog{
+		width: 150px;
+	}
+}
