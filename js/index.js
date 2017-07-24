@@ -617,7 +617,7 @@ $(function() {
 
     });
 
-    $('#startButton').on('click touchstart', function() {
+    /*$('#startButton').on('click touchstart', function() {
     	$.fn.fullpage.destroy('all');
 		initFullpage();
     	//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
@@ -641,7 +641,7 @@ $(function() {
 		setTimeout(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
 		}, 500);
-    });
+    });*/
 
     $('#infoButton, .to-instructions').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
