@@ -47,7 +47,7 @@ $(function() {
 	}
 	
 	
-	$( "#walkContent" ).on( "click touchstart", ".dialog", function() {
+	$( "#walkContent" ).on( "click", ".dialog", function() {
 		if($(this).hasClass('note')){
 			$('.dial').hide();
 			$('.notes').show();
