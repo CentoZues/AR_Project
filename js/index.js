@@ -615,6 +615,7 @@ $(function() {
 
     $('#clearable').on('click touchstart', function() {
     	modalActive = null;
+    	console.log(modalActive);
     });
 
     $(document).on('tap', '.sidebarPin', function() {
