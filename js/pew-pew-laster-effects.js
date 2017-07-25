@@ -52,10 +52,12 @@ $(function() {
 			$('.dial').hide();
 			$('.notes').show();
 			$('.dialog').html('<i class="fa fa-commenting-o" aria-hidden="true"></i> Dialog').removeClass('note');
+			$.fn.fullpage.reBuild();
 		}else{
 			$('.notes').hide();
 			$('.dial').show();
 			$('.dialog').html('<i class="fa fa-file-text-o" aria-hidden="true"></i> Notes').addClass('note');
+			$.fn.fullpage.reBuild();
 		}
 	});
 
