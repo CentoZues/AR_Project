@@ -356,9 +356,9 @@ function pageModal(closestPin){
 	modalid = walkManager.getWalk(0).getPin(closestPin).getID();
 	console.log(modalid);
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
-		modalHTML += '<div id="clearable">\
+		modalHTML += '<div id="clearable" class="modalReset">\
 		<div class="ui modal notification">\
-		  <i class="close icon clearable"></i>\
+		  <i class="close icon clearable modalReset"></i>\
 		  <div class="header">\
 		    You Have Arrived at the '+ modalName +'\
 		  </div>\
@@ -371,7 +371,7 @@ function pageModal(closestPin){
 		    </div>\
 		  </div>\
 		  <div class="actions">\
-		    <div class="ui black deny button clearable">\
+		    <div class="ui black deny button clearable modalReset">\
 		      No Thank You!\
 		    </div>\
 		    <div id="modalButton" class="ui positive right labeled icon button">\
@@ -613,7 +613,7 @@ $(function() {
 
     });
 
-    $('#clearable').on('click touchstart', function() {
+    $('.modalReset').on('click touchstart', function() {
     	modalActive = null;
     	console.log(modalActive);
     });
