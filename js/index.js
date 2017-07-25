@@ -323,7 +323,7 @@ function DistanceCheck(pins)
 	jQuery.each(pins, function(i, val) {
 	var latlng = L.latLng(val.lat, val.lng);
 	var curDistanceFrom = curLocation.distanceTo(latlng);
-	if (curDistanceFrom < 10) {
+	if (curDistanceFrom < 20) {
 		DistCheckArray.push("yes");
 	}
 	else
@@ -333,7 +333,7 @@ function DistanceCheck(pins)
 	});
 	console.log(DistCheckArray);
 
-	if (curSlide != 4) {
+	if (curSlide != 3) {
 		var arrcheck = DistCheckArray.includes("yes"); 
 		console.log(arrcheck);
 		if (arrcheck == true) {
@@ -576,7 +576,8 @@ $(function() {
 	$(document).on('click touchstart', '#modalButton', function() {
 		modalActive = null;
 		var curwalkid = 0;
-		loadPageContent(curwalkid, modalid);
+		
+		(curwalkid, modalid);
 	});
 
 	//Sidebar Button
@@ -610,6 +611,10 @@ $(function() {
     	//console.log('backToMapButton pressed');
     	$.fn.fullpage.moveTo(2);
 
+    });
+
+    $('#clearable').on('click touchstart', function() {
+    	modalActive = null;
     });
 
     $(document).on('tap', '.sidebarPin', function() {
