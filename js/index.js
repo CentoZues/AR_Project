@@ -272,7 +272,7 @@ class PageManager {
 			link.rel = 'import';
 			link.href = val.url;
 			link.onload = function(e) {
-				//console.log('\'' + val.url + '\' is loaded.');
+				console.log('\'' + val.url + '\' is loaded.');
 			}
 			document.head.appendChild(link);
 		});
@@ -412,6 +412,7 @@ var marker = L.marker([0, 0], {icon: pulsingIcon}).addTo(myMap);
 
 
 function loadPageContent(walkId, pinId) {
+
 	//console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
 	//console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
 	//Clear Div
@@ -470,7 +471,7 @@ $(function() {
 			keyboardScrolling: false,
 			setAutoScrolling: false,
 
-			//anchors: ['walkSelection', 'mapRoute', 'pinContent'],
+			anchors: ['home', 'map', 'content'],
 			afterLoad: function(anchorLink, index) {
 				$.fn.fullpage.reBuild();
 				curSlide = index;
