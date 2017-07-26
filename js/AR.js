@@ -1,10 +1,9 @@
 function startAR(imagePath, offsetDeg, containerName) {
 
     //Create 3D Scene
-    var container, camera, scene, renderer, controls, geometry, mesh, videoPlaying, id;
+    var container, camera, scene, renderer, controls, geometry, mesh, id;
     //var sceneRotation = compassHeading;
     var sceneRotation = 360 - compassHeading;
-    videoPlaying = true;
     container = document.getElementById(containerName);
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
     controls = new DeviceOrientationController(camera);
@@ -39,17 +38,6 @@ function startAR(imagePath, offsetDeg, containerName) {
     renderer.domElement.style.top = 0;
     container.appendChild(renderer.domElement);
 
-
-    //Post Processing
-    composer = new THREE.EffectComposer(renderer);
-    composer.addPass(new THREE.RenderPass(scene, camera));
-
-    var effect = new THREE.ShaderPass(THREE.GreenScreenShader);
-    //effect.uniforms['colour'].value = new THREE.Color('0xd400');
-    effect.renderToScreen = true;
-    composer.addPass(effect);
-
-
     animate();
 
     function animate() {
@@ -61,7 +49,7 @@ function startAR(imagePath, offsetDeg, containerName) {
 
     function render() {
         
-        composer.render( scene, camera );
+        renderer.render( scene, camera );
         console.log('1');
     }
 
