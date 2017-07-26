@@ -461,7 +461,7 @@ $(function() {
 			slidesNavigation: false,
 			controlArrows: false,
 			verticalCentered: false,
-			normalScrollElements: '#importContent, #mapid, .mapPickSlide, #pinNavigationSidebar',
+			normalScrollElements: '#importContent, #mapid, .mapPickSlide, #pinNavigationSidebar, #introPage, .instructions-content',
 			scrollOverflow: true,
 			scrollOverflowReset: true,
 			scrollOverflowOptions: {
@@ -484,6 +484,9 @@ $(function() {
 					$('#mapDisplaySlide').addClass('active');
 					$.fn.fullpage.reBuild();
 				}
+			},
+			afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
+				$.fn.fullpage.reBuild();
 			}
 		});
 		$.fn.fullpage.setAllowScrolling(false);
@@ -539,14 +542,14 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$('body').on('click touchstart', '.toMapView', function() {
+	$('body').on('click tap', '.toMapView', function() {
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, 0);
 		var pins = walkManager.getWalk(0).getPins();
 		//console.log(walkManager.getWalk($(this).attr('data-map')).getPins());
 		//Add pins to sidebar
-		PageManager.mapPagePins(pins, 0);
+		//PageManager.mapPagePins(pins, 0);
 		//Move to map page
 		$('#mapid').removeClass("fadedBlack");
 		$.fn.fullpage.moveTo(2);
@@ -650,11 +653,11 @@ $(function() {
 		}, 500);
     });*/
 
-    $('#infoButton, .to-instructions').on('click touchstart', function() {
+    $('#infoButton, .to-instructions').on('click tap', function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
-    $('#getStartedButton, .to-home').on('click touchstart', function() {
+    $('#getStartedButton, .to-home').on('click tap', function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
