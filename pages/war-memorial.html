@@ -7,7 +7,7 @@
             <div class="video">
                 <iframe width="560" src="https://www.youtube.com/embed/r2kUwup2zaE?rel=0&amp;showinfo=0?ecver=1" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="view-360"><i class="fa fa-undo" aria-hidden="true"></i> 360 view</div>
+            <div class="view-360" id="warMemorial360"><i class="fa fa-undo" aria-hidden="true"></i> 360 view</div>
 			<div class="dialog"><i class="fa fa-commenting-o" aria-hidden="true"></i> Dialog</div>
         </div>
         <div class="content">
@@ -41,4 +41,11 @@
     </div>
     
     </div>
+
+    <script>
+        $(document).on("tap", "#warMemorial360", function() {
+            $.fn.fullpage.moveTo(4);
+            startAR('img/Church360.jpg', 90, '360Content');
+        });
+    </script>
 </div>

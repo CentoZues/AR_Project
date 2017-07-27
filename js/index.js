@@ -272,7 +272,7 @@ class PageManager {
 			link.rel = 'import';
 			link.href = val.url;
 			link.onload = function(e) {
-				console.log('\'' + val.url + '\' is loaded.');
+				//console.log('\'' + val.url + '\' is loaded.');
 			}
 			document.head.appendChild(link);
 		});
@@ -318,33 +318,35 @@ $('html, body').on('touchstart touchmove', function(e) {
 });
 function DistanceCheck(pins)
 {
-	var DistCheckArray = [];
+	if(curLocation != null) {
+		var DistCheckArray = [];
 
-	jQuery.each(pins, function(i, val) {
-	var latlng = L.latLng(val.lat, val.lng);
-	var curDistanceFrom = curLocation.distanceTo(latlng);
-	if (curDistanceFrom < 20) {
-		DistCheckArray.push("yes");
-	}
-	else
-	{
-		DistCheckArray.push("no");
-	}
-	});
-	console.log(DistCheckArray);
+		jQuery.each(pins, function(i, val) {
+			var latlng = L.latLng(val.lat, val.lng);
+			var curDistanceFrom = curLocation.distanceTo(latlng);
+			if (curDistanceFrom < 20) {
+				DistCheckArray.push("yes");
+			}
+			else
+			{
+				DistCheckArray.push("no");
+			}
+		});
+		console.log(DistCheckArray);
 
-	if (curSlide != 3) {
-		var arrcheck = DistCheckArray.includes("yes"); 
-		console.log(arrcheck);
-		if (arrcheck == true) {
-		if (modalActive != 1) {
-			console.log("entering curSLide");
-			closestPin = DistCheckArray.indexOf("yes");
-			console.log("entering indexOf");
-			console.log(closestPin);
-			pageModal(closestPin);
-			console.log("request pagemodal");
-		}
+		if (curSlide != 3) {
+			var arrcheck = DistCheckArray.includes("yes"); 
+			console.log(arrcheck);
+			if (arrcheck == true) {
+			if (modalActive != 1) {
+				console.log("entering curSLide");
+				closestPin = DistCheckArray.indexOf("yes");
+				console.log("entering indexOf");
+				console.log(closestPin);
+				pageModal(closestPin);
+				console.log("request pagemodal");
+			}
+			}
 		}
 	}
 }
@@ -471,13 +473,18 @@ $(function() {
 			keyboardScrolling: false,
 			setAutoScrolling: false,
 
-			anchors: ['home', 'map', 'content'],
+			anchors: ['home', 'map', 'content', '360images'],
 			afterLoad: function(anchorLink, index) {
 				$.fn.fullpage.reBuild();
-				curSlide = index;
+				//curSlide = index;
+				if(index == 4) {
+            		$('.back-to-content').removeClass('hidden');
+				} else {
+					$('.back-to-content').addClass('hidden');
+				}
 			},
 			onLeave: function(index, nextIndex, direction) {
-
+				curSlide = nextIndex;
 				if(index == 2 && nextIndex == 3) {
 					menuShowing = false;
 					$('#pinNavigationSidebarSlide').removeClass('active');
@@ -653,11 +660,11 @@ $(function() {
 		}, 500);
     });*/
 
-    $('#infoButton, .to-instructions').on('click tap', function() {
+    $('#infoButton, .to-instructions').on('click touchstart tap', function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
-    $('#getStartedButton, .to-home').on('click tap', function() {
+    $('#getStartedButton, .to-home').on('click touchstart tap', function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
@@ -681,5 +688,8 @@ $(function() {
     	window.location = "mailto:wdc-heritage@acuras.co.uk?subject=Bug%20Report";
     });
 	
+	$('.back-to-content').on('click touchstart', function() {
+		$.fn.fullpage.moveTo(3);
+	});
 	
 });

@@ -364,3 +364,7 @@ button {
 img.single-image {
 	max-width:100%;
 }
+
+.menu {
+	cursor: pointer;
+}

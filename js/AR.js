@@ -50,10 +50,13 @@ function startAR(imagePath, offsetDeg, containerName) {
     function render() {
         
         renderer.render( scene, camera );
-        console.log('1');
+        if(window.curSlide != 4) {
+            console.log("kill!");
+            killScene();
+        }
     }
 
-    $(document).on("click touchstart", ".360Back", function() {
+    function killScene() {
         renderer.forceContextLoss();
         cancelAnimationFrame(id);
         renderer.domElement.addEventListener('dblclick', null, false);
@@ -61,11 +64,7 @@ function startAR(imagePath, offsetDeg, containerName) {
         projector = null;
         camera = null;
         controls = null;
-
-        $("div").find("canvas").hide();
-        $("#ReturnFrom360").addClass('hidden');
-        $('#pageContent').removeClass('hidden');
-    });
+    }
 
     //On window resize.. Probably wont need because it'll be fullscreen on phone anyway. Doesn't hurt.
     window.addEventListener('resize', function() {
