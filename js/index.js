@@ -306,7 +306,6 @@ var modalActive = null;
 $.getJSON("json/walks.json", function(data) {
 	walkManager.loadWalks(data);
 	//walkManager.createPages();
-	setTimeout(function(){}, 10000);
 });
 
 
