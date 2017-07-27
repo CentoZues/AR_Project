@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="msapplication-tap-highlight" content="no" />
 
 	<title>History Walks | Wycombe District Council</title>
 
 	<!-- CSS Scripts -->
-	<!--<link rel="stylesheet" href="dep/SemanticUI/semantic.min.css">-->
-	<link rel="stylesheet" href="dep/SemanticUI/components/semantic.comps.min.css">
+	<link rel="stylesheet" href="dep/SemanticUI/semantic.min.css">
+	<!--<link rel="stylesheet" href="dep/SemanticUI/components/semantic.comps.min.css">-->
 	<!-- FullPageJS Stylesheets -->
 	<link rel="stylesheet" href="dep/fullPagejs/jquery.fullPage.css">
 	<!-- LeafletJS Stylesheets -->
@@ -138,43 +138,14 @@
 		    </div>
 		</div>
 
-		<div id="walkPage" class="section">
-			<!--
-			<div class="slide" id="pinNavigationSidebarSlide">
-				<div class="ui middle aligned divided list" id="pinNavigationSidebar">
-					<a class="item tapable toHome">
-						<div id="homeButtonContainer">
-							<i class="huge whiteIcon inverted arrow up icon"></i>
-							<p>Home</p>
-						</div>
-					</a>
-				</div>
+		<div id="walkPage" class="section fp-noscroll">
+			<div id="mapid" data-tap-disabled="true">
+
 			</div>
-			-->
-			<div class="slide fp-noscroll" id="mapDisplaySlide">
-				<div id="mapid" data-tap-disabled="true">
-
-				</div>
-				<div id="PinModal">
-
-				</div>
-				<div id="locateMe">
-					<button id="locator" class="ui black icon button large locator">
-						<i class="crosshairs icon large"></i>
-					</button>
-				</div>
-
-				<!--
-				<a id="sidebartoggle" class="ui black big launch right attached button sidebartoggle">
-			        <i class="icon pin nomargin"></i>
-        		</a>
-
-        		<div id="helpButtonContainer">
-        			<div id="helpButton">
-        				<div id="helpButtonText">Help</div>
-		        	</div>
-        		</div>
-        		-->
+			<div id="locateMe">
+				<button id="locator" class="ui black icon button large locator">
+					<i class="crosshairs icon large"></i>
+				</button>
 			</div>
 
 		</div>
