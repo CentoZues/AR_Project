@@ -406,7 +406,13 @@ var myMap = L.map('mapid', {
 	minZoom: 15
 });
 
-L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2MHZxcDFnMDA0eDJ0dDl6cGhsbnE0dyJ9.Bz2HQaXOIdZnpjvct4hq0g').addTo(myMap);
+var tileLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicm9iZXJ0aHVja3MiLCJhIjoiY2l2MHZxcDFnMDA0eDJ0dDl6cGhsbnE0dyJ9.Bz2HQaXOIdZnpjvct4hq0g');
+tileLayer.addTo(myMap);
+tileLayer.on('load', function() {
+	tileLayer.off('load');
+	$('#mapCover').removeClass('fadedBlack');
+	$('#loadingIconHolder').remove();
+});
 var pulsingIcon = L.icon.pulse({iconSize:[20,20], color: 'blue'});
 //Default Marker
 var marker = L.marker([0, 0], {icon: pulsingIcon}).addTo(myMap);
