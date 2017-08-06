@@ -555,6 +555,7 @@ $(function() {
 
 	//Button to Map View
 	$('body').on('click tap', '.toMapView', function() {
+		$('#loadingIconHolder').show();
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
 		mapRouting = PageManager.updateMapRouting(mapRouting, myMap, 0);
@@ -572,8 +573,6 @@ $(function() {
 		var myVar = setInterval(function() {
 			DistanceCheck(pins);
 		}, 30000);
-
-		$('#loadingIconHolder').css("display","");
 		
 		setTimeout(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
