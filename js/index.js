@@ -671,6 +671,7 @@ $(function() {
 
     $('#getStartedButton, .to-home').on('click touchstart tap', function() {
     	$.fn.fullpage.moveTo(1, 0);
+		$('.loadingIconHolder').show();
     });
 
     $(document).on('click touchstart', '.continue, .back', function() {
