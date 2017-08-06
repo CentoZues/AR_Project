@@ -573,6 +573,8 @@ $(function() {
 			DistanceCheck(pins);
 		}, 30000);
 
+		$('.loadingIconHolder').css("display","");
+		
 		setTimeout(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
 		}, 500);
@@ -671,7 +673,6 @@ $(function() {
 
     $('#getStartedButton, .to-home').on('click touchstart tap', function() {
     	$.fn.fullpage.moveTo(1, 0);
-		$('.loadingIconHolder').css("display","");
     });
 
     $(document).on('click touchstart', '.continue, .back', function() {
