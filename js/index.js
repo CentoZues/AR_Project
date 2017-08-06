@@ -573,7 +573,7 @@ $(function() {
 			DistanceCheck(pins);
 		}, 30000);
 
-		$('.loadingIconHolder').css("display","");
+		$('#loadingIconHolder').css("display","");
 		
 		setTimeout(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
