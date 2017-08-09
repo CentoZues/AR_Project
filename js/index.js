@@ -666,7 +666,7 @@ $(function() {
 		}, 500);
     });*/
 
-    $('#infoButton, .to-instructions').on('click tap', function() {
+    $('#infoButton, .to-instructions').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
