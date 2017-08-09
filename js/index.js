@@ -24,7 +24,7 @@ class WalkManager {
 		});
 
 		//this.display();
-		
+
 	}
 
 	display() {
@@ -106,7 +106,7 @@ class Pin {
 	getID() {
 		return this.id;
 	}
-	
+
 	getLat() {
 		return this.lat;
 	}
@@ -154,7 +154,7 @@ class PageManager {
 	static mapPagePins(pins, walkId) {
 		$('.sidebarPin').remove();
 		$('.sidebarPinDistance').remove();
-		
+
 		//Loop through each pin and add to the pin list in the sidebar
 		jQuery.each(pins, function(i, val) {
 			var pinHTML = '';
@@ -253,7 +253,7 @@ class PageManager {
 						loadPageContent(walkID, i);
 					});
 				}
-				
+
 			},
 			draggableWaypoints: false,
 			addWaypoints: false,
@@ -276,7 +276,7 @@ class PageManager {
 			}
 			document.head.appendChild(link);
 		});
-		
+
 	}
 }
 
@@ -334,7 +334,7 @@ function DistanceCheck(pins)
 		console.log(DistCheckArray);
 
 		if (curSlide != 3) {
-			var arrcheck = DistCheckArray.includes("yes"); 
+			var arrcheck = DistCheckArray.includes("yes");
 			console.log(arrcheck);
 			if (arrcheck == true) {
 			if (modalActive != 1) {
@@ -423,9 +423,9 @@ function loadPageContent(walkId, pinId) {
 	//console.log("Pin ID: ", pinId, "Walk ID: ", walkId);
 	//console.log("Content for pin: ", walkManager.getWalk(walkId).getPin(pinId).getID(), walkManager.getWalk(walkId).getPin(pinId).getName(), walkManager.getWalk(walkId).getPin(pinId).getURL(), pinId, walkId);
 	//Clear Div
-	$(".owl-carousel").owlCarousel('destroy'); 
+	$(".owl-carousel").owlCarousel('destroy');
 	$('#walkContent').empty();
-	
+
 	//Loop through and check for existing content
 	var itemIndex = null;
 	jQuery.each(loadedContentPages, function(i, val) {
@@ -514,7 +514,7 @@ $(function() {
 	}
 
 	//Initialise distance check function
-    
+
 
 	function showAccuratePosition(position) {
 		marker.setLatLng({lat: position.coords.latitude, lng: position.coords.longitude});
@@ -554,7 +554,7 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$('body').on('click tap', '.toMapView', function() {
+	$('body').on('click touchstart', '.toMapView', function() {
 		$('#loadingIconHolder').show();
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
@@ -573,7 +573,7 @@ $(function() {
 		var myVar = setInterval(function() {
 			DistanceCheck(pins);
 		}, 30000);
-		
+
 		setTimeout(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
 		}, 500);
@@ -592,7 +592,7 @@ $(function() {
 	$(document).on('click touchstart', '#modalButton', function() {
 		modalActive = null;
 		var curwalkid = 0;
-		
+
 		(curwalkid, modalid);
 	});
 
@@ -666,11 +666,11 @@ $(function() {
 		}, 500);
     });*/
 
-    $('#infoButton, .to-instructions').on('click touchstart tap', function() {
+    $('#infoButton, .to-instructions').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
-    $('#getStartedButton, .to-home').on('click touchstart tap', function() {
+    $('#getStartedButton, .to-home').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
@@ -693,9 +693,9 @@ $(function() {
     $('#emailLink').on('click touchstart', function() {
     	window.location = "mailto:wdc-heritage@acuras.co.uk?subject=Bug%20Report";
     });
-	
+
 	$('.back-to-content').on('click touchstart', function() {
 		$.fn.fullpage.moveTo(3);
 	});
-	
+
 });
