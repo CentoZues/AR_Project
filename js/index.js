@@ -554,7 +554,7 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$('body').on('click tap', '.toMapView', function() {
+	$('body').on('click touchstart', '.toMapView', function() {
 		$('#loadingIconHolder').show();
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
@@ -670,7 +670,7 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
-    $('#getStartedButton, .to-home').on('click tap', function() {
+    $('#getStartedButton, .to-home').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
