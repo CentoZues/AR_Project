@@ -691,7 +691,7 @@ $(function() {
     });
 
     $('#emailLink').on('click touchstart', function() {
-    	window.location = "mailto:wdc-heritage@acuras.co.uk?subject=Bug%20Report";
+    	window.location = "mailto:community@wycombe.gov.uk?subject=Heritage%20App%20Bug%20Report";
     });
 
 	$('.back-to-content').on('click touchstart', function() {
