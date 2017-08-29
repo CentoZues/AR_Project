@@ -605,12 +605,8 @@ $(function() {
 		modalActive = null;
 		var curwalkid = 0;
 
-		$.fn.fullpage.moveTo(curwalkid, modalid);
-	 		$(".owl-carousel").owlCarousel({
-			items:1,
-			nav: true,
-			navText: ['','']
-		});
+		loadPageContent(curwalkid, modalid);
+
 	});
 	$(document).on('click touchstart', '#modalDenyButton', function() {
 		modalActive = null;
