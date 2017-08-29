@@ -374,7 +374,7 @@ function pageModal(closestPin){
 		    </div>\
 		  </div>\
 		  <div class="actions">\
-		    <div class="ui black deny button clearable modalReset">\
+		    <div id="modalDenyButton" class="ui black deny button clearable modalReset">\
 		      No Thank You!\
 		    </div>\
 		    <div id="modalButton" class="ui positive right labeled icon button">\
@@ -606,7 +606,16 @@ $(function() {
 		var curwalkid = 0;
 
 		$.fn.fullpage.moveTo(curwalkid, modalid);
+	 		$(".owl-carousel").owlCarousel({
+			items:1,
+			nav: true,
+			navText: ['','']
+		});
 	});
+	$(document).on('click touchstart', '#modalDenyButton', function() {
+		modalActive = null;
+	});
+	
 
 	//Sidebar Button
 	$(document).on('click touchstart', '.sidebartoggle', function() {
