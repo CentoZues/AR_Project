@@ -344,8 +344,8 @@ function DistanceCheck(pins)
 				closestPin = DistCheckArray.indexOf("yes");
 				console.log("entering indexOf");
 				console.log(closestPin);
-				pageModal(closestPin);
 				console.log("request pagemodal");
+				pageModal(closestPin);
 			}
 			}
 		}
@@ -605,7 +605,7 @@ $(function() {
 		modalActive = null;
 		var curwalkid = 0;
 
-		(curwalkid, modalid);
+		$.fn.fullpage.moveTo(curwalkid, modalid);
 	});
 
 	//Sidebar Button
