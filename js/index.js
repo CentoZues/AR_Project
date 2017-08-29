@@ -338,6 +338,7 @@ function DistanceCheck(pins)
 			var arrcheck = DistCheckArray.includes("yes");
 			console.log(arrcheck);
 			if (arrcheck == true) {
+				console.log(modalActive);
 			if (modalActive != 1) {
 				console.log("entering curSLide");
 				closestPin = DistCheckArray.indexOf("yes");
