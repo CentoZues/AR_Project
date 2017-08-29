@@ -611,6 +611,12 @@ $(function() {
 	$(document).on('click touchstart', '#modalDenyButton', function() {
 		modalActive = null;
 	});
+	$(document).on('click touchstart', '.to-home', function() {
+		modalActive = 1;
+	});
+	$(document).on('click touchstart', '.toMapView', function() {
+		modalActive = null;
+	});
 	
 
 	//Sidebar Button
