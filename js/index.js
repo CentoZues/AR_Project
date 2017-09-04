@@ -470,7 +470,7 @@ $(function() {
 	var androidVersion = getAndroidVersion(); //"4.2.1"
 	// parseInt(getAndroidVersion(), 10); //4
 	// parseFloat(getAndroidVersion()); //4.2
-	alert(androidVersion);
+	$("body").prepend("<p>android version = " + androidVersion + "</p>");
 
 	//Slide settings
 	function initFullpage() {
@@ -617,7 +617,7 @@ $(function() {
 	$(document).on('click touchstart', '.toMapView', function() {
 		modalActive = null;
 	});
-	
+
 
 	//Sidebar Button
 	$(document).on('click touchstart', '.sidebartoggle', function() {
