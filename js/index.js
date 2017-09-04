@@ -566,7 +566,7 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$('body').on('click touchend', '.toMapView', function() {
+	$('body').on('touchend', '.toMapView', function(e) {
 		if(touchmoved != true){
 		modalActive = null;
 		$('#loadingIconHolder').show();
