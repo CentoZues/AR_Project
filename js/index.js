@@ -31,14 +31,6 @@ class WalkManager {
 		console.log(JSON.stringify(this, null, 4));
 	}
 
-	createPages() {
-		//For each walk
-		for(var i = 0; i < this.walks.length; i++) {
-			//Add the selection page
-			PageManager.newSelectionPage(this.walks[i].getName(), this.walks[i].getId(), this.walks[i].getBackground());
-		}
-	}
-
 	getWalk(id) {
 		return this.walks[id];
 	}
@@ -130,64 +122,6 @@ class Pin {
 
 class PageManager {
 	constructor() {}
-
-	static newSelectionPage(walkName, id, img) {
-
-		var selectionPageHTML = '<div id="' + walkName.split(' ').join('_') + '" class="slide"><div class="mapPickSlide"><div class="pageTitle">';
-		selectionPageHTML += '<h1><b>' + walkName + '</b></h1></div>';
-		selectionPageHTML += '<div class="pageButton"><a class="circular ui icon button black tapable toMapView" data-map="' + id + '"><i class="arrow down icon"></i>';
-		selectionPageHTML += '</a></div></div></div>';
-		$('#walkPicker').append(selectionPageHTML);
-
-		//Background of slide to image
-		$('#' + walkName.split(' ').join('_')).css('background', "url('" + img + "') no-repeat center center");
-		$('#' + walkName.split(' ').join('_')).css('-webkit-background-size', "cover");
-		$('#' + walkName.split(' ').join('_')).css('-moz-background-size', "cover");
-		$('#' + walkName.split(' ').join('_')).css('-o-background-size', "cover");
-		$('#' + walkName.split(' ').join('_')).css('background-size', "cover");
-
-		//Force 100% Height
-		$('#' + walkName.split(' ').join('_')).css('height', "100% !important");
-
-	}
-
-	static mapPagePins(pins, walkId) {
-		$('.sidebarPin').remove();
-		$('.sidebarPinDistance').remove();
-
-		//Loop through each pin and add to the pin list in the sidebar
-		jQuery.each(pins, function(i, val) {
-			var pinHTML = '';
-			//console.log("Adding pin: ", val);
-			pinHTML += '<div class="item pin sidebarPin" data-pinId="' + val.id + '" data-walkId="' + walkId + '">\
-				<div class="ui grid">\
-					<div class="row pinInfo">\
-						<div class="three wide column pinInfoColumn">\
-							<span class="pinInfoContent">' + (val.id + 1) + '.</span>\
-						</div>\
-						<div class="thirteen wide column pinInfoColumn pinNameDisplay">\
-							<span class="pinInfoContent">' + (val.name) + '</span>\
-						</div>\
-					</div>\
-				</div>\
-			</div>';
-			if (val.dist != 0) {
-				pinHTML += '<div class="item distance sidebarPinDistance">\
-					<div class="ui grid">\
-						<div class="centered row pinDistance">\
-							<div class="sixteen wide column pinDistanceDisplay">\
-								<i class="long arrow down big icon"></i>' + (val.dist) + ' meters\
-							</div>\
-						</div>\
-					</div>\
-				</div>';
-			}
-
-			$('#pinNavigationSidebar').append(pinHTML);
-		});
-
-		$.fn.fullpage.reBuild();
-	}
 
 	static updateMapRouting(curRouting, mapObj, walkID) {
 		//console.log("Updating map pins!", walkID);
@@ -360,29 +294,26 @@ function pageModal(closestPin){
 	console.log(modalid);
 	var modalName = walkManager.getWalk(0).getPin(closestPin).getName();
 		modalHTML += '<div id="clearable" class="modalReset">\
-		<div class="ui modal notification">\
-		  <i class="close icon clearable modalReset"></i>\
-		  <div class="header">\
-		    You Have Arrived at the '+ modalName +'\
-		  </div>\
-		  <div class="image content">\
-		    <div class="ui medium image">\
-		    </div>\
-		    <div class="description">\
-		      <div class="ui header"> </div>\
-		      <p>Would you like to Access the content for the '+ modalName +'?</p>\
-		    </div>\
-		  </div>\
-		  <div class="actions">\
-		    <div id="modalDenyButton" class="ui black deny button clearable modalReset">\
-		      No Thank You!\
-		    </div>\
-		    <div id="modalButton" class="ui positive right labeled icon button">\
-		       Yes, Please!\
-		      <i class="checkmark icon"></i>\
-		    </div>\
-		  </div>\
-		</div>\
+			<div id="nearbyModal" data-pinId="' + closestPin + '" class="ui modal notification">\
+			  	<div class="header">\
+			    	You Have Arrived at the '+ modalName +'\
+			  	</div>\
+			  	<div class="content">\
+				    <div class="description">\
+				      	<div class="ui header"></div>\
+				      	<p>Would you like to Access the content for the '+ modalName +'?</p>\
+				    </div>\
+			  	</div>\
+			  	<div class="actions">\
+			    	<div id="closeModalButton" class="ui black button clearable modalReset">\
+			      		No Thank You!\
+			    	</div>\
+			    	<div id="viewContentModalButton" class="ui green right labeled icon button">\
+			       		Yes, Please!\
+			      		<i class="checkmark icon"></i>\
+			    	</div>\
+			  	</div>\
+			</div>\
 		</div>';
 		$('#PinModal').append(modalHTML);
 		modalActive = 1;
@@ -567,13 +498,13 @@ $(function() {
 
 	//Button to Map View
 	$('.toMapView').on('tap touchend', function(e){
-    if(touchmoved != true){
-        MapViewInitiation();
-    }
+	    if(touchmoved != true){
+	        MapViewInitiation();
+	    }
 	}).on('touchmove', function(e){
-    touchmoved = true;
+	    touchmoved = true;
 	}).on('touchstart', function(){
-    touchmoved = false;
+	    touchmoved = false;
 	});
 
 
@@ -596,7 +527,7 @@ $(function() {
 		//$('#walkPage .ui.sidebar').sidebar('show');
 		var myVar = setInterval(function() {
 			DistanceCheck(pins);
-		}, 30000);
+		}, 3000);
 
 		setTimeout(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
@@ -618,11 +549,12 @@ $(function() {
 		var curwalkid = 0;
 
 		loadPageContent(curwalkid, modalid);
-
 	});
+
 	$(document).on('click touchstart', '#modalDenyButton', function() {
 		modalActive = null;
 	});
+
 	$(document).on('click touchstart', '.to-home', function() {
 		modalActive = 1;
 	});
@@ -735,6 +667,19 @@ $(function() {
 
 	$('.back-to-content').on('click touchstart', function() {
 		$.fn.fullpage.moveTo(3);
+	});
+
+	$(document).on('click touchstart', '#closeModalButton', function() {
+		$('#nearbyModal').modal('hide');
+		modalActive = null;
+	});
+
+	$(document).on('click touchstart', '#viewContentModalButton', function() {
+		$('#nearbyModal').modal('hide');
+		modalActive = null;
+		var curwalkid = 0;
+
+		loadPageContent(curwalkid, $('#nearbyModal').attr('data-pinId'));
 	});
 
 });
