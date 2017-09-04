@@ -603,20 +603,6 @@ $(function() {
 		}, 500);
 	}
 
-
-	$('.toInfoView').on('tap touchend', function(e){
-    if(touchmoved != true){
-        InfoViewInitiation();
-    }
-	}).on('touchmove', function(e){
-    touchmoved = true;
-	}).on('touchstart', function(){
-    touchmoved = false;
-	});
-
-	function InfoViewInitiation(){
-		$.fn.fullpage.moveTo(1, 1);
-	}
 	//Home Button
 	$(document).on('click touchstart', '.toHome', function() {
 		//alert("Button Pressed ( -> Home )");
@@ -714,6 +700,10 @@ $(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
 		}, 500);
     });*/
+
+    $('#infoButton').on('tap', function() {
+    	$.fn.fullpage.moveTo(1, 1);
+    });
 
     $('.to-instructions').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
