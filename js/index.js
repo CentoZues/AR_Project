@@ -630,14 +630,10 @@ $(function() {
 	$(document).on('click touchstart', '.to-home', function() {
 		modalActive = 1;
 	});
-<<<<<<< HEAD
 	
-=======
 	$(document).on('click touchstart', '.toMapView', function() {
 		modalActive = null;
 	});
-
->>>>>>> origin/master
 
 	//Sidebar Button
 	$(document).on('click touchstart', '.sidebartoggle', function() {
