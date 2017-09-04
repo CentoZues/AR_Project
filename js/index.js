@@ -470,7 +470,7 @@ $(function() {
 	var androidVersion = getAndroidVersion(); //"4.2.1"
 	// parseInt(getAndroidVersion(), 10); //4
 	// parseFloat(getAndroidVersion()); //4.2
-	$("body").prepend("<p>android version = " + androidVersion + "</p>");
+	console.log("Android version", androidVersion);
 
 	//Slide settings
 	function initFullpage() {
@@ -570,7 +570,7 @@ $(function() {
 
 	});
 
-	$('.toMapView').on('touchend', function(e){
+	$('.toMapView').on('tap touchend', function(e){
     if(touchmoved != true){
         modalActive = null;
 		$('#loadingIconHolder').show();
@@ -630,7 +630,7 @@ $(function() {
 	$(document).on('click touchstart', '.to-home', function() {
 		modalActive = 1;
 	});
-	
+
 	$(document).on('click touchstart', '.toMapView', function() {
 		modalActive = null;
 	});
@@ -705,7 +705,11 @@ $(function() {
 		}, 500);
     });*/
 
-    $('#infoButton, .to-instructions').on('click touchstart', function() {
+    $('#infoButton').on('tap', function() {
+    	$.fn.fullpage.moveTo(1, 1);
+    });
+
+    $('.to-instructions').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
     });
 
