@@ -714,9 +714,6 @@ $(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
 		}, 500);
     });*/
-    $('#infoButton').on('tap', function() {
-    	$.fn.fullpage.moveTo(1, 1);
-    });
 
     $('.to-instructions').on('click touchstart', function() {
     	$.fn.fullpage.moveTo(1, 1);
