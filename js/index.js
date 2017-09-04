@@ -300,7 +300,7 @@ var curSlide;
 var closestPin = null;
 var positionTracking = false;
 var modalActive = null;
-
+var touchmoved;
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -470,7 +470,7 @@ $(function() {
 	var androidVersion = getAndroidVersion(); //"4.2.1"
 	// parseInt(getAndroidVersion(), 10); //4
 	// parseFloat(getAndroidVersion()); //4.2
-	alert(androidVersion);
+	$("body").prepend("<p>android version = " + androidVersion + "</p>");
 
 	//Slide settings
 	function initFullpage() {
@@ -565,14 +565,9 @@ $(function() {
     });
 	//iOS Safari Fix for button press
 
-	$(document).on("scrollstart",function(){
-  		$('body').off('click touchstart', '.toMapView');
-	});
-	$(document).on("scrollstop",function(){
-  		$('body').on('click touchstart', '.toMapView');
-	});
 	//Button to Map View
-	$('body').on('click touchstart', '.toMapView', function() {
+	$('body').on('click touchend', '.toMapView', function() {
+		if(touchmoved != true){
 		modalActive = null;
 		$('#loadingIconHolder').show();
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
@@ -596,6 +591,11 @@ $(function() {
 		setTimeout(function() {
 			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
 		}, 500);
+		}
+	}).on('touchmove', function(e){
+		touchmoved = true;	
+	}).on('touchstart', function(){
+		touchmoved = false;
 	});
 
 	//Home Button
@@ -621,7 +621,14 @@ $(function() {
 	$(document).on('click touchstart', '.to-home', function() {
 		modalActive = 1;
 	});
+<<<<<<< HEAD
 	
+=======
+	$(document).on('click touchstart', '.toMapView', function() {
+		modalActive = null;
+	});
+
+>>>>>>> origin/master
 
 	//Sidebar Button
 	$(document).on('click touchstart', '.sidebartoggle', function() {
