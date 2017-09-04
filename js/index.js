@@ -565,8 +565,15 @@ $(function() {
     });
 	//iOS Safari Fix for button press
 
+	$(document).on("scrollstart",function(){
+  		$('body').off('click touchstart', '.toMapView');
+	});
+	$(document).on("scrollstop",function(){
+  		$('body').on('click touchstart', '.toMapView');
+	});
 	//Button to Map View
 	$('body').on('click touchstart', '.toMapView', function() {
+		modalActive = null;
 		$('#loadingIconHolder').show();
 		//console.log("Button Pressed ( -> Map View #" + $(this).attr('data-map') + ")");
 		//Set Map to use the correct positioning and pins
@@ -613,9 +620,6 @@ $(function() {
 	});
 	$(document).on('click touchstart', '.to-home', function() {
 		modalActive = 1;
-	});
-	$(document).on('click touchstart', '.toMapView', function() {
-		modalActive = null;
 	});
 	
 
