@@ -58,18 +58,18 @@
           "contentLink" : "pages/queen-victoria-road.html",
           "distanceTo" : 41
         },
-        {
+        /*{
           "lat": 51.626945,
           "lng": -0.748951,
           "name": "Wycombe Abbey",
-          "contentLink" : "pages/war-office-railings.html",
+          "contentLink" : "pages/Pin9.html",
           "distanceTo" : 445
-        },
+        },*/
         {
           "lat": 51.625364,
           "lng": -0.746668,
           "name": "The Rye",
-          "contentLink" : "pages/Pin9.html",
+          "contentLink" : "pages/war-office-railings.html",
           "distanceTo" : 394
         },
         {
