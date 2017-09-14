@@ -645,9 +645,9 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
-    $(document).on('tap touchend', '.continue, .back', function() {
-    	$.fn.fullpage.moveTo(2);
-    });
+    // $(document).on('tap touchend', '.continue, .back', function() {
+    // 	$.fn.fullpage.moveTo(2);
+    // });
 
     $('#helpButton, .open-help').on('click touchstart', function() {
     	$('.ui.modal.helpModal').modal('show');
