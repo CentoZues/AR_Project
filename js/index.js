@@ -497,7 +497,8 @@ $(function() {
 	//iOS Safari Fix for button press
 
 	//Button to Map View
-	$('.toMapView').on('tap touchend', function(e){
+	$(document).on('tap touchend', '.toMapView', function() {
+	//$('.toMapView').on('tap touchend', function(e){
 		console.log('toMapView clicked // touchmoved = ' + touchmoved);
 	    if(touchmoved != true){
 	        MapViewInitiation();
