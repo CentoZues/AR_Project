@@ -645,7 +645,7 @@ $(function() {
     	$.fn.fullpage.moveTo(1, 0);
     });
 
-    $(document).on('click touchend', '.continue, .back', function() {
+    $(document).on('tap touchend', '.continue, .back', function() {
     	$.fn.fullpage.moveTo(2);
     });
 
