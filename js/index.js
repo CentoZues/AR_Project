@@ -498,6 +498,7 @@ $(function() {
 
 	//Button to Map View
 	$('.toMapView').on('tap touchend', function(e){
+		console.log('toMapView clicked // touchmoved = ' + touchmoved);
 	    if(touchmoved != true){
 	        MapViewInitiation();
 	    }
