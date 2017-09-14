@@ -235,6 +235,7 @@ var closestPin = null;
 var positionTracking = false;
 var modalActive = null;
 var touchmoved;
+var i = 0;
 
 //Get JSON and load it in to objects
 $.getJSON("json/walks.json", function(data) {
@@ -531,9 +532,13 @@ $(function() {
 			DistanceCheck(pins);
 		}, 3000);
 
-		setTimeout(function() {
-			myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
-		}, 500);
+		// only center the map the first time it is loaded
+		if (i < 1) {
+			setTimeout(function() {
+				myMap.panTo(new L.latLng(pins[0].getLat(), pins[0].getLng()));
+			}, 500);
+		}
+		i++;
 	}
 
 	//Home Button
