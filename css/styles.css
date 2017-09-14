@@ -630,6 +630,13 @@
     text-decoration: none;
     margin-top: -20px
 }
+.continue-top {
+	margin-top:0;
+	margin-bottom: 20px;
+	line-height: 45px;
+	height: auto;
+	font-size: 18px !important;
+}
 .text{
     background: #ebd6b2;
     position: relative;
