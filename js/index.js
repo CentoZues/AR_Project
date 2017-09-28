@@ -52,6 +52,7 @@ class Walk {
 	}
 
 	addPin(lat, lng, name, contentLink, distanceTo) {
+		contentLink += '?_=' + (new Date()).getTime();
 		this.pins.push(new Pin(this.pins.length, lat, lng, name, contentLink, distanceTo));
 	}
 
@@ -112,7 +113,7 @@ class Pin {
 	}
 
 	getURL() {
-		return this.url + '?_=' + (new Date()).getTime();
+		return this.url;
 	}
 
 	getDist(){
