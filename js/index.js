@@ -112,7 +112,7 @@ class Pin {
 	}
 
 	getURL() {
-		return this.url;
+		return this.url + '?_=' + (new Date()).getTime();
 	}
 
 	getDist(){
